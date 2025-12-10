@@ -51,7 +51,7 @@ jobs:
                   BUTLER_EXEC="butler"
                   mkdir ./tools 2>/dev/null || true
                   cd tools
-                      curl -sSLfo ./butler.zip "https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default"
+                      curl -sSLfo ./butler.zip "https://broth.itch.zone/butler/linux-amd64/LATEST/archive/default"
                       unzip butler.zip
                       chmod +x ./${BUTLER_EXEC}
                   cd -

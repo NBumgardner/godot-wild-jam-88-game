@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://clxr0xys06nie"]
+
+[ext_resource type="Texture2D" uid="uid://crqpow0he17xw" path="res://objects/vent_hole/vent_hole.png" id="1_ccd3c"]
+[ext_resource type="Script" uid="uid://bo04rerusgwow" path="res://objects/vent_hole/vent_hole.gd" id="1_ymb0x"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ymb0x"]
+radius = 64.0
+
+[node name="VentHole" type="Area2D"]
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+script = ExtResource("1_ymb0x")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-9, -20)
+scale = Vector2(0.2480988, 0.2480988)
+texture = ExtResource("1_ccd3c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ymb0x")

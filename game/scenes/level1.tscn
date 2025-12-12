@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://malxmp0cv835"]
+
+[ext_resource type="PackedScene" uid="uid://cxgg604ulakso" path="res://objects/player/player.tscn" id="1_wwpf4"]
+[ext_resource type="Script" uid="uid://ctes2y51pk0pr" path="res://objects/camera.gd" id="2_m7ahb"]
+[ext_resource type="PackedScene" uid="uid://clxr0xys06nie" path="res://objects/vent_hole/vent_hole.tscn" id="3_m7ahb"]
+
+[node name="Level1" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Player" parent="." node_paths=PackedStringArray("camera_target") instance=ExtResource("1_wwpf4")]
+camera_target = NodePath("CameraTarget")
+
+[node name="CameraTarget" type="Marker2D" parent="Player"]
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("follow_node")]
+zoom = Vector2(0.5, 0.5)
+position_smoothing_enabled = true
+script = ExtResource("2_m7ahb")
+follow_node = NodePath("../Player/CameraTarget")
+
+[node name="VentHole" parent="." instance=ExtResource("3_m7ahb")]
+position = Vector2(318, 245)
+
+[node name="VentHole2" parent="." instance=ExtResource("3_m7ahb")]
+position = Vector2(-323, -234)

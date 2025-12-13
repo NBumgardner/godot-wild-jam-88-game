@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 400.0
+const SPEED = 600.0
 const ACCEL = 10000.0
 const VENT_CLOSE_SPEED = 0.5
 const CAMERA_TARGET_DISTANCE = 150.0

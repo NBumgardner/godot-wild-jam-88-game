@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://6o26q54y57gv"]
+[gd_scene load_steps=3 format=3 uid="uid://6o26q54y57gv"]
 
+[ext_resource type="Theme" uid="uid://cd3xaq0w5mwtl" path="res://assets/themes/default.tres" id="1_08fgm"]
 [ext_resource type="Script" uid="uid://cf276iwu4busb" path="res://objects/hud/hud.gd" id="1_y7bgl"]
 
 [node name="HUD" type="Control"]
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_08fgm")
 script = ExtResource("1_y7bgl")
 
 [node name="Label" type="Label" parent="."]

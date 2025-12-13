@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbim7il0llmxf"
-path="res://.godot/imported/background.png-d201997fe82dd443c9b8318e3f2fc828.ctex"
+uid="uid://d1yrcxn82rp8t"
+path="res://.godot/imported/exit_vent.png-0feb868ba76dcef6b959ed9726838226.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/background.png"
-dest_files=["res://.godot/imported/background.png-d201997fe82dd443c9b8318e3f2fc828.ctex"]
+source_file="res://objects/exit_vent/sprites/exit_vent.png"
+dest_files=["res://.godot/imported/exit_vent.png-0feb868ba76dcef6b959ed9726838226.ctex"]
 
 [params]
 

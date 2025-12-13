@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyhr2o4yl6uu2"]
+
+[ext_resource type="Texture2D" uid="uid://nutnmdm00vkb" path="res://objects/arrow/arrow.png" id="1_32f03"]
+[ext_resource type="Script" uid="uid://j6jyrcr5x6lf" path="res://objects/arrow/arrow.gd" id="1_qwjvh"]
+
+[node name="Arrow" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qwjvh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_32f03")

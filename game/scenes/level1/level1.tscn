@@ -30,11 +30,11 @@ num_vents = 1
 
 [node name="HUDLayer" type="CanvasLayer" parent="."]
 
-[node name="HUD" parent="HUDLayer" node_paths=PackedStringArray("game_manager") instance=ExtResource("2_6sh32")]
-game_manager = NodePath("../../GameManager")
-
 [node name="Arrow" parent="HUDLayer" node_paths=PackedStringArray("player", "game_manager") instance=ExtResource("3_ejswk")]
 player = NodePath("../../Player")
+game_manager = NodePath("../../GameManager")
+
+[node name="HUD" parent="HUDLayer" node_paths=PackedStringArray("game_manager") instance=ExtResource("2_6sh32")]
 game_manager = NodePath("../../GameManager")
 
 [node name="BackgroundLayer" type="Node2D" parent="."]

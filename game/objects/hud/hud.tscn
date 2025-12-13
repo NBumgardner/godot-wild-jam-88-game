@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://6o26q54y57gv"]
+[gd_scene load_steps=3 format=3 uid="uid://6o26q54y57gv"]
 
+[ext_resource type="Theme" uid="uid://cd3xaq0w5mwtl" path="res://assets/themes/default.tres" id="1_08fgm"]
 [ext_resource type="Script" uid="uid://cf276iwu4busb" path="res://objects/hud/hud.gd" id="1_y7bgl"]
 
 [node name="HUD" type="Control"]
@@ -9,14 +10,31 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_08fgm")
 script = ExtResource("1_y7bgl")
 
-[node name="Label" type="Label" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -133.0
-offset_bottom = 23.0
+offset_left = -40.0
+offset_bottom = 40.0
 grow_horizontal = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ButtonQuit" type="Button" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Return to Main Menu"
+
+[node name="LabelGoalReminder" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 text = "Remaining vents:"
+horizontal_alignment = 2
+
+[connection signal="pressed" from="VBoxContainer/MarginContainer/ButtonQuit" to="." method="_on_button_quit_pressed"]

@@ -1,0 +1,89 @@
+[gd_scene load_steps=7 format=3 uid="uid://cta3neh2ats6o"]
+
+[ext_resource type="Script" uid="uid://cb65sy8k6wuve" path="res://scenes/menus/start_menu/start_menu.gd" id="1_6cjlu"]
+[ext_resource type="Theme" uid="uid://cd3xaq0w5mwtl" path="res://assets/themes/default.tres" id="1_cndl7"]
+[ext_resource type="Theme" uid="uid://ba8x7si331c2" path="res://assets/themes/button_big.tres" id="3_5q43g"]
+[ext_resource type="Theme" uid="uid://b38mj24xd1mde" path="res://assets/themes/font_game_title.tres" id="3_8pm6n"]
+[ext_resource type="Theme" uid="uid://c4jh2a00mvosq" path="res://assets/themes/margin_container_of_buttons_nested.tres" id="5_f684d"]
+[ext_resource type="Texture2D" uid="uid://cbim7il0llmxf" path="res://scenes/level1/background.png" id="6_f684d"]
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_cndl7")
+script = ExtResource("1_6cjlu")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_8pm6n")
+text = "Super Slime's Blastoff"
+horizontal_alignment = 1
+
+[node name="SubTitle" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Godot Wild Jam 88 Game Jam Entry"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="ButtonStart" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_5q43g")
+text = "Start Game"
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_f684d")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="ButtonSettings" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Settings"
+
+[node name="ButtonCredits" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Credits"
+
+[node name="ButtonQuit" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quit"
+
+[node name="BackgroundLayer" type="Node2D" parent="."]
+show_behind_parent = true
+z_index = -4096
+
+[node name="Background" type="Sprite2D" parent="BackgroundLayer"]
+position = Vector2(45, 25)
+texture = ExtResource("6_f684d")
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/ButtonStart" to="." method="_on_button_start_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/ButtonSettings" to="." method="_on_button_settings_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/ButtonCredits" to="." method="_on_button_credits_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/ButtonQuit" to="." method="_on_button_quit_pressed"]

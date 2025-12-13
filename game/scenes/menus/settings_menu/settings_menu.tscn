@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://rb6mk25mjsy8"]
+
+[ext_resource type="Texture2D" uid="uid://cbim7il0llmxf" path="res://scenes/level1/background.png" id="1_hpmpe"]
+[ext_resource type="Theme" uid="uid://cd3xaq0w5mwtl" path="res://assets/themes/default.tres" id="1_tlkng"]
+[ext_resource type="Script" uid="uid://demcrw2yvk8qd" path="res://scenes/menus/settings_menu/settings_menu.gd" id="2_h44vs"]
+[ext_resource type="PackedScene" uid="uid://cta3neh2ats6o" path="res://scenes/menus/start_menu/start_menu.tscn" id="3_h44vs"]
+[ext_resource type="Theme" uid="uid://ba8x7si331c2" path="res://assets/themes/button_big.tres" id="4_01fv2"]
+[ext_resource type="Theme" uid="uid://ypmwncse6ih" path="res://assets/themes/font_header.tres" id="5_01fv2"]
+
+[node name="SettingsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_tlkng")
+script = ExtResource("2_h44vs")
+path_on_button_back_pressed = ExtResource("3_h44vs")
+
+[node name="BackgroundLayer" type="Node2D" parent="."]
+show_behind_parent = true
+z_index = -4096
+
+[node name="Background" type="Sprite2D" parent="BackgroundLayer"]
+position = Vector2(45, 25)
+texture = ExtResource("1_hpmpe")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.5
+offset_top = -21.0
+offset_right = 31.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_01fv2")
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="ButtonBack" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_01fv2")
+text = "Back"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ButtonBack" to="." method="_on_button_back_pressed"]

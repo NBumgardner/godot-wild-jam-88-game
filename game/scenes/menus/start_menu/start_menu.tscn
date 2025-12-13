@@ -62,6 +62,7 @@ theme = ExtResource("5_f684d")
 layout_mode = 2
 
 [node name="ButtonSettings" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Settings"
 

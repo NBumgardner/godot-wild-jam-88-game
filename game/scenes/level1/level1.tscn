@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://malxmp0cv835"]
+[gd_scene load_steps=12 format=3 uid="uid://malxmp0cv835"]
 
-[ext_resource type="Texture2D" uid="uid://cbim7il0llmxf" path="res://scenes/background.png" id="1_dwgg1"]
-[ext_resource type="Script" uid="uid://ddvebyb53rymj" path="res://scenes/game_manager.gd" id="1_ru4tf"]
+[ext_resource type="Texture2D" uid="uid://cbim7il0llmxf" path="res://scenes/level1/background.png" id="1_dwgg1"]
+[ext_resource type="Script" uid="uid://ddvebyb53rymj" path="res://objects/game_manager.gd" id="1_ru4tf"]
 [ext_resource type="PackedScene" uid="uid://cxgg604ulakso" path="res://objects/player/player.tscn" id="1_wwpf4"]
 [ext_resource type="PackedScene" uid="uid://6o26q54y57gv" path="res://objects/hud/hud.tscn" id="2_6sh32"]
 [ext_resource type="Script" uid="uid://ctes2y51pk0pr" path="res://objects/camera.gd" id="2_m7ahb"]
+[ext_resource type="PackedScene" uid="uid://cyhr2o4yl6uu2" path="res://objects/arrow/arrow.tscn" id="3_ejswk"]
+[ext_resource type="PackedScene" uid="uid://t0o32ktuyxs7" path="res://objects/exit_vent/exit_vent.tscn" id="4_6sh32"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ejswk"]
 
@@ -20,12 +22,19 @@ normal = Vector2(1, 0)
 [node name="Level1" type="Node2D"]
 y_sort_enabled = true
 
-[node name="GameManager" type="Node" parent="."]
+[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("player", "exit_vent")]
 script = ExtResource("1_ru4tf")
+player = NodePath("../Player")
+exit_vent = NodePath("../ExitVent")
+num_vents = 1
 
 [node name="HUDLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="HUDLayer" node_paths=PackedStringArray("game_manager") instance=ExtResource("2_6sh32")]
+game_manager = NodePath("../../GameManager")
+
+[node name="Arrow" parent="HUDLayer" node_paths=PackedStringArray("player", "game_manager") instance=ExtResource("3_ejswk")]
+player = NodePath("../../Player")
 game_manager = NodePath("../../GameManager")
 
 [node name="BackgroundLayer" type="Node2D" parent="."]
@@ -58,12 +67,15 @@ shape = SubResource("WorldBoundaryShape2D_6sh32")
 position = Vector2(-4755, 0)
 shape = SubResource("WorldBoundaryShape2D_dwgg1")
 
-[node name="Player" parent="." node_paths=PackedStringArray("camera_target") instance=ExtResource("1_wwpf4")]
-camera_target = NodePath("CameraTarget")
+[node name="ExitVent" parent="." instance=ExtResource("4_6sh32")]
 
-[node name="CameraTarget" type="Marker2D" parent="Player"]
+[node name="Player" parent="." node_paths=PackedStringArray("camera_target") instance=ExtResource("1_wwpf4")]
+camera_target = NodePath("../CameraTarget")
+
+[node name="CameraTarget" type="Marker2D" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("follow_node")]
+process_priority = 1
 zoom = Vector2(0.3, 0.3)
 limit_left = -4800
 limit_top = -2700
@@ -71,4 +83,7 @@ limit_right = 4800
 limit_bottom = 2700
 position_smoothing_enabled = true
 script = ExtResource("2_m7ahb")
-follow_node = NodePath("../Player/CameraTarget")
+follow_node = NodePath("../CameraTarget")
+
+[connection signal="burst" from="ExitVent" to="GameManager" method="_on_exit_vent_burst"]
+[connection signal="player_touched" from="ExitVent" to="GameManager" method="_on_exit_vent_player_touched"]

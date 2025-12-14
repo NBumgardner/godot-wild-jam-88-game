@@ -15,5 +15,6 @@ func _on_body_entered(_body: Node2D) -> void:
 	if not active:
 		return
 	
+	EventBus.globalEnvironmentRiftBigEruption.emit()
 	animation_player.play("explode")
 	player_touched.emit()

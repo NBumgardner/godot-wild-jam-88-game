@@ -6,4 +6,5 @@ class_name VentHole
 		girth = v
 		scale = remap(girth, 0.0, 1.0, 0.1, 1.0) * Vector2.ONE
 		if is_inside_tree() and girth <= 0:
+			EventBus.globalEnvironmentRiftAreaClosed.emit()
 			queue_free()

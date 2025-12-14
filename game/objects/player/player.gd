@@ -31,14 +31,13 @@ var max_hp: int = 10
 var current_hp: int
 
 @onready var animation_tree: AnimationTree = $AnimationTree
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var sprite_2d: Sprite2D = $SpriteFinal
 @onready var vent_detector: Area2D = $VentDetector
 @onready var squirt_particles: GPUParticles2D = $SquirtParticles
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 func _ready() -> void:
 	current_hp = max_hp
-	animation_tree["parameters/MovingBlendSpace/1/OneShot/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 
 func _process(delta: float) -> void:
 	match state:

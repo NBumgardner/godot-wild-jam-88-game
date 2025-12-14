@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://cxgg604ulakso"]
+[gd_scene load_steps=19 format=3 uid="uid://cxgg604ulakso"]
 
 [ext_resource type="Script" uid="uid://d18i42fgylo6r" path="res://objects/player/player.gd" id="1_cqmt1"]
 [ext_resource type="Texture2D" uid="uid://dwpv60otyffeg" path="res://objects/player/sprites/slime_0000.png" id="2_gnkmh"]
+[ext_resource type="Texture2D" uid="uid://46kk5wpy6jdj" path="res://objects/player/sprites/Slime SHEET 1.png" id="3_gnkmh"]
 [ext_resource type="AnimationLibrary" uid="uid://dnwvt6fbjyffo" path="res://objects/player/player_animation_library.tres" id="3_jnjyq"]
 [ext_resource type="AnimationNodeBlendTree" uid="uid://dg8vy0fsy784s" path="res://objects/player/player_animation_tree.tres" id="6_xkryw"]
 
@@ -86,9 +87,16 @@ shape = SubResource("CircleShape2D_5lq1w")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 physics_interpolation_mode = 2
+visible = false
 position = Vector2(0, -21)
 texture = ExtResource("2_gnkmh")
 offset = Vector2(19.581293, -53.848553)
+
+[node name="SpriteFinal" type="Sprite2D" parent="."]
+position = Vector2(1, -21)
+texture = ExtResource("3_gnkmh")
+hframes = 6
+vframes = 3
 
 [node name="SquirtParticles" type="GPUParticles2D" parent="."]
 emitting = false
@@ -105,10 +113,7 @@ libraries = {
 callback_mode_process = 0
 tree_root = ExtResource("6_xkryw")
 anim_player = NodePath("../AnimationPlayer")
-parameters/MovingBlendSpace/blend_position = 0.00074626866
-parameters/MovingBlendSpace/1/OneShot/active = false
-parameters/MovingBlendSpace/1/OneShot/internal_active = false
-parameters/MovingBlendSpace/1/OneShot/request = 0
+parameters/MovingBlendSpace/blend_position = 0.009159483
 parameters/BlahOneShot/active = false
 parameters/BlahOneShot/internal_active = false
 parameters/BlahOneShot/request = 0

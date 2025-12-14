@@ -1,274 +1,15 @@
-[gd_scene load_steps=34 format=3 uid="uid://cxgg604ulakso"]
+[gd_scene load_steps=18 format=3 uid="uid://cxgg604ulakso"]
 
 [ext_resource type="Script" uid="uid://d18i42fgylo6r" path="res://objects/player/player.gd" id="1_cqmt1"]
-[ext_resource type="Texture2D" uid="uid://6h2d01pimccl" path="res://objects/player/sprites/idle.tres" id="2_ssrue"]
-[ext_resource type="Texture2D" uid="uid://bf1hixc6y61xx" path="res://objects/player/sprites/moving.tres" id="3_jnjyq"]
-[ext_resource type="Texture2D" uid="uid://dyw8lbv6odugr" path="res://objects/player/sprites/silly.tres" id="4_jnjyq"]
-[ext_resource type="Texture2D" uid="uid://c701iwoi2b0a3" path="res://objects/player/sprites/blah.png" id="5_gnkmh"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_5lq1w"]
-radius = 48.373547
-
-[sub_resource type="Animation" id="Animation_xkryw"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_ssrue")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-2, -93)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_xgwla"]
-resource_name = "blah"
-step = 0.0333333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("5_gnkmh")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-0.407, 0.407)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-1.9999924, -63)]
-}
-
-[sub_resource type="Animation" id="Animation_gnkmh"]
-resource_name = "idle"
-loop_mode = 1
-step = 0.0333333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_ssrue")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-2, -93)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_ow0dq"]
-resource_name = "moving"
-loop_mode = 1
-step = 0.0333333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_jnjyq")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(28.000002, -77), Vector2(28, -61), Vector2(28.000002, -77)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1.4299363, 1.4299363), Vector2(1.4299363, 1.1226115), Vector2(1.4299363, 1.4299363)]
-}
-
-[sub_resource type="Animation" id="Animation_m4kly"]
-resource_name = "silly"
-step = 0.0333333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("4_jnjyq")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-5, -88)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_m4kly"]
-_data = {
-&"RESET": SubResource("Animation_xkryw"),
-&"blah": SubResource("Animation_xgwla"),
-&"idle": SubResource("Animation_gnkmh"),
-&"moving": SubResource("Animation_ow0dq"),
-&"silly": SubResource("Animation_m4kly")
-}
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ow0dq"]
-animation = &"blah"
-
-[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_m4kly"]
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xkryw"]
-animation = &"moving"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gnkmh"]
-animation = &"idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m4kly"]
-animation = &"silly"
-
-[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_xgwla"]
-autorestart = true
-autorestart_delay = 3.0
-autorestart_random_delay = 4.0
-
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_bi5m7"]
-graph_offset = Vector2(-524, -26)
-nodes/output/position = Vector2(240, 100)
-nodes/Animation/node = SubResource("AnimationNodeAnimation_m4kly")
-nodes/Animation/position = Vector2(-240, 220)
-nodes/OneShot/node = SubResource("AnimationNodeOneShot_xgwla")
-nodes/OneShot/position = Vector2(0, 100)
-"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_gnkmh")
-"nodes/Animation 2/position" = Vector2(-240, 40)
-node_connections = [&"output", 0, &"OneShot", &"OneShot", 0, &"Animation 2", &"OneShot", 1, &"Animation"]
-
-[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_ow0dq"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_xkryw")
-blend_point_0/pos = 1.0
-blend_point_1/node = SubResource("AnimationNodeBlendTree_bi5m7")
-blend_point_1/pos = 0.0
-min_space = 0.0
-
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_m4kly"]
-graph_offset = Vector2(-805, 4)
-nodes/output/position = Vector2(300, 200)
-nodes/MovingBlendSpace/node = SubResource("AnimationNodeBlendSpace1D_ow0dq")
-nodes/MovingBlendSpace/position = Vector2(-480, 220)
-nodes/BlahOneShot/node = SubResource("AnimationNodeOneShot_m4kly")
-nodes/BlahOneShot/position = Vector2(2.1373665, 218.52255)
-nodes/Animation/node = SubResource("AnimationNodeAnimation_ow0dq")
-nodes/Animation/position = Vector2(-200, 340)
-node_connections = [&"output", 0, &"BlahOneShot", &"BlahOneShot", 0, &"MovingBlendSpace", &"BlahOneShot", 1, &"Animation"]
+[ext_resource type="Texture2D" uid="uid://dwpv60otyffeg" path="res://objects/player/sprites/slime_0000.png" id="2_gnkmh"]
+[ext_resource type="AnimationLibrary" uid="uid://dnwvt6fbjyffo" path="res://objects/player/player_animation_library.tres" id="3_jnjyq"]
+[ext_resource type="AnimationNodeBlendTree" uid="uid://dg8vy0fsy784s" path="res://objects/player/player_animation_tree.tres" id="6_xkryw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gnkmh"]
-radius = 64.0
+radius = 40.012497
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5lq1w"]
+radius = 14.142136
 
 [sub_resource type="Gradient" id="Gradient_gnkmh"]
 offsets = PackedFloat32Array(0.82, 1)
@@ -329,29 +70,7 @@ alpha_curve = SubResource("CurveTexture_xkryw")
 collision_layer = 5
 motion_mode = 1
 script = ExtResource("1_cqmt1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_5lq1w")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-2, -93)
-texture = ExtResource("2_ssrue")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_m4kly")
-}
-
-[node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeBlendTree_m4kly")
-anim_player = NodePath("../AnimationPlayer")
-parameters/MovingBlendSpace/blend_position = 0.0014925373
-parameters/MovingBlendSpace/1/OneShot/active = false
-parameters/MovingBlendSpace/1/OneShot/internal_active = false
-parameters/MovingBlendSpace/1/OneShot/request = 0
-parameters/BlahOneShot/active = false
-parameters/BlahOneShot/internal_active = false
-parameters/BlahOneShot/request = 0
+metadata/_edit_horizontal_guides_ = [-67.0]
 
 [node name="VentDetector" type="Area2D" parent="."]
 collision_layer = 0
@@ -362,8 +81,34 @@ monitorable = false
 shape = SubResource("CircleShape2D_gnkmh")
 debug_color = Color(0.99607843, 0, 0.22745098, 0.26666668)
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5lq1w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+physics_interpolation_mode = 2
+position = Vector2(0, -21)
+texture = ExtResource("2_gnkmh")
+offset = Vector2(19.581293, -53.848553)
+
 [node name="SquirtParticles" type="GPUParticles2D" parent="."]
 emitting = false
 texture = SubResource("GradientTexture2D_xkryw")
 explosiveness = 0.71
 process_material = SubResource("ParticleProcessMaterial_ow0dq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": ExtResource("3_jnjyq")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+callback_mode_process = 0
+tree_root = ExtResource("6_xkryw")
+anim_player = NodePath("../AnimationPlayer")
+parameters/MovingBlendSpace/blend_position = 0.00074626866
+parameters/MovingBlendSpace/1/OneShot/active = false
+parameters/MovingBlendSpace/1/OneShot/internal_active = false
+parameters/MovingBlendSpace/1/OneShot/request = 0
+parameters/BlahOneShot/active = false
+parameters/BlahOneShot/internal_active = false
+parameters/BlahOneShot/request = 0

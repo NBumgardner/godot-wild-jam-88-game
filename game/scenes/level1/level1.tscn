@@ -76,7 +76,6 @@ camera_target = NodePath("../CameraTarget")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("follow_node")]
 process_priority = 1
-zoom = Vector2(0.3, 0.3)
 limit_left = -4800
 limit_top = -2700
 limit_right = 4800

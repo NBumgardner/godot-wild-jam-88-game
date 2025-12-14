@@ -1,15 +1,22 @@
 extends Node
 
+@onready var sfxEnemyDestroyed: AudioStreamPlayer = $SFXEnemyDestroyed
 @onready var sfxEnvironmentRiftAreaClosed: AudioStreamPlayer = $SFXEnvironmentRiftAreaClosed
 @onready var sfxEnvironmentRiftBigEruption: AudioStreamPlayer = $SFXEnvironmentRiftBigEruption
 @onready var sfxUiClickConfirm: AudioStreamPlayer = $SFXUIClickConfirm
 @onready var sfxUiMouseEntered: AudioStreamPlayer = $SFXUIMouseEntered
 
 func _ready() -> void:
+	EventBus.globalEnemyDestroyed.connect(_playSfxEnemyDestroyed)
 	EventBus.globalEnvironmentRiftAreaClosed.connect(_playSfxEnvironmentRiftAreaClosed)
 	EventBus.globalEnvironmentRiftBigEruption.connect(_playSfxEnvironmentRiftBigEruption)
 	EventBus.globalUiElementMouseEntered.connect(_playSfxUiMouseEntered)
 	EventBus.globalUiElementSelected.connect(_playSfxUiClickConfirm)
+
+#region Enemy
+func _playSfxEnemyDestroyed() -> void:
+	sfxEnemyDestroyed.play()
+#endregion Enemy
 
 #region Environment
 func _playSfxEnvironmentRiftAreaClosed() -> void:

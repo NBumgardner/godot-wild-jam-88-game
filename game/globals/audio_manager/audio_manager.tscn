@@ -9,6 +9,9 @@
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_ix0j0")
 
+[node name="MusicGameplay" type="AudioStreamPlayer" parent="."]
+autoplay = true
+
 [node name="SFXEnvironmentRiftAreaClosed" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_2bgjf")
 volume_db = -8.0

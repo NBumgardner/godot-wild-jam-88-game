@@ -1,0 +1,49 @@
+[gd_resource type="AnimationNodeBlendTree" load_steps=9 format=3 uid="uid://dg8vy0fsy784s"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ow0dq"]
+animation = &"blah"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_m4kly"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xkryw"]
+animation = &"moving"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gnkmh"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m4kly"]
+animation = &"silly"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_xgwla"]
+autorestart = true
+autorestart_delay = 3.0
+autorestart_random_delay = 4.0
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_bi5m7"]
+graph_offset = Vector2(-397.16003, -21.51001)
+nodes/output/position = Vector2(380, 60)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_m4kly")
+nodes/Animation/position = Vector2(-220, 240)
+nodes/OneShot/node = SubResource("AnimationNodeOneShot_xgwla")
+nodes/OneShot/position = Vector2(140, 60)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_gnkmh")
+"nodes/Animation 2/position" = Vector2(-240, 40)
+node_connections = [&"output", 0, &"OneShot", &"OneShot", 0, &"Animation 2", &"OneShot", 1, &"Animation"]
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_ow0dq"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_xkryw")
+blend_point_0/pos = 1.0
+blend_point_1/node = SubResource("AnimationNodeBlendTree_bi5m7")
+blend_point_1/pos = 0.0
+min_space = 0.0
+
+[resource]
+graph_offset = Vector2(-520.11426, 87.71106)
+nodes/output/position = Vector2(300, 200)
+nodes/MovingBlendSpace/node = SubResource("AnimationNodeBlendSpace1D_ow0dq")
+nodes/MovingBlendSpace/position = Vector2(-480, 220)
+nodes/BlahOneShot/node = SubResource("AnimationNodeOneShot_m4kly")
+nodes/BlahOneShot/position = Vector2(2.1373665, 218.52255)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_ow0dq")
+nodes/Animation/position = Vector2(-240, 340)
+node_connections = [&"output", 0, &"BlahOneShot", &"BlahOneShot", 0, &"MovingBlendSpace", &"BlahOneShot", 1, &"Animation"]

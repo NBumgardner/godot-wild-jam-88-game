@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://rb6mk25mjsy8"]
+[gd_scene load_steps=9 format=3 uid="uid://rb6mk25mjsy8"]
 
 [ext_resource type="Texture2D" uid="uid://cbim7il0llmxf" path="res://scenes/level1/background.png" id="1_hpmpe"]
 [ext_resource type="Theme" uid="uid://cd3xaq0w5mwtl" path="res://assets/themes/default.tres" id="1_tlkng"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cta3neh2ats6o" path="res://scenes/menus/start_menu/start_menu.tscn" id="3_h44vs"]
 [ext_resource type="Theme" uid="uid://ba8x7si331c2" path="res://assets/themes/button_big.tres" id="4_01fv2"]
 [ext_resource type="Theme" uid="uid://ypmwncse6ih" path="res://assets/themes/font_header.tres" id="5_01fv2"]
+[ext_resource type="PackedScene" uid="uid://4henpedxyll8" path="res://scenes/menus/settings_menu/audio_controls/audio_controls.tscn" id="6_kw0lj"]
+[ext_resource type="Theme" uid="uid://d23n5reyjf87p" path="res://assets/themes/margin_container_of_sliders_nested.tres" id="6_nwvhg"]
 
 [node name="SettingsMenu" type="Control"]
 layout_mode = 3
@@ -48,6 +50,16 @@ layout_mode = 2
 theme = ExtResource("5_01fv2")
 text = "Settings"
 horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme = ExtResource("6_nwvhg")
+
+[node name="AudioControls" parent="CenterContainer/VBoxContainer/PanelContainer/MarginContainer" instance=ExtResource("6_kw0lj")]
+layout_mode = 2
 
 [node name="ButtonBack" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2

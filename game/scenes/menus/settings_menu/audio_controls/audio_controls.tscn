@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://4henpedxyll8"]
+
+[ext_resource type="Script" uid="uid://cfyb60njq4qk1" path="res://scenes/menus/settings_menu/audio_controls/audio_controls.gd" id="1_hfwdt"]
+
+[node name="AudioControls" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hfwdt")
+
+[node name="LabelMasterVolume" type="Label" parent="."]
+layout_mode = 2
+text = "Master Volume"
+horizontal_alignment = 1
+
+[node name="HSliderMasterVolume" type="HSlider" parent="."]
+layout_mode = 2
+
+[node name="LabelMusicVolume" type="Label" parent="."]
+layout_mode = 2
+text = "Music Volume"
+horizontal_alignment = 1
+
+[node name="HSliderMusicVolume" type="HSlider" parent="."]
+layout_mode = 2
+
+[node name="LabelSFXVolume" type="Label" parent="."]
+layout_mode = 2
+text = "SFX Volume"
+horizontal_alignment = 1
+
+[node name="HSliderSFXVolume" type="HSlider" parent="."]
+layout_mode = 2
+
+[connection signal="value_changed" from="HSliderMasterVolume" to="." method="_on_h_slider_master_volume_value_changed"]
+[connection signal="value_changed" from="HSliderMusicVolume" to="." method="_on_h_slider_music_volume_value_changed"]
+[connection signal="value_changed" from="HSliderSFXVolume" to="." method="_on_h_slider_sfx_volume_value_changed"]

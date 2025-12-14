@@ -6,6 +6,10 @@ const ACCEL = 10000.0
 const VENT_CLOSE_SPEED = 0.5
 const CAMERA_TARGET_DISTANCE = 150.0
 
+const PROJECTILE_SPEED = 700.0
+
+const PROJECTILE = preload("uid://do7s00elpsdcm")
+
 enum State {
 	## Normal gameplay state, player input enabled.
 	NORMAL,
@@ -64,6 +68,16 @@ func _physics_process(delta: float) -> void:
 			position.y -= SPEED * 5.0 * delta
 			return
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+			var pos: Vector2 = get_viewport().canvas_transform.inverse() * event.position
+			var dir := (pos - global_position).normalized()
+			var projectile := PROJECTILE.instantiate() as Projectile
+			projectile.velocity = dir * PROJECTILE_SPEED
+			projectile.position = global_position
+			get_parent().add_child(projectile)
+
 func set_state(s: State) -> void:
 	state = s
 	collision_shape_2d.set_deferred("disabled", state != State.NORMAL)
@@ -74,3 +88,8 @@ func disable() -> void:
 
 func launch() -> void:
 	state = State.LAUNCHED
+
+## Called when an enemy hits the player.
+func hit() -> void:
+	animation_tree["parameters/BlahOneShot/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
+	

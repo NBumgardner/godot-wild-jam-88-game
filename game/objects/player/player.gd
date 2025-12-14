@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Player
 
+signal dead()
+
 const SPEED = 600.0
 const ACCEL = 10000.0
 const VENT_CLOSE_SPEED = 0.5
@@ -17,11 +19,16 @@ enum State {
 	DISABLED,
 	## Input disabled, launching upwards.
 	LAUNCHED,
+	## Dead.
+	DEAD,
 }
 
 @export var camera_target: Node2D
 
 var state: State = State.NORMAL: set = set_state
+
+var max_hp: int = 10
+var current_hp: int
 
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var sprite_2d: Sprite2D = $Sprite2D
@@ -30,6 +37,7 @@ var state: State = State.NORMAL: set = set_state
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 func _ready() -> void:
+	current_hp = max_hp
 	animation_tree["parameters/MovingBlendSpace/1/OneShot/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 
 func _process(delta: float) -> void:
@@ -91,6 +99,12 @@ func launch() -> void:
 
 ## Called when an enemy hits the player.
 func hit() -> void:
+	if state != State.NORMAL:
+		return
 	EventBus.globalPlayerHurt.emit()
 	animation_tree["parameters/BlahOneShot/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
-	
+	current_hp -= 1
+	if current_hp <= 0:
+		current_hp = 0
+		state = State.DEAD
+		dead.emit()

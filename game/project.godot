@@ -26,6 +26,10 @@ window/size/viewport_width=640
 window/size/viewport_height=480
 window/stretch/mode="canvas_items"
 
+[gui]
+
+theme/custom="uid://cd3xaq0w5mwtl"
+
 [input]
 
 move_left={

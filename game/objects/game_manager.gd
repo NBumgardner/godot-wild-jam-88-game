@@ -38,3 +38,8 @@ func _on_exit_vent_burst() -> void:
 	player.launch()
 	await get_tree().create_timer(3.0).timeout
 	get_tree().reload_current_scene()
+
+
+func _on_player_dead() -> void:
+	await get_tree().create_timer(1.0).timeout
+	get_tree().change_scene_to_file("res://scenes/menus/start_menu/start_menu.tscn")

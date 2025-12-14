@@ -3,6 +3,8 @@ class_name Enemy
 
 const SPEED = 100.0
 
+const FX_ENEMY_DEATH = preload("uid://0aci2nmgds3l")
+
 enum State {
 	CHASE,
 	ATTACK,
@@ -48,3 +50,6 @@ func _attack_hit() -> void:
 func hit() -> void:
 	EventBus.globalEnemyDestroyed.emit()
 	queue_free() # TODO: health
+	var fx = FX_ENEMY_DEATH.instantiate()
+	fx.position = position
+	get_parent().add_child(fx)

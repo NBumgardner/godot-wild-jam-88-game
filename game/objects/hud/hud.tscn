@@ -37,4 +37,5 @@ layout_mode = 2
 text = "Remaining vents:"
 horizontal_alignment = 2
 
+[connection signal="mouse_entered" from="VBoxContainer/MarginContainer/ButtonQuit" to="." method="_on_button_quit_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer/ButtonQuit" to="." method="_on_button_quit_pressed"]

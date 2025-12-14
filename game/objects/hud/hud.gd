@@ -16,7 +16,11 @@ func _update_text() -> void:
 	else:
 		label.text = "Get to the MEGA VENT!!!!!"
 
-#region button pressed
+#region SFX
+func _on_button_quit_mouse_entered():
+	EventBus.globalUiElementMouseEntered.emit()
+
 func _on_button_quit_pressed():
+	EventBus.globalUiElementSelected.emit()
 	get_tree().change_scene_to_file("res://scenes/menus/start_menu/start_menu.tscn")
-#endregion button pressed
+#endregion SFX

@@ -83,7 +83,11 @@ z_index = -4096
 position = Vector2(45, 25)
 texture = ExtResource("6_f684d")
 
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/VBoxContainer/ButtonStart" to="." method="_on_button_start_mouse_entered"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/ButtonStart" to="." method="_on_button_start_pressed"]
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/ButtonSettings" to="." method="_on_button_settings_mouse_entered"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/ButtonSettings" to="." method="_on_button_settings_pressed"]
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/ButtonCredits" to="." method="_on_button_credits_mouse_entered"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/ButtonCredits" to="." method="_on_button_credits_pressed"]
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/ButtonQuit" to="." method="_on_button_quit_mouse_entered"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/ButtonQuit" to="." method="_on_button_quit_pressed"]

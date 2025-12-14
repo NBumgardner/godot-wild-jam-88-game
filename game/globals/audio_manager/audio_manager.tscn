@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ced34ddbfg6rk"]
+[gd_scene load_steps=8 format=3 uid="uid://ced34ddbfg6rk"]
 
 [ext_resource type="Script" uid="uid://d285n7qgdjp7g" path="res://globals/audio_manager/audio_manager.gd" id="1_ix0j0"]
 [ext_resource type="AudioStream" uid="uid://1lx2vem4rr32" path="res://assets/audio/sfx/sfx_101_ButtonClick.wav" id="2_2bgjf"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://8vqf8dkkf3em" path="res://assets/audio/sfx/sfx_102_ButtonHover.wav" id="3_1d2wt"]
 [ext_resource type="AudioStream" uid="uid://h0msm0vto1b4" path="res://assets/audio/sfx/sfx_312_RiftBigEruption.wav" id="3_ulrmu"]
 [ext_resource type="AudioStream" uid="uid://bjryoera6u8hm" path="res://assets/audio/sfx/sfx_304_RiftAreaClosed.wav" id="4_2bgjf"]
+[ext_resource type="AudioStream" uid="uid://cd3mbwaoh1kyc" path="res://assets/audio/sfx/sfx_202_PlayerHurt.wav" id="5_fdt5a"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_ix0j0")
@@ -27,6 +28,11 @@ bus = &"SFX"
 [node name="SFXEnvironmentRiftBigEruption" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_ulrmu")
 volume_db = -10.0
+bus = &"SFX"
+
+[node name="SFXPlayerHurt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_fdt5a")
+volume_db = -6.0
 bus = &"SFX"
 
 [node name="SFXUIClickConfirm" type="AudioStreamPlayer" parent="."]

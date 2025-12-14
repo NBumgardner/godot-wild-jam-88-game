@@ -91,5 +91,6 @@ func launch() -> void:
 
 ## Called when an enemy hits the player.
 func hit() -> void:
+	EventBus.globalPlayerHurt.emit()
 	animation_tree["parameters/BlahOneShot/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 	

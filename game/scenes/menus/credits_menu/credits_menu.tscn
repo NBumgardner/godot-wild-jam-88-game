@@ -85,4 +85,5 @@ layout_mode = 2
 theme = ExtResource("3_e11e8")
 text = "Back"
 
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/ButtonBack" to="." method="_on_button_back_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonBack" to="." method="_on_button_back_pressed"]

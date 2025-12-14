@@ -46,4 +46,5 @@ func _attack_hit() -> void:
 		body.hit()
 
 func hit() -> void:
+	EventBus.globalEnemyDestroyed.emit()
 	queue_free() # TODO: health

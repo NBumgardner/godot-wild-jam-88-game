@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://6o26q54y57gv"]
+[gd_scene load_steps=4 format=3 uid="uid://6o26q54y57gv"]
 
 [ext_resource type="Theme" uid="uid://cd3xaq0w5mwtl" path="res://assets/themes/default.tres" id="1_08fgm"]
 [ext_resource type="Script" uid="uid://cf276iwu4busb" path="res://objects/hud/hud.gd" id="1_y7bgl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_08fgm"]
+font_size = 32
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -37,6 +40,14 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Remaining vents:"
 horizontal_alignment = 2
+
+[node name="HealthBar" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "❤️❤️❤️❤️❤️❤️❤️❤️❤️❌"
+label_settings = SubResource("LabelSettings_08fgm")
 
 [connection signal="mouse_entered" from="VBoxContainer/MarginContainer/ButtonQuit" to="." method="_on_button_quit_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer/ButtonQuit" to="." method="_on_button_quit_pressed"]

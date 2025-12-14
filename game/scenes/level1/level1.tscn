@@ -35,11 +35,12 @@ player = NodePath("../Player")
 
 [node name="HUDLayer" type="CanvasLayer" parent="."]
 
+[node name="HUD" parent="HUDLayer" node_paths=PackedStringArray("game_manager", "player") instance=ExtResource("2_6sh32")]
+game_manager = NodePath("../../GameManager")
+player = NodePath("../../Player")
+
 [node name="Arrow" parent="HUDLayer" node_paths=PackedStringArray("player", "game_manager") instance=ExtResource("3_ejswk")]
 player = NodePath("../../Player")
-game_manager = NodePath("../../GameManager")
-
-[node name="HUD" parent="HUDLayer" node_paths=PackedStringArray("game_manager") instance=ExtResource("2_6sh32")]
 game_manager = NodePath("../../GameManager")
 
 [node name="BackgroundLayer" type="Node2D" parent="."]
@@ -91,3 +92,4 @@ follow_node = NodePath("../CameraTarget")
 
 [connection signal="burst" from="ExitVent" to="GameManager" method="_on_exit_vent_burst"]
 [connection signal="player_touched" from="ExitVent" to="GameManager" method="_on_exit_vent_player_touched"]
+[connection signal="dead" from="Player" to="GameManager" method="_on_player_dead"]

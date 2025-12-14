@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://malxmp0cv835"]
+[gd_scene load_steps=13 format=3 uid="uid://malxmp0cv835"]
 
 [ext_resource type="Texture2D" uid="uid://cbim7il0llmxf" path="res://scenes/level1/background.png" id="1_dwgg1"]
 [ext_resource type="Script" uid="uid://ddvebyb53rymj" path="res://objects/game_manager.gd" id="1_ru4tf"]
 [ext_resource type="PackedScene" uid="uid://cxgg604ulakso" path="res://objects/player/player.tscn" id="1_wwpf4"]
 [ext_resource type="PackedScene" uid="uid://6o26q54y57gv" path="res://objects/hud/hud.tscn" id="2_6sh32"]
+[ext_resource type="Script" uid="uid://dtadmp88wjirf" path="res://objects/enemy_director.gd" id="2_kcfjd"]
 [ext_resource type="Script" uid="uid://ctes2y51pk0pr" path="res://objects/camera.gd" id="2_m7ahb"]
 [ext_resource type="PackedScene" uid="uid://cyhr2o4yl6uu2" path="res://objects/arrow/arrow.tscn" id="3_ejswk"]
 [ext_resource type="PackedScene" uid="uid://t0o32ktuyxs7" path="res://objects/exit_vent/exit_vent.tscn" id="4_6sh32"]
@@ -27,6 +28,10 @@ script = ExtResource("1_ru4tf")
 player = NodePath("../Player")
 exit_vent = NodePath("../ExitVent")
 num_vents = 1
+
+[node name="EnemyDirector" type="Node" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("2_kcfjd")
+player = NodePath("../Player")
 
 [node name="HUDLayer" type="CanvasLayer" parent="."]
 

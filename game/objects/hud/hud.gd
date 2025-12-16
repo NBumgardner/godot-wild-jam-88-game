@@ -18,7 +18,7 @@ func _update_text() -> void:
 	else:
 		label.text = "Get to the MEGA VENT!!!!!"
 	
-	health_bar.text = "❤️".repeat(player.current_hp) + "❌".repeat(player.max_hp - player.current_hp)
+	health_bar.text = "❤️".repeat(player.current_hp) + "❌".repeat(GameState.player_stats.max_hp - player.current_hp)
 
 #region SFX
 func _on_button_quit_mouse_entered():

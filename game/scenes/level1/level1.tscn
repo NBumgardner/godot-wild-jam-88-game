@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://malxmp0cv835"]
+[gd_scene load_steps=15 format=3 uid="uid://malxmp0cv835"]
 
+[ext_resource type="Script" uid="uid://bqctpd7vkcbxw" path="res://scenes/level1/level_1.gd" id="1_dpu10"]
 [ext_resource type="Texture2D" uid="uid://cbim7il0llmxf" path="res://scenes/level1/background.png" id="1_dwgg1"]
 [ext_resource type="Script" uid="uid://ddvebyb53rymj" path="res://objects/game_manager.gd" id="1_ru4tf"]
 [ext_resource type="PackedScene" uid="uid://cxgg604ulakso" path="res://objects/player/player.tscn" id="1_wwpf4"]
@@ -8,6 +9,7 @@
 [ext_resource type="Script" uid="uid://ctes2y51pk0pr" path="res://objects/camera.gd" id="2_m7ahb"]
 [ext_resource type="PackedScene" uid="uid://cyhr2o4yl6uu2" path="res://objects/arrow/arrow.tscn" id="3_ejswk"]
 [ext_resource type="PackedScene" uid="uid://t0o32ktuyxs7" path="res://objects/exit_vent/exit_vent.tscn" id="4_6sh32"]
+[ext_resource type="AnimationLibrary" uid="uid://bwkjvuv6p3w11" path="res://scenes/level1/animations.tres" id="6_q6uuj"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ejswk"]
 
@@ -22,6 +24,7 @@ normal = Vector2(1, 0)
 
 [node name="Level1" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_dpu10")
 
 [node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("player", "exit_vent")]
 script = ExtResource("1_ru4tf")
@@ -42,6 +45,21 @@ player = NodePath("../../Player")
 [node name="Arrow" parent="HUDLayer" node_paths=PackedStringArray("player", "game_manager") instance=ExtResource("3_ejswk")]
 player = NodePath("../../Player")
 game_manager = NodePath("../../GameManager")
+
+[node name="Fade" type="ColorRect" parent="HUDLayer"]
+visible = false
+modulate = Color(0.851769, 0.8517689, 0.85176885, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": ExtResource("6_q6uuj")
+}
 
 [node name="BackgroundLayer" type="Node2D" parent="."]
 show_behind_parent = true
@@ -91,5 +109,7 @@ script = ExtResource("2_m7ahb")
 follow_node = NodePath("../CameraTarget")
 
 [connection signal="burst" from="ExitVent" to="GameManager" method="_on_exit_vent_burst"]
+[connection signal="player_touched" from="ExitVent" to="." method="_on_exit_vent_player_touched"]
 [connection signal="player_touched" from="ExitVent" to="GameManager" method="_on_exit_vent_player_touched"]
+[connection signal="dead" from="Player" to="." method="_on_player_dead"]
 [connection signal="dead" from="Player" to="GameManager" method="_on_player_dead"]

@@ -3,9 +3,9 @@ class_name Player
 
 signal dead()
 
-const SPEED = 600.0
+const BASE_SPEED = 600.0
 const ACCEL = 10000.0
-const VENT_CLOSE_SPEED = 0.5
+const BASE_GOOP_PER_SECOND = 0.5
 const CAMERA_TARGET_DISTANCE = 150.0
 
 const PROJECTILE_SPEED = 700.0
@@ -27,39 +27,30 @@ enum State {
 
 var state: State = State.NORMAL: set = set_state
 
-var max_hp: int = 10
 var current_hp: int
 
 @onready var animation_tree: AnimationTree = $BlobTree
 @onready var vent_detector: Area2D = $VentDetector
-@onready var squirt_particles: GPUParticles2D = $SquirtParticles
+@onready var squirt_particles: CPUParticles2D = $SquirtParticles
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 func _ready() -> void:
-	current_hp = max_hp
+	current_hp = GameState.player_stats.max_hp
 
 func _process(delta: float) -> void:
 	match state:
 		State.NORMAL:
-			#if Input.is_action_just_pressed("action"):
-				#animation_tree["parameters/BlahOneShot/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
-			
 			squirt_particles.emitting = vent_detector.has_overlapping_areas()
 			
 			for vent: VentHole in vent_detector.get_overlapping_areas():
-				vent.girth -= VENT_CLOSE_SPEED * delta
+				vent.girth -= BASE_GOOP_PER_SECOND * delta * GameState.player_stats.goop_mult
 
 func _physics_process(delta: float) -> void:
 	match state:
 		State.NORMAL:
 			var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 			
-			velocity = velocity.move_toward(input_dir * SPEED, ACCEL * delta)
-			
-			#if velocity.x > 0.0:
-				#sprite_2d.flip_h = true
-			#elif velocity.x < 0.0:
-				#sprite_2d.flip_h = false
+			velocity = velocity.move_toward(input_dir * BASE_SPEED * GameState.player_stats.speed_mult, ACCEL * delta)
 			
 			move_and_slide()
 			
@@ -71,7 +62,7 @@ func _physics_process(delta: float) -> void:
 		State.DISABLED:
 			return
 		State.LAUNCHED:
-			position.y -= SPEED * 5.0 * delta
+			position.y -= BASE_SPEED * 5.0 * delta
 			return
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -80,8 +71,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			var pos: Vector2 = get_viewport().canvas_transform.inverse() * event.position
 			var dir := (pos - global_position).normalized()
 			var projectile := PROJECTILE.instantiate() as Projectile
-			projectile.velocity = dir * PROJECTILE_SPEED
+			projectile.velocity = dir * PROJECTILE_SPEED * GameState.player_stats.projectile_speed_mult
 			projectile.position = global_position
+			projectile.scale *= GameState.player_stats.projectile_size_mult
 			get_parent().add_child(projectile)
 
 func set_state(s: State) -> void:
@@ -100,7 +92,6 @@ func hit() -> void:
 	if state != State.NORMAL:
 		return
 	EventBus.globalPlayerHurt.emit()
-	animation_tree["parameters/BlahOneShot/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 	current_hp -= 1
 	if current_hp <= 0:
 		current_hp = 0

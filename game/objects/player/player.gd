@@ -30,8 +30,7 @@ var state: State = State.NORMAL: set = set_state
 var max_hp: int = 10
 var current_hp: int
 
-@onready var animation_tree: AnimationTree = $AnimationTree
-@onready var sprite_2d: Sprite2D = $SpriteFinal
+@onready var animation_tree: AnimationTree = $BlobTree
 @onready var vent_detector: Area2D = $VentDetector
 @onready var squirt_particles: GPUParticles2D = $SquirtParticles
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
@@ -42,8 +41,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	match state:
 		State.NORMAL:
-			if Input.is_action_just_pressed("action"):
-				animation_tree["parameters/BlahOneShot/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
+			#if Input.is_action_just_pressed("action"):
+				#animation_tree["parameters/BlahOneShot/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 			
 			squirt_particles.emitting = vent_detector.has_overlapping_areas()
 			
@@ -57,14 +56,14 @@ func _physics_process(delta: float) -> void:
 			
 			velocity = velocity.move_toward(input_dir * SPEED, ACCEL * delta)
 			
-			animation_tree["parameters/MovingBlendSpace/blend_position"] = velocity.length() / SPEED / 0.1
-			
-			if velocity.x > 0.0:
-				sprite_2d.flip_h = true
-			elif velocity.x < 0.0:
-				sprite_2d.flip_h = false
+			#if velocity.x > 0.0:
+				#sprite_2d.flip_h = true
+			#elif velocity.x < 0.0:
+				#sprite_2d.flip_h = false
 			
 			move_and_slide()
+			
+			handle_animation(input_dir)
 			
 			if camera_target:
 				camera_target.position = position + velocity.limit_length(CAMERA_TARGET_DISTANCE)
@@ -107,3 +106,10 @@ func hit() -> void:
 		current_hp = 0
 		state = State.DEAD
 		dead.emit()
+
+func handle_animation(input: Vector2) -> void:
+	var moving = bool(sign(abs(input.length())))
+	animation_tree.set("parameters/conditions/walk",moving)
+	animation_tree.set("parameters/conditions/idle",!moving)
+	if moving:
+		animation_tree.set("parameters/WALK/blend_position",input.normalized())

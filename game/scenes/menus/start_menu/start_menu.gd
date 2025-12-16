@@ -5,6 +5,8 @@ extends Control
 func _ready() -> void:
 	if OS.get_name() == "Web":
 		buttonQuit.visible = false
+	
+	GameState.reset()
 
 #region button pressed
 func _on_button_credits_pressed():
@@ -21,7 +23,7 @@ func _on_button_settings_pressed():
 
 func _on_button_start_pressed():
 	EventBus.globalUiElementSelected.emit()
-	get_tree().change_scene_to_file("res://scenes/level1/level1.tscn")
+	get_tree().change_scene_to_file("res://scenes/gameplay/gameplay.tscn")
 #endregion button pressed
 
 #region button mouse entered

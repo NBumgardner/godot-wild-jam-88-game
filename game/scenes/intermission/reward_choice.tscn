@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtipp7adr34r5"]
+
+[ext_resource type="Texture2D" uid="uid://df8vxmrqhui6w" path="res://objects/hud/icons/hp_up.png" id="1_75oss"]
+[ext_resource type="Script" uid="uid://bap0pyimxhqsw" path="res://scenes/intermission/reward_choice.gd" id="1_bd3jp"]
+
+[sub_resource type="Gradient" id="Gradient_bd3jp"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.91333336)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ghtsc"]
+gradient = SubResource("Gradient_bd3jp")
+width = 72
+height = 72
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="RewardChoice" type="Sprite2D"]
+texture = SubResource("GradientTexture2D_ghtsc")
+script = ExtResource("1_bd3jp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_75oss")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -64.0
+offset_top = 46.0
+offset_right = 64.0
+offset_bottom = 69.0
+text = "HP_UP"
+horizontal_alignment = 1

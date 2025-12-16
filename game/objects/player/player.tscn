@@ -1,6 +1,7 @@
-[gd_scene load_steps=47 format=3 uid="uid://cxgg604ulakso"]
+[gd_scene load_steps=29 format=3 uid="uid://cxgg604ulakso"]
 
 [ext_resource type="Script" uid="uid://d18i42fgylo6r" path="res://objects/player/player.gd" id="1_cqmt1"]
+[ext_resource type="AnimationLibrary" uid="uid://dnwvt6fbjyffo" path="res://objects/player/player_animation_library.tres" id="3_ssrue"]
 [ext_resource type="Texture2D" uid="uid://75q0s4tjmr8s" path="res://objects/player/sprites/Slime SHEET 2.png" id="6_ow0dq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gnkmh"]
@@ -10,29 +11,22 @@ radius = 40.012497
 radius = 14.142136
 
 [sub_resource type="Gradient" id="Gradient_gnkmh"]
-offsets = PackedFloat32Array(0.82, 1)
-colors = PackedColorArray(0, 1, 0, 1, 1, 1, 1, 0)
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.82)
+colors = PackedColorArray(1, 0.8862745, 0.36078432, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_xkryw"]
 gradient = SubResource("Gradient_gnkmh")
+width = 32
+height = 32
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
-
-[sub_resource type="Curve" id="Curve_gnkmh"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.49242425, 1), 0.0, 0.0, 0, 0, Vector2(0.75, 0.3595506), 0.0, 0.0, 0, 0, Vector2(0.9015152, 0.28089893), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 5
-
-[sub_resource type="CurveTexture" id="CurveTexture_xkryw"]
-curve = SubResource("Curve_gnkmh")
 
 [sub_resource type="Curve" id="Curve_ow0dq"]
 _limits = [0.0, 100.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5454545, 0), 0.0, 0.0, 0, 0, Vector2(0.7272727, 100), 14.831467, 0.0, 0, 0]
 point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_m4kly"]
-curve = SubResource("Curve_ow0dq")
 
 [sub_resource type="Curve" id="Curve_xgwla"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -41,507 +35,6 @@ point_count = 2
 [sub_resource type="Curve" id="Curve_bi5m7"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5681818, 1), 0.0, 0.0, 0, 0, Vector2(0.79545456, 0.29213488), 0.0, 0.0, 0, 0]
 point_count = 3
-
-[sub_resource type="Curve" id="Curve_psowp"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_45urx"]
-curve_x = SubResource("Curve_xgwla")
-curve_y = SubResource("Curve_bi5m7")
-curve_z = SubResource("Curve_psowp")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ow0dq"]
-particle_flag_disable_z = true
-inherit_velocity_ratio = 0.5
-direction = Vector3(0, -1, 0)
-initial_velocity_min = 317.47
-initial_velocity_max = 539.69
-gravity = Vector3(0, 980, 0)
-damping_min = 23.810001
-damping_max = 23.810001
-damping_curve = SubResource("CurveTexture_m4kly")
-scale_curve = SubResource("CurveXYZTexture_45urx")
-alpha_curve = SubResource("CurveTexture_xkryw")
-
-[sub_resource type="Animation" id="Animation_xgwla"]
-resource_name = "IDLE"
-length = 1.3333501
-loop_mode = 1
-step = 0.16666667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteBall:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteBlob:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5, 0.6666667, 0.8333334, 1, 1.1666667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7]
-}
-
-[sub_resource type="Animation" id="Animation_bi5m7"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteBlob:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteBlob:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -15)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SpriteBall:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -15)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("SpriteBall:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [11]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("SpriteBall:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_psowp"]
-resource_name = "WALK LEFT"
-length = 0.6666834
-loop_mode = 1
-step = 0.16666667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteBlob:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [16, 17, 18, 19]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteBall:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [10, 11, 10, 9]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SpriteBall:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5),
-"transitions": PackedFloat32Array(561917.4, 1, 1, 1),
-"update": 1,
-"values": [Vector2(-9, -14), Vector2(-9, -11), Vector2(-9, -13), Vector2(-9, -15)]
-}
-
-[sub_resource type="Animation" id="Animation_45urx"]
-resource_name = "WALK RIGHT"
-length = 0.6666834
-loop_mode = 1
-step = 0.16666667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteBall:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(9, -14), Vector2(9, -11), Vector2(9, -13), Vector2(9, -15)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteBall:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [14, 13, 14, 15]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SpriteBlob:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [20, 21, 22, 23]
-}
-
-[sub_resource type="Animation" id="Animation_c34wb"]
-resource_name = "BALL VISIBLE"
-length = 0.16668333
-step = 0.16666667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteBall:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_45rsp"]
-resource_name = "BALL INVISIBLE"
-length = 0.16668333
-step = 0.16666667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteBall:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_ylcck"]
-resource_name = "WALK D.LEFT"
-length = 0.6666834
-loop_mode = 1
-step = 0.16666667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteBlob:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [24, 25, 26, 27]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteBall:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [9, 10, 9, 8]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SpriteBall:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(-5, -10), Vector2(-5, -7), Vector2(-5, -10.999967), Vector2(-5, -12.500009)]
-}
-
-[sub_resource type="Animation" id="Animation_x5bgp"]
-resource_name = "WALK D.RIGHT"
-length = 0.6666834
-loop_mode = 1
-step = 0.16666667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteBlob:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [28, 29, 30, 31]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteBall:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [15, 14, 15, 8]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SpriteBall:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(5, -10), Vector2(5, -7), Vector2(5, -11), Vector2(5, -12.5)]
-}
-
-[sub_resource type="Animation" id="Animation_dthqj"]
-resource_name = "WALK U.LEFT"
-length = 0.6666834
-loop_mode = 1
-step = 0.16666667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteBlob:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [32, 33, 34, 35]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteBall:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [11, 12, 11, 10]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SpriteBall:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(-4, -18), Vector2(-4, -15), Vector2(-4, -18), Vector2(-4, -21)]
-}
-
-[sub_resource type="Animation" id="Animation_xlkbi"]
-resource_name = "WALK U.RIGHT"
-length = 0.6666834
-loop_mode = 1
-step = 0.16666667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteBlob:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [36, 37, 38, 39]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteBall:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [13, 14, 13, 12]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SpriteBall:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(4, -18), Vector2(4, -15), Vector2(4, -18), Vector2(4, -21)]
-}
-
-[sub_resource type="Animation" id="Animation_l55sg"]
-resource_name = "WALK UP"
-length = 0.6666834
-loop_mode = 1
-step = 0.16666667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteBlob:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [40, 41, 42, 43]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteBall:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [12, 11, 12, 13]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SpriteBall:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(0, -18), Vector2(0, -15), Vector2(0, -18), Vector2(0, -21)]
-}
-
-[sub_resource type="Animation" id="Animation_28utn"]
-resource_name = "WALK DOWN"
-length = 0.6666834
-loop_mode = 1
-step = 0.16666667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteBlob:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [44, 45, 46, 47]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteBall:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(0, -9), Vector2(0, -6), Vector2(0, -9), Vector2(0, -11)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SpriteBall:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [8, 9, 8, 15]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_yyeqs"]
-_data = {
-&"BALL INVISIBLE": SubResource("Animation_45rsp"),
-&"BALL VISIBLE": SubResource("Animation_c34wb"),
-&"IDLE": SubResource("Animation_xgwla"),
-&"RESET": SubResource("Animation_bi5m7"),
-&"WALK D.LEFT": SubResource("Animation_ylcck"),
-&"WALK D.RIGHT": SubResource("Animation_x5bgp"),
-&"WALK DOWN": SubResource("Animation_28utn"),
-&"WALK LEFT": SubResource("Animation_psowp"),
-&"WALK RIGHT": SubResource("Animation_45urx"),
-&"WALK U.LEFT": SubResource("Animation_dthqj"),
-&"WALK U.RIGHT": SubResource("Animation_xlkbi"),
-&"WALK UP": SubResource("Animation_l55sg")
-}
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_u8bnf"]
 animation = &"BALL INVISIBLE"
@@ -643,11 +136,21 @@ debug_color = Color(0.99607843, 0, 0.22745098, 0.26666668)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_5lq1w")
 
-[node name="SquirtParticles" type="GPUParticles2D" parent="."]
+[node name="SquirtParticles" type="CPUParticles2D" parent="."]
 emitting = false
 texture = SubResource("GradientTexture2D_xkryw")
 explosiveness = 0.71
-process_material = SubResource("ParticleProcessMaterial_ow0dq")
+fixed_fps = 30
+draw_order = 1
+direction = Vector2(0, -1)
+initial_velocity_min = 317.47
+initial_velocity_max = 539.69
+damping_min = 23.810001
+damping_max = 23.810001
+damping_curve = SubResource("Curve_ow0dq")
+split_scale = true
+scale_curve_x = SubResource("Curve_xgwla")
+scale_curve_y = SubResource("Curve_bi5m7")
 
 [node name="SpriteBlob" type="Sprite2D" parent="."]
 position = Vector2(0, -15)
@@ -664,7 +167,7 @@ frame = 11
 
 [node name="BlobAnimPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-&"": SubResource("AnimationLibrary_yyeqs")
+&"": ExtResource("3_ssrue")
 }
 
 [node name="BlobTree" type="AnimationTree" parent="."]

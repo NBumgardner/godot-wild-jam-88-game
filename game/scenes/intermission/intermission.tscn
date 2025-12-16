@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=3 uid="uid://bgj54nwjw8j5c"]
+
+[ext_resource type="Script" uid="uid://baygjcj7skyaf" path="res://scenes/intermission/intermission.gd" id="1_rccgy"]
+[ext_resource type="Texture2D" uid="uid://c5ccxpoqi0kxq" path="res://scenes/intermission/intermission_background.png" id="2_0e6ov"]
+[ext_resource type="PackedScene" uid="uid://dtipp7adr34r5" path="res://scenes/intermission/reward_choice.tscn" id="3_0e6ov"]
+[ext_resource type="Texture2D" uid="uid://75q0s4tjmr8s" path="res://objects/player/sprites/Slime SHEET 2.png" id="4_7m1wi"]
+[ext_resource type="AnimationLibrary" uid="uid://dnwvt6fbjyffo" path="res://objects/player/player_animation_library.tres" id="5_b2827"]
+
+[sub_resource type="Gradient" id="Gradient_7m1wi"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.0066666603, 0.22)
+colors = PackedColorArray(1, 0.8862745, 0.36078432, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_b2827"]
+gradient = SubResource("Gradient_7m1wi")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="Intermission" type="Node2D"]
+script = ExtResource("1_rccgy")
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+repeat_size = Vector2(0, 480)
+
+[node name="IntermissionBackground" type="Sprite2D" parent="Parallax2D"]
+texture = ExtResource("2_0e6ov")
+centered = false
+
+[node name="Intermission" parent="." instance=ExtResource("3_0e6ov")]
+position = Vector2(145, 220)
+
+[node name="Intermission2" parent="." instance=ExtResource("3_0e6ov")]
+position = Vector2(305, 223)
+
+[node name="Intermission3" parent="." instance=ExtResource("3_0e6ov")]
+position = Vector2(468, 224)
+
+[node name="PlayerSelector" type="Node2D" parent="."]
+position = Vector2(306, 337)
+
+[node name="SpriteBlob" type="Sprite2D" parent="PlayerSelector"]
+position = Vector2(0, -15)
+texture = ExtResource("4_7m1wi")
+hframes = 8
+vframes = 6
+
+[node name="SpriteBall" type="Sprite2D" parent="PlayerSelector"]
+position = Vector2(0, -15)
+texture = ExtResource("4_7m1wi")
+hframes = 8
+vframes = 6
+frame = 11
+
+[node name="BlobAnimPlayer" type="AnimationPlayer" parent="PlayerSelector"]
+libraries = {
+&"": ExtResource("5_b2827")
+}
+autoplay = "WALK UP"
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="PlayerSelector"]
+position = Vector2(0, 24)
+texture = SubResource("GradientTexture2D_b2827")
+randomness = 0.6
+direction = Vector2(0, 1)
+spread = 5.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 376.81
+initial_velocity_max = 376.81
+
+[node name="Marker1" type="Marker2D" parent="."]
+position = Vector2(144, 335)
+
+[node name="Marker2" type="Marker2D" parent="."]
+position = Vector2(305, 335)
+
+[node name="Marker3" type="Marker2D" parent="."]
+position = Vector2(471, 331)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.8560673, 0.8560673, 0.85606724, 0)

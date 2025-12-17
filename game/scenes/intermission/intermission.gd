@@ -23,6 +23,7 @@ var _input_disabled: bool = false
 
 func _ready() -> void:
 	var possible_rewards := PlayerStats.Upgrade.values()
+	possible_rewards.append_array(possible_rewards.filter(func (u): return not PlayerStats.is_upgrade_rare(u)))
 	possible_rewards.shuffle()
 	for i in 3:
 		rewards[i].upgrade = possible_rewards[i]

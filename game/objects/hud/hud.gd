@@ -5,6 +5,7 @@ extends Control
 
 @onready var label: Label = $%LabelGoalReminder
 @onready var health_bar: Label = %HealthBar
+@onready var health_thermometer: Sprite2D = $HTherm
 
 func _ready() -> void:
 	_update_text()
@@ -19,6 +20,7 @@ func _update_text() -> void:
 		label.text = "Get to the MEGA VENT!!!!!"
 	
 	health_bar.text = "❤️".repeat(player.current_hp) + "❌".repeat(GameState.player_stats.max_hp - player.current_hp)
+	health_thermometer.frame = min(player.current_hp,5)
 
 #region SFX
 func _on_button_quit_mouse_entered():

@@ -57,3 +57,30 @@ func _take_upgrade() -> void:
 	await t.finished
 	
 	get_parent().goto_level()
+
+
+func _on_intermission_hovered() -> void:
+	_selection = 0
+
+
+func _on_intermission_2_hovered() -> void:
+	_selection = 1
+
+
+func _on_intermission_3_hovered() -> void:
+	_selection = 2
+
+
+func _on_intermission_clicked() -> void:
+	_selection = 0
+	_take_upgrade()
+
+
+func _on_intermission_2_clicked() -> void:
+	_selection = 2
+	_take_upgrade()
+
+
+func _on_intermission_3_clicked() -> void:
+	_selection = 2
+	_take_upgrade()

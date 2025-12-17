@@ -1,5 +1,8 @@
 extends Sprite2D
 
+signal hovered()
+signal clicked()
+
 @export var upgrade: PlayerStats.Upgrade:
 	set(v):
 		upgrade = v
@@ -32,3 +35,14 @@ func _update() -> void:
 	else:
 		rare_shine.visible = false
 		self_modulate = Color.WHITE
+
+
+func _on_area_2d_mouse_entered() -> void:
+	print("asdfasdf!")
+	hovered.emit()
+
+
+func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if event is InputEventMouseButton:
+		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+			clicked.emit()

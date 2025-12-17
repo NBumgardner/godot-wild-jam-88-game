@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://ced34ddbfg6rk"]
+[gd_scene load_steps=9 format=3 uid="uid://ced34ddbfg6rk"]
 
 [ext_resource type="Script" uid="uid://d285n7qgdjp7g" path="res://globals/audio_manager/audio_manager.gd" id="1_ix0j0"]
 [ext_resource type="AudioStream" uid="uid://1lx2vem4rr32" path="res://assets/audio/sfx/sfx_101_ButtonClick.wav" id="2_2bgjf"]
+[ext_resource type="AudioStream" uid="uid://dbqjtet218e4w" path="res://assets/audio/music/Level 1 Demo.mp3" id="2_uf7k3"]
 [ext_resource type="AudioStream" uid="uid://cw4c2awxcocbu" path="res://assets/audio/sfx/sfx_402_EnemyDestroyed.wav" id="2_ulrmu"]
 [ext_resource type="AudioStream" uid="uid://8vqf8dkkf3em" path="res://assets/audio/sfx/sfx_102_ButtonHover.wav" id="3_1d2wt"]
 [ext_resource type="AudioStream" uid="uid://h0msm0vto1b4" path="res://assets/audio/sfx/sfx_312_RiftBigEruption.wav" id="3_ulrmu"]
@@ -12,7 +13,7 @@
 script = ExtResource("1_ix0j0")
 
 [node name="MusicGameplay" type="AudioStreamPlayer" parent="."]
-autoplay = true
+stream = ExtResource("2_uf7k3")
 bus = &"Music"
 
 [node name="SFXEnemyDestroyed" type="AudioStreamPlayer" parent="."]

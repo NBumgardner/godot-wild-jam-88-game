@@ -77,7 +77,7 @@ func _on_intermission_clicked() -> void:
 
 
 func _on_intermission_2_clicked() -> void:
-	_selection = 2
+	_selection = 1
 	_take_upgrade()
 
 

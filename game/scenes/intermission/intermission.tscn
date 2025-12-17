@@ -85,4 +85,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0.8560673, 0.8560673, 0.85606724, 0)
+
+[connection signal="clicked" from="Intermission" to="." method="_on_intermission_clicked"]
+[connection signal="hovered" from="Intermission" to="." method="_on_intermission_hovered"]
+[connection signal="clicked" from="Intermission2" to="." method="_on_intermission_2_clicked"]
+[connection signal="hovered" from="Intermission2" to="." method="_on_intermission_2_hovered"]
+[connection signal="clicked" from="Intermission3" to="." method="_on_intermission_3_clicked"]
+[connection signal="hovered" from="Intermission3" to="." method="_on_intermission_3_hovered"]

@@ -30,7 +30,6 @@ script = ExtResource("1_dpu10")
 script = ExtResource("1_ru4tf")
 player = NodePath("../Player")
 exit_vent = NodePath("../ExitVent")
-num_vents = 1
 
 [node name="EnemyDirector" type="Node" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("2_kcfjd")

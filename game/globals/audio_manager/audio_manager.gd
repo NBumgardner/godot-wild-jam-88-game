@@ -1,5 +1,9 @@
 extends Node
 
+var current_music: AudioStreamPlayer
+
+@onready var music_gameplay: AudioStreamPlayer = $MusicGameplay
+
 @onready var sfxEnemyDestroyed: AudioStreamPlayer = $SFXEnemyDestroyed
 @onready var sfxEnvironmentRiftAreaClosed: AudioStreamPlayer = $SFXEnvironmentRiftAreaClosed
 @onready var sfxEnvironmentRiftBigEruption: AudioStreamPlayer = $SFXEnvironmentRiftBigEruption
@@ -14,6 +18,16 @@ func _ready() -> void:
 	EventBus.globalPlayerHurt.connect(_playSfxPlayerHurt)
 	EventBus.globalUiElementMouseEntered.connect(_playSfxUiMouseEntered)
 	EventBus.globalUiElementSelected.connect(_playSfxUiClickConfirm)
+	EventBus.globalLevelStarted.connect(_playMusicGamplay)
+
+#region Music
+func _playMusicGamplay() -> void:
+	if current_music != music_gameplay:
+		if current_music:
+			current_music.stop()
+		music_gameplay.play()
+		current_music = music_gameplay
+#endregion Music
 
 #region Enemy
 func _playSfxEnemyDestroyed() -> void:

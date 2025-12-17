@@ -5,7 +5,8 @@ const VENT_HOLE = preload("uid://clxr0xys06nie")
 
 @export var player: Player
 @export var exit_vent: ExitVent
-@export var num_vents: int = 10
+@export var num_vents_min: int = 10
+@export var num_vents_per_level: int = 2
 
 var vents: Array[VentHole]
 
@@ -14,6 +15,7 @@ var remaining_vents: int:
 
 func _ready() -> void:
 	(func ():
+		var num_vents := num_vents_min + num_vents_per_level * (GameState.current_level - 1)
 		for i in num_vents:
 			var vent := VENT_HOLE.instantiate() as VentHole
 			vent.position = Vector2(

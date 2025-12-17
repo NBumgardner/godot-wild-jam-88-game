@@ -1,5 +1,10 @@
 extends Node
 
+#region Music signals
+@warning_ignore("unused_signal")
+signal globalLevelStarted();
+#endregion Music signals
+
 #region Enemy signals
 @warning_ignore("unused_signal")
 signal globalEnemyDestroyed();

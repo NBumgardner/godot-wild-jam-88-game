@@ -8,9 +8,12 @@ extends Control
 @onready var health_bar_final: Node2D = $HealthBar2
 @onready var health_bar_mask: ColorRect = $HealthBar2/health_mask
 @onready var health_bar_ice: Sprite2D = $HealthBar2/HTherm
+@onready var hud_anim: AnimationPlayer = $HUDAnim
 
 func _ready() -> void:
 	_update_text()
+	EventBus.globalPlayerHurt.connect(func ():
+		hud_anim.play("HEALTH_BAR_SHAKE"))
 
 func _process(_delta: float) -> void:
 	_update_text()

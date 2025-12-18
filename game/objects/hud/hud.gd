@@ -5,9 +5,15 @@ extends Control
 
 @onready var label: Label = $%LabelGoalReminder
 @onready var health_bar: Label = %HealthBar
+@onready var health_bar_final: Node2D = $HealthBar2
+@onready var health_bar_mask: ColorRect = $HealthBar2/health_mask
+@onready var health_bar_ice: Sprite2D = $HealthBar2/HTherm
+@onready var hud_anim: AnimationPlayer = $HUDAnim
 
 func _ready() -> void:
 	_update_text()
+	EventBus.globalPlayerHurt.connect(func ():
+		hud_anim.play("HEALTH_BAR_SHAKE"))
 
 func _process(_delta: float) -> void:
 	_update_text()
@@ -19,6 +25,21 @@ func _update_text() -> void:
 		label.text = "Get to the MEGA VENT!!!!!"
 	
 	health_bar.text = "❤️".repeat(player.current_hp) + "❌".repeat(GameState.player_stats.max_hp - player.current_hp)
+	handle_healthbar()
+
+func handle_healthbar() -> void:
+	if player.current_hp > 0:
+		health_bar_mask.size.x = remap(player.current_hp,1,GameState.player_stats.max_hp,39,229)
+	else:
+		health_bar_mask.size.x = 0
+	var health_stage = round(remap(player.current_hp,0,GameState.player_stats.max_hp,0,5))
+	health_bar_ice.frame = health_stage
+	if health_stage > 3:
+		health_bar_mask.modulate = Color(0.842, 0.0, 0.212, 1.0)
+	elif health_stage > 2:
+		health_bar_mask.modulate = Color(0.792, 0.136, 0.673, 1.0)
+	else:
+		health_bar_mask.modulate = Color(0.106, 0.629, 1.0, 1.0)
 
 #region SFX
 func _on_button_quit_mouse_entered():

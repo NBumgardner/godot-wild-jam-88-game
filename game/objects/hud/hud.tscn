@@ -1,10 +1,51 @@
-[gd_scene load_steps=4 format=3 uid="uid://6o26q54y57gv"]
+[gd_scene load_steps=11 format=3 uid="uid://6o26q54y57gv"]
 
 [ext_resource type="Theme" uid="uid://cd3xaq0w5mwtl" path="res://assets/themes/default.tres" id="1_08fgm"]
 [ext_resource type="Script" uid="uid://cf276iwu4busb" path="res://objects/hud/hud.gd" id="1_y7bgl"]
+[ext_resource type="Texture2D" uid="uid://cij07ih5wqy76" path="res://objects/hud/Health Bar SHEET.png" id="3_hgxdy"]
+[ext_resource type="Texture2D" uid="uid://dnnkw6i3o8ljg" path="res://objects/hud/health bar/back.png" id="4_joawt"]
+[ext_resource type="Texture2D" uid="uid://bg4svk0y620mo" path="res://objects/hud/health bar/center.png" id="5_w0vgd"]
+[ext_resource type="Texture2D" uid="uid://c57p2yxb4bd2i" path="res://objects/hud/health bar/glass.png" id="6_cxlye"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_08fgm"]
 font_size = 32
+
+[sub_resource type="Animation" id="Animation_joawt"]
+resource_name = "HEALTH_BAR_SHAKE"
+length = 0.20000334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HealthBar2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(154, 48), Vector2(147, 48), Vector2(152, 48), Vector2(147, 48), Vector2(149, 48), Vector2(147, 48)]
+}
+
+[sub_resource type="Animation" id="Animation_w0vgd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HealthBar2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(147, 48)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cxlye"]
+_data = {
+&"HEALTH_BAR_SHAKE": SubResource("Animation_joawt"),
+&"RESET": SubResource("Animation_w0vgd")
+}
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -43,11 +84,49 @@ horizontal_alignment = 2
 
 [node name="HealthBar" type="Label" parent="."]
 unique_name_in_owner = true
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "❤️❤️❤️❤️❤️❤️❤️❤️❤️❌"
 label_settings = SubResource("LabelSettings_08fgm")
+
+[node name="HealthBar2" type="Node2D" parent="."]
+position = Vector2(147, 48)
+
+[node name="HTherm" type="Sprite2D" parent="HealthBar2"]
+position = Vector2(0, 1)
+texture = ExtResource("3_hgxdy")
+vframes = 6
+frame = 5
+
+[node name="back" type="Sprite2D" parent="HealthBar2"]
+texture = ExtResource("4_joawt")
+
+[node name="health_mask" type="ColorRect" parent="HealthBar2"]
+modulate = Color(0.8389701, 0, 0.21209751, 1)
+clip_children = 1
+z_index = 2
+clip_contents = true
+offset_left = -117.0
+offset_top = -24.0
+offset_right = 114.0
+offset_bottom = 16.0
+
+[node name="center" type="Sprite2D" parent="HealthBar2/health_mask"]
+z_index = 1
+position = Vector2(117, 24)
+texture = ExtResource("5_w0vgd")
+region_enabled = true
+region_rect = Rect2(0, 0, 277, 97)
+
+[node name="front" type="Sprite2D" parent="HealthBar2"]
+texture = ExtResource("6_cxlye")
+
+[node name="HUDAnim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_cxlye")
+}
 
 [connection signal="mouse_entered" from="VBoxContainer/MarginContainer/ButtonQuit" to="." method="_on_button_quit_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer/ButtonQuit" to="." method="_on_button_quit_pressed"]

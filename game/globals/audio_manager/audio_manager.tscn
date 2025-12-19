@@ -1,19 +1,52 @@
-[gd_scene load_steps=9 format=3 uid="uid://ced34ddbfg6rk"]
+[gd_scene load_steps=14 format=3 uid="uid://ced34ddbfg6rk"]
 
 [ext_resource type="Script" uid="uid://d285n7qgdjp7g" path="res://globals/audio_manager/audio_manager.gd" id="1_ix0j0"]
 [ext_resource type="AudioStream" uid="uid://1lx2vem4rr32" path="res://assets/audio/sfx/sfx_101_ButtonClick.wav" id="2_2bgjf"]
-[ext_resource type="AudioStream" uid="uid://dbqjtet218e4w" path="res://assets/audio/music/Level 1 Demo.mp3" id="2_uf7k3"]
 [ext_resource type="AudioStream" uid="uid://cw4c2awxcocbu" path="res://assets/audio/sfx/sfx_402_EnemyDestroyed.wav" id="2_ulrmu"]
 [ext_resource type="AudioStream" uid="uid://8vqf8dkkf3em" path="res://assets/audio/sfx/sfx_102_ButtonHover.wav" id="3_1d2wt"]
+[ext_resource type="AudioStream" uid="uid://s8ju877xwmox" path="res://assets/audio/music/Into Level 1 Stinger.ogg" id="3_qmnf0"]
 [ext_resource type="AudioStream" uid="uid://h0msm0vto1b4" path="res://assets/audio/sfx/sfx_312_RiftBigEruption.wav" id="3_ulrmu"]
 [ext_resource type="AudioStream" uid="uid://bjryoera6u8hm" path="res://assets/audio/sfx/sfx_304_RiftAreaClosed.wav" id="4_2bgjf"]
+[ext_resource type="AudioStream" uid="uid://dq5732a6lslmi" path="res://assets/audio/music/Level 1 Track.ogg" id="4_2d6s7"]
+[ext_resource type="AudioStream" uid="uid://bfnoi187370s8" path="res://assets/audio/music/Level End Stinger.ogg" id="5_1m5h4"]
 [ext_resource type="AudioStream" uid="uid://cd3mbwaoh1kyc" path="res://assets/audio/sfx/sfx_202_PlayerHurt.wav" id="5_fdt5a"]
+[ext_resource type="AudioStream" uid="uid://cow07hxmv2mn5" path="res://assets/audio/music/Powerup Screen Track.ogg" id="6_684e1"]
+[ext_resource type="AudioStream" uid="uid://c70q4om6yqj2o" path="res://assets/audio/music/Initial DialogueTrack.ogg" id="7_x361m"]
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_8cy7q"]
+clip_count = 5
+clip_0/name = &"Into Level 1 Stinger"
+clip_0/stream = ExtResource("3_qmnf0")
+clip_0/auto_advance = 1
+clip_0/next_clip = 1
+clip_1/name = &"Level 1 Track"
+clip_1/stream = ExtResource("4_2d6s7")
+clip_1/auto_advance = 0
+clip_2/name = &"Level End Stinger"
+clip_2/stream = ExtResource("5_1m5h4")
+clip_2/auto_advance = 0
+clip_3/name = &"Powerup Screen Track"
+clip_3/stream = ExtResource("6_684e1")
+clip_3/auto_advance = 0
+clip_4/name = &"Initial Dialogue Track"
+clip_4/stream = ExtResource("7_x361m")
+clip_4/auto_advance = 0
+initial_clip = 4
+_transitions = {
+Vector2i(-1, -1): {
+"fade_beats": 1.0,
+"fade_mode": 4,
+"from_time": 1,
+"to_time": 1
+}
+}
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_ix0j0")
 
 [node name="MusicGameplay" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_uf7k3")
+stream = SubResource("AudioStreamInteractive_8cy7q")
+autoplay = true
 bus = &"Music"
 
 [node name="SFXEnemyDestroyed" type="AudioStreamPlayer" parent="."]

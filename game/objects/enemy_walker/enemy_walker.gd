@@ -12,8 +12,8 @@ func _ready() -> void:
 	
 	if not guard_zone:
 		bt_player.blackboard.set_var("target", player)
-	
-	guard_zone.player_aggrod.connect(_on_player_aggrod)
+	else:
+		guard_zone.player_aggrod.connect(_on_player_aggrod)
 
 func _physics_process(_delta: float) -> void:
 	if velocity.x > 0:

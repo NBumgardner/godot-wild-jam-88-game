@@ -22,6 +22,7 @@ var _input_disabled: bool = false
 @onready var color_rect: ColorRect = $CanvasLayer/ColorRect
 
 func _ready() -> void:
+	EventBus.globalIntermissionEntered.emit()
 	var possible_rewards := PlayerStats.Upgrade.values()
 	possible_rewards.append_array(possible_rewards.filter(func (u): return not PlayerStats.is_upgrade_rare(u)))
 	possible_rewards.shuffle()

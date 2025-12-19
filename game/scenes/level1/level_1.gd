@@ -6,13 +6,18 @@ extends Node2D
 
 
 func _ready() -> void:
-	EventBus.globalLevelStarted.emit.call_deferred()
+	if GameState.current_level == 1:
+		EventBus.globalLevel1Started.emit()
+	else:
+		EventBus.globalLevelNStarted.emit()
 
 func _on_player_dead() -> void:
+	EventBus.globalLevelFailed.emit()
 	await get_tree().create_timer(1.0).timeout
 	get_tree().change_scene_to_file("res://scenes/menus/start_menu/start_menu.tscn")
 
 func _on_exit_vent_player_touched() -> void:
+	EventBus.globalLevelSuccess.emit()
 	var duration := 1.0
 	var tween := create_tween()
 	tween.tween_property(camera_target, "position:y", camera_target.position.y - 800.0, duration) \

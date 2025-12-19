@@ -2,7 +2,15 @@ extends Node
 
 #region Music signals
 @warning_ignore("unused_signal")
-signal globalLevelStarted();
+signal globalLevel1Started();
+@warning_ignore("unused_signal")
+signal globalLevelNStarted();
+@warning_ignore("unused_signal")
+signal globalLevelSuccess();
+@warning_ignore("unused_signal")
+signal globalLevelFailed();
+@warning_ignore("unused_signal")
+signal globalIntermissionEntered();
 #endregion Music signals
 
 #region Enemy signals

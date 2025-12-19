@@ -18,15 +18,21 @@ func _ready() -> void:
 	EventBus.globalPlayerHurt.connect(_playSfxPlayerHurt)
 	EventBus.globalUiElementMouseEntered.connect(_playSfxUiMouseEntered)
 	EventBus.globalUiElementSelected.connect(_playSfxUiClickConfirm)
-	EventBus.globalLevelStarted.connect(_playMusicGamplay)
+	EventBus.globalLevel1Started.connect(_playMusicGamplayLevel1)
+	EventBus.globalLevelNStarted.connect(_playMusicGamplayLevelN)
+	EventBus.globalLevelSuccess.connect(_playMusicGamplayLevelEnd)
+	EventBus.globalLevelFailed.connect(_playMusicGamplayLevelEnd)
+	EventBus.globalIntermissionEntered.connect(_playMusicPowerupScreen)
 
 #region Music
-func _playMusicGamplay() -> void:
-	if current_music != music_gameplay:
-		if current_music:
-			current_music.stop()
-		music_gameplay.play()
-		current_music = music_gameplay
+func _playMusicGamplayLevel1() -> void:
+	music_gameplay["parameters/switch_to_clip"] = "Into Level 1 Stinger"
+func _playMusicGamplayLevelN() -> void:
+	music_gameplay["parameters/switch_to_clip"] = "Level 1 Track"
+func _playMusicGamplayLevelEnd() -> void:
+	music_gameplay["parameters/switch_to_clip"] = "Level End Stinger"
+func _playMusicPowerupScreen() -> void:
+	music_gameplay["parameters/switch_to_clip"] = "Powerup Screen Track"
 #endregion Music
 
 #region Enemy

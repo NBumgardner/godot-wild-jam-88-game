@@ -5,7 +5,7 @@ class_name VentHole
 	set(v):
 		girth = v
 		if sprite:
-			sprite.scale = remap(girth, 0.0, 1.0, 0.025, 0.25) * Vector2.ONE
+			sprite.scale = remap(girth, 0.0, 1.0, 0.025, 1.0) * Vector2.ONE
 		if is_inside_tree() and girth <= 0:
 			EventBus.globalEnvironmentRiftAreaClosed.emit()
 			queue_free()

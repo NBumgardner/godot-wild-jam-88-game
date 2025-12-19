@@ -10,6 +10,8 @@ var current_music: AudioStreamPlayer
 @onready var sfxPlayerHurt: AudioStreamPlayer = $SFXPlayerHurt
 @onready var sfxUiClickConfirm: AudioStreamPlayer = $SFXUIClickConfirm
 @onready var sfxUiMouseEntered: AudioStreamPlayer = $SFXUIMouseEntered
+@onready var level_end_stinger: AudioStreamPlayer = $LevelEndStinger
+@onready var into_level_1_stinger: AudioStreamPlayer = $IntoLevel1Stinger
 
 func _ready() -> void:
 	EventBus.globalEnemyDestroyed.connect(_playSfxEnemyDestroyed)
@@ -26,11 +28,14 @@ func _ready() -> void:
 
 #region Music
 func _playMusicGamplayLevel1() -> void:
-	music_gameplay["parameters/switch_to_clip"] = "Into Level 1 Stinger"
+	into_level_1_stinger.play()
+	music_gameplay["parameters/switch_to_clip"] = "Level 1 Track"
 func _playMusicGamplayLevelN() -> void:
+	into_level_1_stinger.play()
 	music_gameplay["parameters/switch_to_clip"] = "Level 1 Track"
 func _playMusicGamplayLevelEnd() -> void:
-	music_gameplay["parameters/switch_to_clip"] = "Level End Stinger"
+	level_end_stinger.play()
+	music_gameplay["parameters/switch_to_clip"] = "silence"
 func _playMusicPowerupScreen() -> void:
 	music_gameplay["parameters/switch_to_clip"] = "Powerup Screen Track"
 #endregion Music

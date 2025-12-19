@@ -11,6 +11,11 @@ func _ready() -> void:
 	else:
 		EventBus.globalLevelNStarted.emit()
 
+func _unhandled_key_input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		if event.pressed and not event.is_echo() and event.keycode == KEY_KP_7:
+			_on_exit_vent_player_touched.call_deferred()
+
 func _on_player_dead() -> void:
 	EventBus.globalLevelFailed.emit()
 	await get_tree().create_timer(1.0).timeout

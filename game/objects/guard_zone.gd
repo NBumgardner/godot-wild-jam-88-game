@@ -17,8 +17,9 @@ func _ready() -> void:
 	body_exited.connect(_on_body_exited)
 
 func _draw() -> void:
-	draw_circle(Vector2.ZERO, home_radius, Color.RED, false)
-	draw_circle(Vector2.ZERO, collision_shape.shape.radius, Color.GREEN, false)
+	if OS.is_debug_build():
+		draw_circle(Vector2.ZERO, home_radius, Color.RED, false)
+		draw_circle(Vector2.ZERO, collision_shape.shape.radius, Color.GREEN, false)
 
 func notify_player_aggro(player: Player) -> void:
 	player_aggrod.emit(player)

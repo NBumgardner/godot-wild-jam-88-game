@@ -7,6 +7,7 @@ const VENT_HOLE = preload("uid://clxr0xys06nie")
 
 @export var player: Player
 @export var exit_vent: ExitVent
+@export var vent_parent: Node
 
 var vents: Array[VentHole]
 
@@ -22,7 +23,7 @@ func _ready() -> void:
 			randf_range(-1500, 1500),
 			randf_range(-1500, 1500))
 		vent.tree_exited.connect(_on_vent_closed.bind(vent))
-		get_parent().add_child(vent)
+		vent_parent.add_child(vent)
 		vents.append(vent)
 		vent_opened.emit(vent)
 

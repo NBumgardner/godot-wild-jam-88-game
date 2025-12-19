@@ -4,6 +4,7 @@ const SPEED = 100.0
 const TURN_SPEED = 3.0
 const SHOOTER_PROJECTILE = preload("uid://o3mnf6g52ar0")
 const PROJECTILE_SPEED = 300.0
+const ACCURACY_RADIUS = 96.0
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var bt_player: BTPlayer = $BTPlayer
@@ -13,8 +14,8 @@ func _ready() -> void:
 	
 	if not guard_zone:
 		bt_player.blackboard.set_var("target", player)
-	
-	guard_zone.player_aggrod.connect(_on_player_aggrod)
+	else:
+		guard_zone.player_aggrod.connect(_on_player_aggrod)
 
 func _physics_process(_delta: float) -> void:
 	if velocity.x > 0:
@@ -42,13 +43,12 @@ func _guard_zone_changed() -> void:
 			guard_zone.player_aggrod.connect(_on_player_aggrod)
 
 func _attack_hit() -> void:
-	print("ASDF!")
 	var target: Node2D = bt_player.blackboard.get_var("target")
-	print(target)
 	if not target:
 		return
 	var projectile = SHOOTER_PROJECTILE.instantiate()
-	var to_target := target.global_position - global_position
+	var target_position := target.global_position + randf() * ACCURACY_RADIUS * Vector2.from_angle(randf() * TAU)
+	var to_target := target_position - global_position
 	var planar_vel := PROJECTILE_SPEED * to_target.normalized()
 	var vel_z: float = 0.5 * projectile.GRAVITY_Z * to_target.length() / planar_vel.length()
 	projectile.position = position

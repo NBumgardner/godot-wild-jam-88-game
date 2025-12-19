@@ -107,6 +107,7 @@ position_smoothing_enabled = true
 script = ExtResource("2_m7ahb")
 follow_node = NodePath("../CameraTarget")
 
+[connection signal="vent_opened" from="GameManager" to="EnemyDirector" method="_on_game_manager_vent_opened"]
 [connection signal="burst" from="ExitVent" to="GameManager" method="_on_exit_vent_burst"]
 [connection signal="player_touched" from="ExitVent" to="." method="_on_exit_vent_player_touched"]
 [connection signal="player_touched" from="ExitVent" to="GameManager" method="_on_exit_vent_player_touched"]

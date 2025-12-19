@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.rotated(sign(angle) * min(GameState.player_stats.projectile_homing_speed_mult * HOMING_SPEED * delta, abs(angle)))
 	
 	global_position += velocity * delta
-	sprite_2d.frame_coords.x = floori((TAU / 4.0 - velocity.angle()) / TAU * 8.0)
+	sprite_2d.frame_coords.x = wrapi(roundi((TAU / 4.0 - velocity.angle()) / TAU * 8.0), 0, 8)
 	
 	if not homing_shape.disabled:
 		homing_shape.position = velocity.normalized() * homing_shape.shape.radius

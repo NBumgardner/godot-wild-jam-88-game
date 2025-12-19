@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="LevelDetails" load_steps=6 format=3 uid="uid://bxhixscklsy7s"]
+
+[ext_resource type="Script" uid="uid://pket2s273ceo" path="res://resource_types/enemy_spawn.gd" id="1_1qc6a"]
+[ext_resource type="Script" uid="uid://dn1a0v05nbyh5" path="res://resource_types/level_details.gd" id="2_a1ssy"]
+[ext_resource type="PackedScene" uid="uid://b464h76qb351y" path="res://objects/enemy_walker/enemy_walker.tscn" id="2_t15xu"]
+
+[sub_resource type="Resource" id="Resource_36t7y"]
+script = ExtResource("1_1qc6a")
+enemy_scene = ExtResource("2_t15xu")
+metadata/_custom_type_script = "uid://pket2s273ceo"
+
+[sub_resource type="Resource" id="Resource_a1ssy"]
+script = ExtResource("1_1qc6a")
+enemy_scene = ExtResource("2_t15xu")
+metadata/_custom_type_script = "uid://pket2s273ceo"
+
+[resource]
+script = ExtResource("2_a1ssy")
+chase_enemies = Array[ExtResource("1_1qc6a")]([SubResource("Resource_36t7y")])
+defender_enemies = Array[ExtResource("1_1qc6a")]([SubResource("Resource_a1ssy")])
+metadata/_custom_type_script = "uid://dn1a0v05nbyh5"

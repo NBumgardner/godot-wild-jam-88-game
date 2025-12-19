@@ -1,0 +1,61 @@
+[gd_resource type="BehaviorTree" load_steps=16 format=3 uid="uid://yvh8kwr8caet"]
+
+[ext_resource type="Script" uid="uid://e2723ynrucqv" path="res://ai/tasks/move_to_range.gd" id="1_rvo6g"]
+[ext_resource type="Script" uid="uid://bv307g0s4k6gw" path="res://ai/tasks/return_home.gd" id="2_vvut3"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_37k6l"]
+var/target/name = &"target"
+var/target/type = 24
+var/target/hint = 34
+var/target/hint_string = ""
+var/guard_zone/name = &"guard_zone"
+var/guard_zone/type = 24
+var/guard_zone/hint = 34
+var/guard_zone/hint_string = ""
+
+[sub_resource type="BBVariant" id="BBVariant_csc7j"]
+saved_value = null
+resource_name = "<null>"
+
+[sub_resource type="BTCheckVar" id="BTCheckVar_lhva0"]
+variable = &"target"
+check_type = 5
+value = SubResource("BBVariant_csc7j")
+
+[sub_resource type="BTAction" id="BTAction_dqphi"]
+script = ExtResource("1_rvo6g")
+
+[sub_resource type="BBNode" id="BBNode_jt5sq"]
+saved_value = NodePath("AnimationPlayer")
+resource_name = "AnimationPlayer"
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_xenfq"]
+await_completion = 100.0
+animation_player = SubResource("BBNode_jt5sq")
+animation_name = &"attack"
+
+[sub_resource type="BTCooldown" id="BTCooldown_3i4jo"]
+duration = 1.0
+children = [SubResource("BTPlayAnimation_xenfq")]
+
+[sub_resource type="BTAlwaysSucceed" id="BTAlwaysSucceed_dqphi"]
+children = [SubResource("BTCooldown_3i4jo")]
+
+[sub_resource type="BTSequence" id="BTSequence_d5qjy"]
+children = [SubResource("BTAction_dqphi"), SubResource("BTAlwaysSucceed_dqphi")]
+
+[sub_resource type="BTDynamicSequence" id="BTDynamicSequence_3i4jo"]
+children = [SubResource("BTCheckVar_lhva0"), SubResource("BTSequence_d5qjy")]
+
+[sub_resource type="BTAction" id="BTAction_lhva0"]
+script = ExtResource("2_vvut3")
+
+[sub_resource type="BTSequence" id="BTSequence_je6au"]
+children = [SubResource("BTAction_lhva0")]
+
+[sub_resource type="BTDynamicSelector" id="BTDynamicSelector_okpiy"]
+children = [SubResource("BTDynamicSequence_3i4jo"), SubResource("BTSequence_je6au")]
+
+[resource]
+blackboard_plan = SubResource("BlackboardPlan_37k6l")
+root_task = SubResource("BTDynamicSelector_okpiy")

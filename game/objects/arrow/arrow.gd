@@ -1,6 +1,6 @@
 extends Control
 
-const ARROW_DIST = 120.0
+const ARROW_DIST = 200.0
 
 @export var player: Player
 @export var game_manager: GameManager

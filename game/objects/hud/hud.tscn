@@ -103,10 +103,12 @@ frame = 5
 [node name="back" type="Sprite2D" parent="HealthBar2"]
 texture = ExtResource("4_joawt")
 
+[node name="front" type="Sprite2D" parent="HealthBar2"]
+texture = ExtResource("6_cxlye")
+
 [node name="health_mask" type="ColorRect" parent="HealthBar2"]
 modulate = Color(0.8389701, 0, 0.21209751, 1)
 clip_children = 1
-z_index = 2
 clip_contents = true
 offset_left = -117.0
 offset_top = -24.0
@@ -114,14 +116,10 @@ offset_right = 114.0
 offset_bottom = 16.0
 
 [node name="center" type="Sprite2D" parent="HealthBar2/health_mask"]
-z_index = 1
 position = Vector2(117, 24)
 texture = ExtResource("5_w0vgd")
 region_enabled = true
 region_rect = Rect2(0, 0, 277, 97)
-
-[node name="front" type="Sprite2D" parent="HealthBar2"]
-texture = ExtResource("6_cxlye")
 
 [node name="HUDAnim" type="AnimationPlayer" parent="."]
 libraries = {

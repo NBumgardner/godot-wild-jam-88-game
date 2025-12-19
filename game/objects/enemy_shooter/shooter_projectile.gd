@@ -20,5 +20,6 @@ func _physics_process(delta: float) -> void:
 		set_physics_process(false)
 		collision_shape_2d.disabled = false
 		await get_tree().physics_frame
-		print(get_overlapping_bodies())
+		for player: Player in get_overlapping_bodies():
+			player.hit()
 		queue_free()

@@ -26,24 +26,39 @@ normal = Vector2(1, 0)
 y_sort_enabled = true
 script = ExtResource("1_dpu10")
 
-[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("player", "exit_vent")]
+[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("player", "exit_vent", "vent_parent")]
 script = ExtResource("1_ru4tf")
 player = NodePath("../Player")
-exit_vent = NodePath("../ExitVent")
+exit_vent = NodePath("../BackgroundLayer/ExitVent")
+vent_parent = NodePath("../BackgroundLayer")
 
 [node name="EnemyDirector" type="Node" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("2_kcfjd")
 player = NodePath("../Player")
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+layer = -1
+follow_viewport_enabled = true
+
+[node name="Background" type="Sprite2D" parent="BackgroundLayer"]
+position = Vector2(45, 25)
+scale = Vector2(5, 5)
+texture = ExtResource("1_dwgg1")
+
+[node name="ExitVent" parent="BackgroundLayer" instance=ExtResource("4_6sh32")]
+
+[node name="BackgroundHUD" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Arrow" parent="BackgroundHUD" node_paths=PackedStringArray("player", "game_manager") instance=ExtResource("3_ejswk")]
+player = NodePath("../../Player")
+game_manager = NodePath("../../GameManager")
 
 [node name="HUDLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="HUDLayer" node_paths=PackedStringArray("game_manager", "player") instance=ExtResource("2_6sh32")]
 game_manager = NodePath("../../GameManager")
 player = NodePath("../../Player")
-
-[node name="Arrow" parent="HUDLayer" node_paths=PackedStringArray("player", "game_manager") instance=ExtResource("3_ejswk")]
-player = NodePath("../../Player")
-game_manager = NodePath("../../GameManager")
 
 [node name="Fade" type="ColorRect" parent="HUDLayer"]
 visible = false
@@ -59,15 +74,6 @@ mouse_filter = 2
 libraries = {
 &"": ExtResource("6_q6uuj")
 }
-
-[node name="BackgroundLayer" type="Node2D" parent="."]
-show_behind_parent = true
-z_index = -4096
-
-[node name="Background" type="Sprite2D" parent="BackgroundLayer"]
-position = Vector2(45, 25)
-scale = Vector2(5, 5)
-texture = ExtResource("1_dwgg1")
 
 [node name="WorldBoundaries" type="StaticBody2D" parent="."]
 visible = false
@@ -90,8 +96,6 @@ shape = SubResource("WorldBoundaryShape2D_6sh32")
 position = Vector2(-4755, 0)
 shape = SubResource("WorldBoundaryShape2D_dwgg1")
 
-[node name="ExitVent" parent="." instance=ExtResource("4_6sh32")]
-
 [node name="Player" parent="." node_paths=PackedStringArray("camera_target") instance=ExtResource("1_wwpf4")]
 camera_target = NodePath("../CameraTarget")
 
@@ -108,8 +112,8 @@ script = ExtResource("2_m7ahb")
 follow_node = NodePath("../CameraTarget")
 
 [connection signal="vent_opened" from="GameManager" to="EnemyDirector" method="_on_game_manager_vent_opened"]
-[connection signal="burst" from="ExitVent" to="GameManager" method="_on_exit_vent_burst"]
-[connection signal="player_touched" from="ExitVent" to="." method="_on_exit_vent_player_touched"]
-[connection signal="player_touched" from="ExitVent" to="GameManager" method="_on_exit_vent_player_touched"]
+[connection signal="burst" from="BackgroundLayer/ExitVent" to="GameManager" method="_on_exit_vent_burst"]
+[connection signal="player_touched" from="BackgroundLayer/ExitVent" to="." method="_on_exit_vent_player_touched"]
+[connection signal="player_touched" from="BackgroundLayer/ExitVent" to="GameManager" method="_on_exit_vent_player_touched"]
 [connection signal="dead" from="Player" to="." method="_on_player_dead"]
 [connection signal="dead" from="Player" to="GameManager" method="_on_player_dead"]

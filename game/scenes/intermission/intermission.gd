@@ -56,7 +56,7 @@ func _take_upgrade() -> void:
 	
 	await t.finished
 	
-	get_parent().goto_level()
+	GameState.start_level()
 
 
 func _on_intermission_hovered() -> void:

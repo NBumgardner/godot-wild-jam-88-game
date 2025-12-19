@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://0aci2nmgds3l"]
 
-[ext_resource type="Texture2D" uid="uid://cybyc3m6rcpy6" path="res://objects/enemy/enemy.png" id="1_ew6v3"]
+[ext_resource type="Texture2D" uid="uid://cybyc3m6rcpy6" path="res://objects/enemy_walker/enemy.png" id="1_ew6v3"]
 [ext_resource type="Script" uid="uid://dsopx544ng1gc" path="res://objects/fx_enemy_death/fx_enemy_death.gd" id="2_sncgp"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sncgp"]

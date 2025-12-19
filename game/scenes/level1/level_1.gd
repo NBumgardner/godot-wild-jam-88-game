@@ -12,8 +12,6 @@ func _on_player_dead() -> void:
 	await get_tree().create_timer(1.0).timeout
 	get_tree().change_scene_to_file("res://scenes/menus/start_menu/start_menu.tscn")
 
-
-
 func _on_exit_vent_player_touched() -> void:
 	var duration := 1.0
 	var tween := create_tween()
@@ -24,4 +22,4 @@ func _on_exit_vent_player_touched() -> void:
 	tween.parallel().tween_property(fade, "modulate:a", 1.0, duration)
 	tween.tween_interval(0.2)
 	await tween.finished
-	get_parent().goto_intermission()
+	GameState.goto_next_level()

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://wisy58pqq57"
+path="res://.godot/imported/Title Track.ogg-7710f5d4cbbb1a976231fb4335750f61.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/music/Title Track.ogg"
+dest_files=["res://.godot/imported/Title Track.ogg-7710f5d4cbbb1a976231fb4335750f61.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

@@ -8,14 +8,12 @@ enum Upgrade {
 	FIRE_RATE_UP,
 	PROJECTILE_SPEED_UP,
 	PROJECTILE_SIZE_UP,
-	PROJECTILE_HOMING_RANGE,
-	PROJECTILE_HOMING_SPEED,
+	PROJECTILE_HOMING,
 	PROJECTILE_BOUNCE,
 }
 
 const RARE_UPGRADES = [
-	Upgrade.PROJECTILE_HOMING_RANGE,
-	Upgrade.PROJECTILE_HOMING_SPEED,
+	Upgrade.PROJECTILE_HOMING,
 	Upgrade.PROJECTILE_BOUNCE,
 ]
 
@@ -59,12 +57,10 @@ func add_upgrade(upgrade: Upgrade) -> void:
 			projectile_speed_mult *= 1.2
 		Upgrade.PROJECTILE_SIZE_UP:
 			projectile_size_mult *= 1.2
-		Upgrade.PROJECTILE_HOMING_RANGE:
+		Upgrade.PROJECTILE_HOMING:
 			if projectile_homing_radius == 0.0:
-				projectile_homing_radius = 26.0
+				projectile_homing_radius = 160.0
 			else:
-				projectile_homing_radius *= 1.2
-		Upgrade.PROJECTILE_HOMING_SPEED:
-			projectile_homing_speed_mult *= 1.2
+				projectile_homing_speed_mult *= 1.2
 		Upgrade.PROJECTILE_BOUNCE:
 			projectile_bounce += 1

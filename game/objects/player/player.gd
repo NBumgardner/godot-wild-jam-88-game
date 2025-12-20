@@ -10,6 +10,7 @@ const CAMERA_TARGET_DISTANCE = 150.0
 const FIRE_DELAY = 1.0
 
 const PROJECTILE_SPEED = 200.0
+const PROJECTILE_INCIDENT_VELOCITY_RATIO = 0.5
 
 const PROJECTILE = preload("uid://do7s00elpsdcm")
 
@@ -23,8 +24,6 @@ enum State {
 	## Dead.
 	DEAD,
 }
-
-@export var camera_target: Node2D
 
 var state: State = State.NORMAL: set = set_state
 
@@ -64,9 +63,6 @@ func _physics_process(delta: float) -> void:
 			move_and_slide()
 			
 			handle_animation(input_dir)
-			
-			if camera_target:
-				camera_target.position = position + velocity.limit_length(CAMERA_TARGET_DISTANCE)
 		
 		State.DISABLED:
 			return
@@ -83,6 +79,9 @@ func _unhandled_input(event: InputEvent) -> void:
 func fire_projectile(dir: Vector2) -> void:
 		var projectile := PROJECTILE.instantiate() as Projectile
 		projectile.velocity = dir * PROJECTILE_SPEED * GameState.player_stats.projectile_speed_mult
+		var incident_velocity := velocity.project(projectile.velocity) * PROJECTILE_INCIDENT_VELOCITY_RATIO
+		if incident_velocity.dot(projectile.velocity) > 0.0:
+			projectile.velocity += incident_velocity
 		projectile.position = global_position
 		projectile.scale *= GameState.player_stats.projectile_size_mult
 		get_parent().add_child(projectile)

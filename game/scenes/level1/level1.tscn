@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://malxmp0cv835"]
+[gd_scene load_steps=16 format=4 uid="uid://malxmp0cv835"]
 
 [ext_resource type="Script" uid="uid://bqctpd7vkcbxw" path="res://scenes/level1/level_1.gd" id="1_dpu10"]
 [ext_resource type="Script" uid="uid://ddvebyb53rymj" path="res://objects/game_manager.gd" id="1_ru4tf"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://t0o32ktuyxs7" path="res://objects/exit_vent/exit_vent.tscn" id="4_6sh32"]
 [ext_resource type="AnimationLibrary" uid="uid://bwkjvuv6p3w11" path="res://scenes/level1/animations.tres" id="6_q6uuj"]
 [ext_resource type="TileSet" uid="uid://d1wksaknren5w" path="res://scenes/level1/level1_tileset.tres" id="8_wmcwa"]
+[ext_resource type="Script" uid="uid://cg1pppt1as4xi" path="res://objects/camera_target.gd" id="10_wmcwa"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ejswk"]
 
@@ -98,20 +99,24 @@ shape = SubResource("WorldBoundaryShape2D_6sh32")
 position = Vector2(-4096, 0)
 shape = SubResource("WorldBoundaryShape2D_dwgg1")
 
-[node name="Player" parent="." node_paths=PackedStringArray("camera_target") instance=ExtResource("1_wwpf4")]
-camera_target = NodePath("../CameraTarget")
+[node name="Player" parent="." instance=ExtResource("1_wwpf4")]
 
-[node name="CameraTarget" type="Marker2D" parent="."]
+[node name="CameraTarget" type="Marker2D" parent="." node_paths=PackedStringArray("follow_nodes")]
+script = ExtResource("10_wmcwa")
+follow_nodes = [NodePath("../Player")]
+follow_node_weights = Array[float]([3.0])
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("follow_node")]
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("follow_node", "velocity_parent")]
 process_priority = 1
+physics_interpolation_mode = 2
 limit_left = -4096
 limit_top = -4096
 limit_right = 4096
 limit_bottom = 4096
-position_smoothing_enabled = true
+position_smoothing_speed = 3.0
 script = ExtResource("2_m7ahb")
 follow_node = NodePath("../CameraTarget")
+velocity_parent = NodePath("../Player")
 
 [connection signal="vent_opened" from="GameManager" to="EnemyDirector" method="_on_game_manager_vent_opened"]
 [connection signal="burst" from="BackgroundLayer/ExitVent" to="GameManager" method="_on_exit_vent_burst"]

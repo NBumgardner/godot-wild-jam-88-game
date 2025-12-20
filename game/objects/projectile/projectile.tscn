@@ -4,11 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://75q0s4tjmr8s" path="res://objects/player/sprites/Slime SHEET 2.png" id="2_d2sno"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0fw2a"]
-radius = 7.28011
+radius = 8.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d2sno"]
 resource_local_to_scene = true
-radius = 15.0
+radius = 30.265491
 
 [node name="Projectile" type="Area2D"]
 collision_layer = 0
@@ -16,12 +16,12 @@ collision_mask = 8
 script = ExtResource("1_75s7i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_0fw2a")
 debug_color = Color(0, 0.6483944, 0.19203007, 0.41960785)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -3)
-scale = Vector2(0.5, 0.5)
+position = Vector2(0, -5)
 texture = ExtResource("2_d2sno")
 flip_h = true
 hframes = 8
@@ -41,6 +41,7 @@ monitorable = false
 [node name="HomingShape" type="CollisionShape2D" parent="Homing"]
 shape = SubResource("CircleShape2D_d2sno")
 disabled = true
+debug_color = Color(0.7245831, 0.24421564, 1, 0.41960785)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]

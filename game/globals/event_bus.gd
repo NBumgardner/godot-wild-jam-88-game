@@ -11,6 +11,10 @@ signal globalLevelSuccess();
 signal globalLevelFailed();
 @warning_ignore("unused_signal")
 signal globalIntermissionEntered();
+@warning_ignore("unused_signal")
+signal globalTitleEntered();
+@warning_ignore("unused_signal")
+signal globalCreditsEntered();
 #endregion Music signals
 
 #region Enemy signals

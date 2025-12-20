@@ -5,6 +5,7 @@ extends Control
 func _ready() -> void:
 	if OS.get_name() == "Web":
 		buttonQuit.visible = false
+	EventBus.globalTitleEntered.emit()
 
 #region button pressed
 func _on_button_credits_pressed():

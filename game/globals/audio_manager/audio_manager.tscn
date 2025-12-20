@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ced34ddbfg6rk"]
+[gd_scene load_steps=17 format=3 uid="uid://ced34ddbfg6rk"]
 
 [ext_resource type="Script" uid="uid://d285n7qgdjp7g" path="res://globals/audio_manager/audio_manager.gd" id="1_ix0j0"]
 [ext_resource type="AudioStream" uid="uid://1lx2vem4rr32" path="res://assets/audio/sfx/sfx_101_ButtonClick.wav" id="2_2bgjf"]
@@ -10,13 +10,15 @@
 [ext_resource type="AudioStream" uid="uid://dq5732a6lslmi" path="res://assets/audio/music/Level 1 Track.ogg" id="4_2d6s7"]
 [ext_resource type="AudioStream" uid="uid://bfnoi187370s8" path="res://assets/audio/music/Level End Stinger.ogg" id="5_1m5h4"]
 [ext_resource type="AudioStream" uid="uid://cd3mbwaoh1kyc" path="res://assets/audio/sfx/sfx_202_PlayerHurt.wav" id="5_fdt5a"]
+[ext_resource type="AudioStream" uid="uid://wisy58pqq57" path="res://assets/audio/music/Title Track.ogg" id="5_qmnf0"]
+[ext_resource type="AudioStream" uid="uid://d3oqlpyitnxco" path="res://assets/audio/music/Endgame and Credits.ogg" id="6_2d6s7"]
 [ext_resource type="AudioStream" uid="uid://cow07hxmv2mn5" path="res://assets/audio/music/Powerup Screen Track.ogg" id="6_684e1"]
 [ext_resource type="AudioStream" uid="uid://c70q4om6yqj2o" path="res://assets/audio/music/Initial DialogueTrack.ogg" id="7_x361m"]
 
 [sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_lgug7"]
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_8cy7q"]
-clip_count = 4
+clip_count = 6
 clip_0/name = &"silence"
 clip_0/stream = SubResource("AudioStreamGenerator_lgug7")
 clip_0/auto_advance = 0
@@ -29,7 +31,12 @@ clip_2/auto_advance = 0
 clip_3/name = &"Initial Dialogue Track"
 clip_3/stream = ExtResource("7_x361m")
 clip_3/auto_advance = 0
-initial_clip = 3
+clip_4/name = &"Title Track"
+clip_4/stream = ExtResource("5_qmnf0")
+clip_4/auto_advance = 0
+clip_5/name = &"Endgame And Credits"
+clip_5/stream = ExtResource("6_2d6s7")
+clip_5/auto_advance = 0
 _transitions = {
 Vector2i(-1, -1): {
 "fade_beats": 1.0,
@@ -49,9 +56,11 @@ bus = &"Music"
 
 [node name="LevelEndStinger" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_1m5h4")
+bus = &"Music"
 
 [node name="IntoLevel1Stinger" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_qmnf0")
+bus = &"Music"
 
 [node name="SFXEnemyDestroyed" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_ulrmu")

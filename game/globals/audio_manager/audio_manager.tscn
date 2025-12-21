@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://ced34ddbfg6rk"]
+[gd_scene load_steps=38 format=3 uid="uid://ced34ddbfg6rk"]
 
 [ext_resource type="Script" uid="uid://d285n7qgdjp7g" path="res://globals/audio_manager/audio_manager.gd" id="1_ix0j0"]
 [ext_resource type="AudioStream" uid="uid://s8ju877xwmox" path="res://assets/audio/music/Into Level 1 Stinger.ogg" id="3_qmnf0"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://wisy58pqq57" path="res://assets/audio/music/Title Track.ogg" id="5_qmnf0"]
 [ext_resource type="AudioStream" uid="uid://d3oqlpyitnxco" path="res://assets/audio/music/Endgame and Credits.ogg" id="6_2d6s7"]
 [ext_resource type="AudioStream" uid="uid://cow07hxmv2mn5" path="res://assets/audio/music/Powerup Screen Track.ogg" id="6_684e1"]
+[ext_resource type="AudioStream" uid="uid://bfqmmrkbl7645" path="res://assets/audio/music/Game Over.ogg" id="7_ou4mq"]
 [ext_resource type="AudioStream" uid="uid://c70q4om6yqj2o" path="res://assets/audio/music/Initial DialogueTrack.ogg" id="7_x361m"]
 [ext_resource type="AudioStream" uid="uid://baagpys0kf8yc" path="res://assets/audio/music/Game Over Stinger.ogg" id="8_1m5h4"]
 [ext_resource type="AudioStream" uid="uid://c8nixddr1bpu7" path="res://assets/audio/sfx/402_Death sound of Shatter.ogg" id="10_x361m"]
@@ -37,7 +38,7 @@
 [sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_lgug7"]
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_8cy7q"]
-clip_count = 6
+clip_count = 7
 clip_0/name = &"silence"
 clip_0/stream = SubResource("AudioStreamGenerator_lgug7")
 clip_0/auto_advance = 0
@@ -56,6 +57,9 @@ clip_4/auto_advance = 0
 clip_5/name = &"Endgame And Credits"
 clip_5/stream = ExtResource("6_2d6s7")
 clip_5/auto_advance = 0
+clip_6/name = &"Game Over"
+clip_6/stream = ExtResource("7_ou4mq")
+clip_6/auto_advance = 0
 _transitions = {
 Vector2i(-1, -1): {
 "fade_beats": 1.0,

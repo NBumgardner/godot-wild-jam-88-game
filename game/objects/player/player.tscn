@@ -1,6 +1,7 @@
-[gd_scene load_steps=29 format=3 uid="uid://cxgg604ulakso"]
+[gd_scene load_steps=34 format=3 uid="uid://cxgg604ulakso"]
 
 [ext_resource type="Script" uid="uid://d18i42fgylo6r" path="res://objects/player/player.gd" id="1_cqmt1"]
+[ext_resource type="Texture2D" uid="uid://tajpgdbf5pj0" path="res://objects/player/sprites/vent-seal-animation.png" id="3_jnjyq"]
 [ext_resource type="AnimationLibrary" uid="uid://dnwvt6fbjyffo" path="res://objects/player/player_animation_library.tres" id="3_ssrue"]
 [ext_resource type="Texture2D" uid="uid://75q0s4tjmr8s" path="res://objects/player/sprites/Slime SHEET 2.png" id="6_ow0dq"]
 
@@ -44,6 +45,9 @@ animation = &"BALL VISIBLE"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tmow5"]
 animation = &"IDLE"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jnjyq"]
+animation = &"VENT SEAL"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r5k7d"]
 animation = &"WALK UP"
@@ -105,6 +109,18 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h08is"]
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gnkmh"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jnjyq"]
+advance_mode = 2
+advance_condition = &"sealing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xkryw"]
+advance_mode = 2
+advance_condition = &"sealing"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_rgkrx"]
 "states/BALL INVISIBLE/node" = SubResource("AnimationNodeAnimation_u8bnf")
 "states/BALL INVISIBLE/position" = Vector2(509, 61)
@@ -114,9 +130,12 @@ states/End/position = Vector2(1337, 100)
 states/IDLE/node = SubResource("AnimationNodeAnimation_tmow5")
 states/IDLE/position = Vector2(327, 108)
 states/Start/position = Vector2(203, 100)
+"states/VENT SEAL/node" = SubResource("AnimationNodeAnimation_jnjyq")
+"states/VENT SEAL/position" = Vector2(464, 333)
 states/WALK/node = SubResource("AnimationNodeBlendSpace2D_82b0h")
 states/WALK/position = Vector2(703, 115)
-transitions = ["Start", "IDLE", SubResource("AnimationNodeStateMachineTransition_adk3m"), "IDLE", "BALL VISIBLE", SubResource("AnimationNodeStateMachineTransition_jerem"), "WALK", "BALL INVISIBLE", SubResource("AnimationNodeStateMachineTransition_oqafc"), "BALL VISIBLE", "WALK", SubResource("AnimationNodeStateMachineTransition_b75n2"), "BALL INVISIBLE", "IDLE", SubResource("AnimationNodeStateMachineTransition_h08is")]
+transitions = ["Start", "IDLE", SubResource("AnimationNodeStateMachineTransition_adk3m"), "IDLE", "BALL VISIBLE", SubResource("AnimationNodeStateMachineTransition_jerem"), "WALK", "BALL INVISIBLE", SubResource("AnimationNodeStateMachineTransition_oqafc"), "BALL VISIBLE", "WALK", SubResource("AnimationNodeStateMachineTransition_b75n2"), "BALL INVISIBLE", "IDLE", SubResource("AnimationNodeStateMachineTransition_h08is"), "VENT SEAL", "IDLE", SubResource("AnimationNodeStateMachineTransition_gnkmh"), "IDLE", "VENT SEAL", SubResource("AnimationNodeStateMachineTransition_jnjyq"), "WALK", "VENT SEAL", SubResource("AnimationNodeStateMachineTransition_xkryw")]
+graph_offset = Vector2(-358, -66)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 5
@@ -165,6 +184,13 @@ hframes = 8
 vframes = 6
 frame = 11
 
+[node name="SpriteVentSeal" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-61, 12)
+texture = ExtResource("3_jnjyq")
+hframes = 5
+vframes = 5
+
 [node name="BlobAnimPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": ExtResource("3_ssrue")
@@ -174,5 +200,6 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_rgkrx")
 anim_player = NodePath("../BlobAnimPlayer")
 parameters/conditions/idle = false
+parameters/conditions/sealing = false
 parameters/conditions/walk = false
 parameters/WALK/blend_position = Vector2(0.0011299849, 1)

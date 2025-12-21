@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://clxr0xys06nie"]
+[gd_scene load_steps=17 format=3 uid="uid://clxr0xys06nie"]
 
 [ext_resource type="Texture2D" uid="uid://crqpow0he17xw" path="res://objects/vent_hole/vent_hole.png" id="1_ccd3c"]
 [ext_resource type="Script" uid="uid://bo04rerusgwow" path="res://objects/vent_hole/vent_hole.gd" id="1_ymb0x"]
 [ext_resource type="Texture2D" uid="uid://cyat80v5en7k4" path="res://objects/vent_hole/vent_hole_flare.png" id="3_fcpvb"]
 [ext_resource type="Script" uid="uid://m7wc866kxdws" path="res://objects/guard_zone.gd" id="3_l4ska"]
 [ext_resource type="Texture2D" uid="uid://cru6dg81y8s8h" path="res://objects/vent_hole/vent_hole_flare2.png" id="5_sbas8"]
+[ext_resource type="Texture2D" uid="uid://bmd564a23lgb4" path="res://objects/vent_hole/vent_seal_sink.png" id="6_hy3nt"]
 [ext_resource type="Texture2D" uid="uid://bon16lf30e7g3" path="res://objects/vent_hole/vent_hole_flare3.png" id="6_qmb06"]
 [ext_resource type="Texture2D" uid="uid://brqjkvx1ys83g" path="res://objects/vent_hole/vent_hole_flare4.png" id="7_hy3nt"]
 
@@ -71,6 +72,77 @@ tracks/3/keys = {
 "update": 1,
 "values": [ExtResource("5_sbas8")]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SpriteSeal:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SpriteSeal:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SpriteFlare1:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SpriteFlare2:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CPUParticles2D:emitting")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".:enabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_1gqks"]
 resource_name = "glow"
@@ -126,10 +198,86 @@ tracks/3/keys = {
 "values": [ExtResource("5_sbas8"), ExtResource("7_hy3nt"), ExtResource("5_sbas8")]
 }
 
+[sub_resource type="Animation" id="Animation_dogtk"]
+resource_name = "seal"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteSeal:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteSeal:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 6, -0.16666667, -1.3333334, 0, 0, 8, -0.33333334, -0.33333334, 0, 0),
+"times": PackedFloat32Array(0, 1, 3)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteFlare1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SpriteFlare2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CPUParticles2D:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:enabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dogtk"]
 _data = {
 &"RESET": SubResource("Animation_41hsf"),
-&"glow": SubResource("Animation_1gqks")
+&"glow": SubResource("Animation_1gqks"),
+&"seal": SubResource("Animation_dogtk")
 }
 
 [node name="VentHole" type="Area2D" groups=["vent_hole"]]
@@ -180,6 +328,13 @@ modulate = Color(1, 1, 1, 0)
 material = SubResource("CanvasItemMaterial_fcpvb")
 position = Vector2(0, -8.5)
 texture = ExtResource("5_sbas8")
+
+[node name="SpriteSeal" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-3.5, -11.5)
+texture = ExtResource("6_hy3nt")
+hframes = 3
+vframes = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

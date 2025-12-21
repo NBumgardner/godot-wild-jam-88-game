@@ -66,7 +66,7 @@ func _playSfxEnemyDestroyed() -> void:
 #endregion Enemy
 
 #region Environment
-func _playSfxEnvironmentRiftAreaClosed() -> void:
+func _playSfxEnvironmentRiftAreaClosed(_vent: VentHole) -> void:
 	sfxEnvironmentRiftAreaClosed.play()
 
 func _playSfxEnvironmentRiftBigEruption() -> void:

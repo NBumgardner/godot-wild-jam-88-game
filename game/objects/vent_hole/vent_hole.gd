@@ -25,3 +25,4 @@ func fade_effects() -> void:
 
 func seal_animation() -> void:
 	animation_player.play("seal")
+	animation_player.advance(0.0)

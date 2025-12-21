@@ -91,13 +91,14 @@ func _animate_vent_seal(vent: VentHole) -> void:
 	sealing_vent = vent
 	disable()
 	hop_to(sealing_vent.position + Vector2(-3.0, -50.0))
+	reset_physics_interpolation()
 	sealing_vent.fade_effects()
 	animation_tree.set("parameters/conditions/sealing", true)
 
 func _vent_seal_finished() -> void:
 	animation_tree.set("parameters/conditions/sealing", false)
-	position += Vector2(-167.0, 67.0)
-	animation_player.play("RESET")
+	position += Vector2(-127.0, 56.0)
+	animation_player.play("IDLE")
 	animation_player.advance(0.0)
 	set_state(State.NORMAL)
 	sealing_vent.seal_animation()

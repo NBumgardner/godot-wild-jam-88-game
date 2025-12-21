@@ -120,7 +120,6 @@ bus = &"SFX"
 
 [node name="SFXPlayerHurt" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_tyt4p")
-volume_db = -2.0
 bus = &"SFX"
 
 [node name="SFXUIClickConfirm" type="AudioStreamPlayer" parent="."]

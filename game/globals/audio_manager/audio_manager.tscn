@@ -119,6 +119,7 @@ bus = &"SFX"
 
 [node name="SFXSlimeWalking" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_8cy7q")
+parameters/looping = false
 
 [node name="SFXPowerUpAcquired" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_i8kch")

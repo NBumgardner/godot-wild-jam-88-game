@@ -36,6 +36,7 @@ func _ready() -> void:
 	EventBus.globalCreditsEntered.connect(_playMusicEndCredits)
 	EventBus.globalPlayerShoot.connect(_playPlayerShoot)
 	EventBus.globalPlayerWalkStart.connect(_playPlayerWalkStart)
+	EventBus.globalPlayerWalkEnd.connect(_playPlayerWalkEnd)
 	EventBus.globalPlayerPowerup.connect(_playPlayerPowerup)
 	EventBus.globalEnvironmentRiftBigReadyToLaunch.connect(_playRumble)
 
@@ -88,6 +89,9 @@ func _playPlayerPowerup() -> void:
 func _playPlayerWalkStart() -> void:
 	if not sfx_slime_walking.playing:
 		sfx_slime_walking.play()
+	sfx_slime_walking["parameters/looping"] = true
+func _playPlayerWalkEnd() -> void:
+	sfx_slime_walking["parameters/looping"] = false
 #endregion Player
 
 #region UI

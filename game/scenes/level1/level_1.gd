@@ -31,6 +31,8 @@ func _unhandled_key_input(event: InputEvent) -> void:
 				GameState.player_stats.add_upgrade(PlayerStats.Upgrade.PROJECTILE_HOMING)
 			elif event.keycode == KEY_KP_3:
 				GameState.player_stats.add_upgrade(PlayerStats.Upgrade.MAX_HP)
+			elif event.keycode == KEY_KP_6:
+				GameState.player_stats.add_upgrade(PlayerStats.Upgrade.PROJECTILE_BOUNCE)
 
 func intro_cutscene() -> void:
 	EventBus.globalInitialDialogStarted.emit()

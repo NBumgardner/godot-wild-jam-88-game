@@ -8,6 +8,8 @@ process_mode = 1
 script = ExtResource("1_30801")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.3882353, 1, 0.827451, 1)
+z_index = 1
 position = Vector2(0, -6)
 texture = ExtResource("1_1oed3")
 flip_h = true
@@ -21,12 +23,11 @@ wait_time = 0.3
 autostart = true
 
 [node name="ProjectileTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 2.0
 autostart = true
 
 [node name="LifeTimer" type="Timer" parent="."]
-wait_time = 5.0
-one_shot = true
+wait_time = 2.0
 autostart = true
 
 [connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]

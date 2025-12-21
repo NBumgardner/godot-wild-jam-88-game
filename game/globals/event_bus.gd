@@ -33,7 +33,7 @@ signal globalEnemyHoverStart();
 
 #region Environment signals
 @warning_ignore("unused_signal")
-signal globalEnvironmentRiftAreaClosed();
+signal globalEnvironmentRiftAreaClosed(vent: VentHole);
 
 @warning_ignore("unused_signal")
 signal globalEnvironmentRiftAreaEntered();

@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bmevvwgk8usks"]
+[gd_scene load_steps=19 format=3 uid="uid://bmevvwgk8usks"]
 
 [ext_resource type="Script" uid="uid://c5m84cf1bn4at" path="res://objects/enemy_tough/enemy_tough.gd" id="1_05y0o"]
 [ext_resource type="Texture2D" uid="uid://bmgpqaf4e1v4q" path="res://objects/enemy_tough/enemy.png" id="2_gisoc"]
 [ext_resource type="BehaviorTree" uid="uid://yvh8kwr8caet" path="res://objects/enemy_tough/enemy_tough_bt.tres" id="3_hyibi"]
-[ext_resource type="Script" path="res://objects/hp_bar.gd" id="3_j48ov"]
+[ext_resource type="Script" uid="uid://o3lhl0tef5ys" path="res://objects/hp_bar.gd" id="3_j48ov"]
+[ext_resource type="Texture2D" uid="uid://dfwnvhm8331xv" path="res://objects/enemy_tough/ICE SHEET_TOUGH.png" id="5_wcl4i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1rjq7"]
 radius = 37.01351
@@ -68,6 +69,54 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SpriteGem:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SpriteWind:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SpriteGem:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.05235988]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SpriteGem:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2, -7.450581e-09)]
 }
 
 [sub_resource type="Animation" id="Animation_1rjq7"]
@@ -145,13 +194,195 @@ tracks/5/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_cvtpv"]
+resource_name = "IDLE"
+length = 0.50000834
+loop_mode = 1
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteGem:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 0, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteWind:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9, 10]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteGem:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.05235988, 0.017453292, -0.017453298, -0.05235988, -0.017453289, 0.0174533, 0.05235988]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SpriteGem:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(-2, -7.450581e-09), Vector2(-0.6666666, -4.9670534e-09), Vector2(0.66666675, -2.4835267e-09), Vector2(2, 0), Vector2(0.6666665, -2.4835272e-09), Vector2(-0.66666687, -4.9670543e-09), Vector2(-2, -7.450581e-09)]
+}
+
+[sub_resource type="Animation" id="Animation_w1cpa"]
+resource_name = "MOVE_LEFT"
+length = 0.50000834
+loop_mode = 1
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteGem:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 0, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteWind:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9, 10]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteGem:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(-2, -7.450581e-09), Vector2(-0.6666666, -4.9670534e-09), Vector2(0.66666675, -2.4835267e-09), Vector2(2, 0), Vector2(0.6666665, -2.4835272e-09), Vector2(-0.66666687, -4.9670543e-09), Vector2(-2, -7.450581e-09)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SpriteGem:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.2268928, 0.19198622, 0.15707962, 0.12217305, 0.15707847, 0.1919839, 0.2268893]
+}
+
+[sub_resource type="Animation" id="Animation_x780a"]
+resource_name = "MOVE_RIGHT"
+length = 0.50000834
+loop_mode = 1
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteGem:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 0, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteWind:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9, 10]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteGem:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [-0.2268928, -0.19198622, -0.15707962, -0.12217305, -0.15707847, -0.1919839, -0.2268893]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SpriteGem:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(2, 0), Vector2(0.6666665, 0), Vector2(-0.66666687, 0), Vector2(-2, 0), Vector2(-0.666711, 0), Vector2(0.6665778, 0), Vector2(1.9998665, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_esv4w"]
 _data = {
+&"IDLE": SubResource("Animation_cvtpv"),
+&"MOVE_LEFT": SubResource("Animation_w1cpa"),
+&"MOVE_RIGHT": SubResource("Animation_x780a"),
 &"RESET": SubResource("Animation_vc3w8"),
 &"attack": SubResource("Animation_1rjq7")
 }
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_vf5o6"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wcl4i"]
+animation = &"MOVE_RIGHT"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cvtpv"]
+animation = &"MOVE_LEFT"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_w1cpa"]
+animation = &"IDLE"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_x780a"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_wcl4i")
+blend_point_0/pos = -1.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_cvtpv")
+blend_point_1/pos = 1.0
+blend_point_2/node = SubResource("AnimationNodeAnimation_w1cpa")
+blend_point_2/pos = 0.0
 
 [node name="EnemyTough" type="CharacterBody2D"]
 collision_layer = 9
@@ -173,6 +404,7 @@ debug_color = Color(0.9764706, 0, 0.40392157, 0.26666668)
 shape = SubResource("CircleShape2D_vc3w8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 0.58066666, 0.26, 1)
 position = Vector2(-2.3841858e-07, -18.233553)
 scale = Vector2(0.110689215, 0.110689215)
@@ -189,3 +421,25 @@ libraries = {
 [node name="BTPlayer" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("3_hyibi")
 blackboard_plan = SubResource("BlackboardPlan_vf5o6")
+
+[node name="SpriteWind" type="Sprite2D" parent="."]
+position = Vector2(-1, -1)
+texture = ExtResource("5_wcl4i")
+offset = Vector2(1, -37)
+hframes = 6
+vframes = 2
+frame = 6
+
+[node name="SpriteGem" type="Sprite2D" parent="."]
+position = Vector2(-2, -7.450581e-09)
+rotation = 0.05235988
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_wcl4i")
+offset = Vector2(0, -48)
+hframes = 6
+vframes = 2
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeBlendSpace1D_x780a")
+anim_player = NodePath("../AnimationPlayer")
+parameters/blend_position = 0.0

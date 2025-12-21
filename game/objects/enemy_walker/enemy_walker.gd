@@ -17,7 +17,7 @@ func _ready() -> void:
 		guard_zone.player_aggrod.connect(_on_player_aggrod)
 
 func _physics_process(_delta: float) -> void:
-	anim_tree.set("parameters/blend_position",remap(velocity.x,-100,100,-1,1))
+	anim_tree.set("parameters/blend_position",remap(velocity.x, SPEED,-SPEED,1,-1))
 	#if velocity.x > 0:
 		#sprite_2d.flip_h = true
 	#elif velocity.x < 0:

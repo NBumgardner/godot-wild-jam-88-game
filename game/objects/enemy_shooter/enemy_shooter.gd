@@ -20,10 +20,10 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	anim_tree.set("parameters/blend_position",remap(velocity.x, SPEED,-SPEED,1,-1))
-	if velocity.x > 0:
-		sprite_2d.flip_h = true
-	elif velocity.x < 0:
-		sprite_2d.flip_h = false
+	#if velocity.x > 0:
+		#sprite_2d.flip_h = true
+	#elif velocity.x < 0:
+		#sprite_2d.flip_h = false
 
 func get_max_move_speed() -> float:
 	return SPEED

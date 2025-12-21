@@ -13,8 +13,12 @@ var current_music: AudioStreamPlayer
 @onready var level_end_stinger: AudioStreamPlayer = $LevelEndStinger
 @onready var into_level_1_stinger: AudioStreamPlayer = $IntoLevel1Stinger
 @onready var game_over_stinger: AudioStreamPlayer = $GameOverStinger
+@onready var sfx_enemy_hurt: AudioStreamPlayer = $SFXEnemyHurt
+@onready var sfx_slime_shooting: AudioStreamPlayer = $SFXSlimeShooting
+@onready var sfx_slime_walking: AudioStreamPlayer = $SFXSlimeWalking
 
 func _ready() -> void:
+	EventBus.globalEnemyHurt.connect(_playSfxEnemyHurt)
 	EventBus.globalEnemyDestroyed.connect(_playSfxEnemyDestroyed)
 	EventBus.globalEnvironmentRiftAreaClosed.connect(_playSfxEnvironmentRiftAreaClosed)
 	EventBus.globalEnvironmentRiftBigEruption.connect(_playSfxEnvironmentRiftBigEruption)
@@ -28,6 +32,8 @@ func _ready() -> void:
 	EventBus.globalIntermissionEntered.connect(_playMusicPowerupScreen)
 	EventBus.globalTitleEntered.connect(_playMusicTitle)
 	EventBus.globalCreditsEntered.connect(_playMusicEndCredits)
+	EventBus.globalPlayerShoot.connect(_playPlayerShoot)
+	EventBus.globalPlayerWalkStart.connect(_playPlayerWalkStart)
 
 #region Music
 func _playMusicTitle() -> void:
@@ -51,6 +57,8 @@ func _playMusicPowerupScreen() -> void:
 #endregion Music
 
 #region Enemy
+func _playSfxEnemyHurt() -> void:
+	sfx_enemy_hurt.play()
 func _playSfxEnemyDestroyed() -> void:
 	sfxEnemyDestroyed.play()
 #endregion Enemy
@@ -66,6 +74,11 @@ func _playSfxEnvironmentRiftBigEruption() -> void:
 #region Player
 func _playSfxPlayerHurt() -> void:
 	sfxPlayerHurt.play()
+func _playPlayerShoot() -> void:
+	sfx_slime_shooting.play()
+func _playPlayerWalkStart() -> void:
+	if not sfx_slime_walking.playing:
+		sfx_slime_walking.play()
 #endregion Player
 
 #region UI

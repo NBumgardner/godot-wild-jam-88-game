@@ -59,6 +59,9 @@ func _physics_process(delta: float) -> void:
 			
 			var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 			
+			if input_dir and not velocity:
+				EventBus.globalPlayerWalkStart.emit()
+			
 			velocity = velocity.move_toward(input_dir * BASE_SPEED * GameState.player_stats.speed_mult, ACCEL * delta)
 			
 			move_and_slide()
@@ -78,6 +81,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			fire_projectile(pos - global_position)
 
 func fire_projectile(target: Vector2) -> void:
+	EventBus.globalPlayerShoot.emit()
+	
 	var key_upgrade
 	if not GameState.player_stats.key_upgrade.is_empty():
 		key_upgrade = GameState.player_stats.key_upgrade[0]

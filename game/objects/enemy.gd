@@ -24,6 +24,7 @@ func hit() -> void:
 	health -= 1
 	health_changed.emit()
 	if health > 0:
+		EventBus.globalEnemyHurt.emit()
 		return
 	
 	EventBus.globalEnemyDestroyed.emit()

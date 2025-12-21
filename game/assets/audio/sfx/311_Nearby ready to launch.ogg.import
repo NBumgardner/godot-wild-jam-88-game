@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://udnkqg4qlp5v"
+path="res://.godot/imported/311_Nearby ready to launch.ogg-a6f473895ccf53924436883fff9995e2.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/sfx/311_Nearby ready to launch.ogg"
+dest_files=["res://.godot/imported/311_Nearby ready to launch.ogg-a6f473895ccf53924436883fff9995e2.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

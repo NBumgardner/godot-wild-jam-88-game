@@ -4,9 +4,17 @@ class_name ExitVent
 signal player_touched()
 signal burst()
 
-var active: bool = false
+var active: bool = false:
+	set(v):
+		active = v
+		if audio_stream_player_2d:
+			if active:
+				audio_stream_player_2d.play()
+			else:
+				audio_stream_player_2d.stop()
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 func _anim_burst() -> void:
 	burst.emit()

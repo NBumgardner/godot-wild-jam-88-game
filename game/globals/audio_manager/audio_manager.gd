@@ -16,6 +16,7 @@ var current_music: AudioStreamPlayer
 @onready var sfx_enemy_hurt: AudioStreamPlayer = $SFXEnemyHurt
 @onready var sfx_slime_shooting: AudioStreamPlayer = $SFXSlimeShooting
 @onready var sfx_slime_walking: AudioStreamPlayer = $SFXSlimeWalking
+@onready var sfx_power_up_acquired: AudioStreamPlayer = $SFXPowerUpAcquired
 
 func _ready() -> void:
 	EventBus.globalEnemyHurt.connect(_playSfxEnemyHurt)
@@ -34,6 +35,7 @@ func _ready() -> void:
 	EventBus.globalCreditsEntered.connect(_playMusicEndCredits)
 	EventBus.globalPlayerShoot.connect(_playPlayerShoot)
 	EventBus.globalPlayerWalkStart.connect(_playPlayerWalkStart)
+	EventBus.globalPlayerPowerup.connect(_playPlayerPowerup)
 
 #region Music
 func _playMusicTitle() -> void:
@@ -76,6 +78,8 @@ func _playSfxPlayerHurt() -> void:
 	sfxPlayerHurt.play()
 func _playPlayerShoot() -> void:
 	sfx_slime_shooting.play()
+func _playPlayerPowerup() -> void:
+	sfx_power_up_acquired.play()
 func _playPlayerWalkStart() -> void:
 	if not sfx_slime_walking.playing:
 		sfx_slime_walking.play()
@@ -83,6 +87,7 @@ func _playPlayerWalkStart() -> void:
 
 #region UI
 func _playSfxUiClickConfirm() -> void:
+	sfxUiMouseEntered.stop()
 	sfxUiClickConfirm.play()
 
 func _playSfxUiMouseEntered() -> void:

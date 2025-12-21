@@ -1,11 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://ced34ddbfg6rk"]
+[gd_scene load_steps=22 format=3 uid="uid://ced34ddbfg6rk"]
 
 [ext_resource type="Script" uid="uid://d285n7qgdjp7g" path="res://globals/audio_manager/audio_manager.gd" id="1_ix0j0"]
-[ext_resource type="AudioStream" uid="uid://1lx2vem4rr32" path="res://assets/audio/sfx/sfx_101_ButtonClick.wav" id="2_2bgjf"]
-[ext_resource type="AudioStream" uid="uid://8vqf8dkkf3em" path="res://assets/audio/sfx/sfx_102_ButtonHover.wav" id="3_1d2wt"]
 [ext_resource type="AudioStream" uid="uid://s8ju877xwmox" path="res://assets/audio/music/Into Level 1 Stinger.ogg" id="3_qmnf0"]
 [ext_resource type="AudioStream" uid="uid://h0msm0vto1b4" path="res://assets/audio/sfx/sfx_312_RiftBigEruption.wav" id="3_ulrmu"]
-[ext_resource type="AudioStream" uid="uid://bjryoera6u8hm" path="res://assets/audio/sfx/sfx_304_RiftAreaClosed.wav" id="4_2bgjf"]
 [ext_resource type="AudioStream" uid="uid://dq5732a6lslmi" path="res://assets/audio/music/Level 1 Track.ogg" id="4_2d6s7"]
 [ext_resource type="AudioStream" uid="uid://bfnoi187370s8" path="res://assets/audio/music/Level End Stinger.ogg" id="5_1m5h4"]
 [ext_resource type="AudioStream" uid="uid://cd3mbwaoh1kyc" path="res://assets/audio/sfx/sfx_202_PlayerHurt.wav" id="5_fdt5a"]
@@ -15,9 +12,13 @@
 [ext_resource type="AudioStream" uid="uid://c70q4om6yqj2o" path="res://assets/audio/music/Initial DialogueTrack.ogg" id="7_x361m"]
 [ext_resource type="AudioStream" uid="uid://baagpys0kf8yc" path="res://assets/audio/music/Game Over Stinger.ogg" id="8_1m5h4"]
 [ext_resource type="AudioStream" uid="uid://c8nixddr1bpu7" path="res://assets/audio/sfx/402_Death sound of Shatter.ogg" id="10_x361m"]
+[ext_resource type="AudioStream" uid="uid://dpqbvkoa10sh8" path="res://assets/audio/sfx/304_Finished Closing Rift.wav" id="11_8cy7q"]
+[ext_resource type="AudioStream" uid="uid://c3n34u4u1mgwp" path="res://assets/audio/sfx/101_Click Button.wav" id="14_8cy7q"]
+[ext_resource type="AudioStream" uid="uid://daus8e03nly8" path="res://assets/audio/sfx/102_Hover Over Button.wav" id="15_i8kch"]
 [ext_resource type="AudioStream" uid="uid://dk1rqru0hbsgt" path="res://assets/audio/sfx/401_Enemy Hurt.ogg" id="16_684e1"]
 [ext_resource type="AudioStream" uid="uid://byn6ssdfss515" path="res://assets/audio/sfx/201_Slime Shooting.ogg" id="17_x361m"]
 [ext_resource type="AudioStream" uid="uid://bnomle8g1cjs1" path="res://assets/audio/sfx/201_Slime Walking.ogg" id="18_8cy7q"]
+[ext_resource type="AudioStream" uid="uid://bhdmqxav1rnvc" path="res://assets/audio/sfx/103_Power Up Acquired.wav" id="19_i8kch"]
 
 [sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_lgug7"]
 
@@ -83,7 +84,7 @@ volume_db = -10.0
 bus = &"SFX"
 
 [node name="SFXEnvironmentRiftAreaClosed" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_2bgjf")
+stream = ExtResource("11_8cy7q")
 volume_db = -8.0
 bus = &"SFX"
 
@@ -98,12 +99,12 @@ volume_db = -6.0
 bus = &"SFX"
 
 [node name="SFXUIClickConfirm" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_2bgjf")
+stream = ExtResource("14_8cy7q")
 volume_db = -16.0
 bus = &"SFX"
 
 [node name="SFXUIMouseEntered" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_1d2wt")
+stream = ExtResource("15_i8kch")
 volume_db = -16.0
 bus = &"SFX"
 
@@ -117,3 +118,6 @@ bus = &"SFX"
 
 [node name="SFXSlimeWalking" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_8cy7q")
+
+[node name="SFXPowerUpAcquired" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_i8kch")

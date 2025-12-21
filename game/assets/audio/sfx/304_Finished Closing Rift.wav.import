@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dpqbvkoa10sh8"
+path="res://.godot/imported/304_Finished Closing Rift.wav-b661948e6e9dc6bf02ca7a03fb56b324.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/304_Finished Closing Rift.wav"
+dest_files=["res://.godot/imported/304_Finished Closing Rift.wav-b661948e6e9dc6bf02ca7a03fb56b324.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -48,6 +48,8 @@ signal globalEnvironmentRiftBigEruption();
 
 @warning_ignore("unused_signal")
 signal globalEnvironmentRiftBigReadyToLaunch();
+@warning_ignore("unused_signal")
+signal globalEnvironmentRiftBigReadyToLaunchReset();
 #endregion Environment signals
 
 #region Player signals

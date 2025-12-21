@@ -11,6 +11,9 @@ var active: bool = false:
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+func _exit_tree() -> void:
+	EventBus.globalEnvironmentRiftBigReadyToLaunchReset.emit()
+
 func _anim_burst() -> void:
 	burst.emit()
 

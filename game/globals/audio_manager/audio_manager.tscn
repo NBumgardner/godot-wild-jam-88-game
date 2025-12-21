@@ -5,7 +5,6 @@
 [ext_resource type="AudioStream" uid="uid://h0msm0vto1b4" path="res://assets/audio/sfx/sfx_312_RiftBigEruption.wav" id="3_ulrmu"]
 [ext_resource type="AudioStream" uid="uid://dq5732a6lslmi" path="res://assets/audio/music/Level 1 Track.ogg" id="4_2d6s7"]
 [ext_resource type="AudioStream" uid="uid://bfnoi187370s8" path="res://assets/audio/music/Level End Stinger.ogg" id="5_1m5h4"]
-[ext_resource type="AudioStream" uid="uid://cd3mbwaoh1kyc" path="res://assets/audio/sfx/sfx_202_PlayerHurt.wav" id="5_fdt5a"]
 [ext_resource type="AudioStream" uid="uid://wisy58pqq57" path="res://assets/audio/music/Title Track.ogg" id="5_qmnf0"]
 [ext_resource type="AudioStream" uid="uid://d3oqlpyitnxco" path="res://assets/audio/music/Endgame and Credits.ogg" id="6_2d6s7"]
 [ext_resource type="AudioStream" uid="uid://cow07hxmv2mn5" path="res://assets/audio/music/Powerup Screen Track.ogg" id="6_684e1"]
@@ -13,10 +12,11 @@
 [ext_resource type="AudioStream" uid="uid://baagpys0kf8yc" path="res://assets/audio/music/Game Over Stinger.ogg" id="8_1m5h4"]
 [ext_resource type="AudioStream" uid="uid://c8nixddr1bpu7" path="res://assets/audio/sfx/402_Death sound of Shatter.ogg" id="10_x361m"]
 [ext_resource type="AudioStream" uid="uid://dpqbvkoa10sh8" path="res://assets/audio/sfx/304_Finished Closing Rift.wav" id="11_8cy7q"]
+[ext_resource type="AudioStream" uid="uid://du5w2to1or5j0" path="res://assets/audio/sfx/202_Take Damage.ogg" id="13_tyt4p"]
 [ext_resource type="AudioStream" uid="uid://c3n34u4u1mgwp" path="res://assets/audio/sfx/101_Click Button.wav" id="14_8cy7q"]
 [ext_resource type="AudioStream" uid="uid://daus8e03nly8" path="res://assets/audio/sfx/102_Hover Over Button.wav" id="15_i8kch"]
 [ext_resource type="AudioStream" uid="uid://dk1rqru0hbsgt" path="res://assets/audio/sfx/401_Enemy Hurt.ogg" id="16_684e1"]
-[ext_resource type="AudioStream" uid="uid://byn6ssdfss515" path="res://assets/audio/sfx/201_Slime Shooting.ogg" id="17_x361m"]
+[ext_resource type="AudioStream" uid="uid://cmpu54p83d73u" path="res://assets/audio/sfx/204_Slime Shooting.ogg" id="17_tyt4p"]
 [ext_resource type="AudioStream" uid="uid://d3jp6lo7bctxm" path="res://assets/audio/sfx/201_Slime Walking_1.ogg" id="18_tyt4p"]
 [ext_resource type="AudioStream" uid="uid://cue6ekvoq2wfy" path="res://assets/audio/sfx/201_Slime Walking_2.ogg" id="19_d8dad"]
 [ext_resource type="AudioStream" uid="uid://bhdmqxav1rnvc" path="res://assets/audio/sfx/103_Power Up Acquired.wav" id="19_i8kch"]
@@ -105,7 +105,7 @@ volume_db = -10.0
 bus = &"SFX"
 
 [node name="SFXPlayerHurt" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_fdt5a")
+stream = ExtResource("13_tyt4p")
 volume_db = -6.0
 bus = &"SFX"
 
@@ -124,7 +124,7 @@ stream = ExtResource("16_684e1")
 bus = &"SFX"
 
 [node name="SFXSlimeShooting" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("17_x361m")
+stream = ExtResource("17_tyt4p")
 bus = &"SFX"
 
 [node name="SFXSlimeWalking" type="AudioStreamPlayer" parent="."]

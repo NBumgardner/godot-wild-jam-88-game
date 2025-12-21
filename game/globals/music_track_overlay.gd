@@ -8,7 +8,6 @@ func _ready() -> void:
 	EventBus.globalMusicTrackPlaying.connect(_play)
 
 func _play(track: String) -> void:
-	label.text = "[wave]♫ %s[/wave]" % [track]
+	label.text = "[wave][img]res://assets/note.png[/img] %s[/wave]" % [track]
 	animation_player.stop()
 	animation_player.play("toast")
-	print("foor! ", track)

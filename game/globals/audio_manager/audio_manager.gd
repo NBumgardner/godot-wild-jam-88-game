@@ -40,6 +40,7 @@ func _ready() -> void:
 	EventBus.globalPlayerWalkEnd.connect(_playPlayerWalkEnd)
 	EventBus.globalPlayerPowerup.connect(_playPlayerPowerup)
 	EventBus.globalEnvironmentRiftBigReadyToLaunch.connect(_playRumble)
+	EventBus.globalEnvironmentRiftBigReadyToLaunchReset.connect(_playRumbleStop)
 
 #region Music
 func _playMusicTitle() -> void:
@@ -88,6 +89,8 @@ func _playSfxEnvironmentRiftBigEruption() -> void:
 
 func _playRumble() -> void:
 	sfx_rumble.play()
+func _playRumbleStop() -> void:
+	sfx_rumble.stop()
 #endregion Environment
 
 #region Player

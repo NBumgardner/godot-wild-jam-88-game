@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://t0o32ktuyxs7"]
+[gd_scene load_steps=10 format=3 uid="uid://t0o32ktuyxs7"]
 
 [ext_resource type="Script" uid="uid://dwocjh35veknn" path="res://objects/exit_vent/exit_vent.gd" id="1_pqtn2"]
 [ext_resource type="Texture2D" uid="uid://d1yrcxn82rp8t" path="res://objects/exit_vent/sprites/exit_vent.png" id="2_neojl"]
 [ext_resource type="Texture2D" uid="uid://dbmy6yrh2agfv" path="res://objects/exit_vent/sprites/exit_vent_explode.png" id="3_wpn0x"]
-[ext_resource type="AudioStream" uid="uid://udnkqg4qlp5v" path="res://assets/audio/sfx/311_Nearby ready to launch.ogg" id="3_ywt25"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y5si2"]
 radius = 123.101585
@@ -103,10 +102,6 @@ texture = ExtResource("2_neojl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_y5si2")
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_ywt25")
-bus = &"SFX"
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2(-14, -11)

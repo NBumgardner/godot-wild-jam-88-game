@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ced34ddbfg6rk"]
+[gd_scene load_steps=23 format=3 uid="uid://ced34ddbfg6rk"]
 
 [ext_resource type="Script" uid="uid://d285n7qgdjp7g" path="res://globals/audio_manager/audio_manager.gd" id="1_ix0j0"]
 [ext_resource type="AudioStream" uid="uid://s8ju877xwmox" path="res://assets/audio/music/Into Level 1 Stinger.ogg" id="3_qmnf0"]
@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://byn6ssdfss515" path="res://assets/audio/sfx/201_Slime Shooting.ogg" id="17_x361m"]
 [ext_resource type="AudioStream" uid="uid://bnomle8g1cjs1" path="res://assets/audio/sfx/201_Slime Walking.ogg" id="18_8cy7q"]
 [ext_resource type="AudioStream" uid="uid://bhdmqxav1rnvc" path="res://assets/audio/sfx/103_Power Up Acquired.wav" id="19_i8kch"]
+[ext_resource type="AudioStream" uid="uid://udnkqg4qlp5v" path="res://assets/audio/sfx/311_Nearby ready to launch.ogg" id="20_8w5ss"]
 
 [sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_lgug7"]
 
@@ -121,3 +122,7 @@ stream = ExtResource("18_8cy7q")
 
 [node name="SFXPowerUpAcquired" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_i8kch")
+
+[node name="SFXRumble" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_8w5ss")
+bus = &"SFX"

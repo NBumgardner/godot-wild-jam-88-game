@@ -13,6 +13,7 @@ const PROJECTILE_SPEED = 200.0
 const PROJECTILE_INCIDENT_VELOCITY_RATIO = 0.5
 
 const PROJECTILE = preload("uid://do7s00elpsdcm")
+const PLAYER_BOMB_PROJECTILE = preload("uid://c2oqw1s8yox47")
 
 enum State {
 	## Normal gameplay state, player input enabled.
@@ -54,7 +55,7 @@ func _physics_process(delta: float) -> void:
 			
 			if fire_delay_time <= 0.0 and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 				var pos: Vector2 = get_viewport().canvas_transform.inverse() * get_viewport().get_mouse_position()
-				fire_projectile((pos - global_position).normalized())
+				fire_projectile(pos - global_position)
 			
 			var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 			
@@ -74,9 +75,15 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if fire_delay_time <= 0.0 and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 			var pos: Vector2 = get_viewport().canvas_transform.inverse() * event.position
-			fire_projectile((pos - global_position).normalized())
+			fire_projectile(pos - global_position)
 
-func fire_projectile(dir: Vector2) -> void:
+func fire_projectile(target: Vector2) -> void:
+	var key_upgrade
+	if not GameState.player_stats.key_upgrade.is_empty():
+		key_upgrade = GameState.player_stats.key_upgrade[0]
+	
+	if key_upgrade == null or key_upgrade == PlayerStats.KeyUpgrade.VIRUS:
+		var dir := target.normalized()
 		var projectile := PROJECTILE.instantiate() as Projectile
 		projectile.velocity = dir * PROJECTILE_SPEED * GameState.player_stats.projectile_speed_mult
 		var incident_velocity := velocity.project(projectile.velocity) * PROJECTILE_INCIDENT_VELOCITY_RATIO
@@ -84,6 +91,14 @@ func fire_projectile(dir: Vector2) -> void:
 			projectile.velocity += incident_velocity
 		projectile.position = global_position
 		projectile.scale *= GameState.player_stats.projectile_size_mult
+		get_parent().add_child(projectile)
+		fire_delay_time = FIRE_DELAY
+	elif key_upgrade == PlayerStats.KeyUpgrade.BOMB:
+		var projectile := PLAYER_BOMB_PROJECTILE.instantiate() as BombProjectile
+		projectile.position = global_position
+		projectile.compute_trajectory(target, (target.length() / 128.0) * PROJECTILE_SPEED * GameState.player_stats.projectile_speed_mult)
+		projectile.scale *= GameState.player_stats.projectile_size_mult
+		projectile.bounces = GameState.player_stats.projectile_bounce
 		get_parent().add_child(projectile)
 		fire_delay_time = FIRE_DELAY
 

@@ -21,8 +21,13 @@ func _ready() -> void:
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event is InputEventKey:
-		if event.pressed and not event.is_echo() and event.keycode == KEY_KP_7:
-			_on_exit_vent_player_touched.call_deferred()
+		if event.pressed and not event.is_echo():
+			if event.keycode == KEY_KP_7:
+				_on_exit_vent_player_touched.call_deferred()
+			elif event.keycode == KEY_KP_8:
+				GameState.player_stats.add_upgrade(PlayerStats.Upgrade.KEY_BOMB)
+			elif event.keycode == KEY_KP_9:
+				GameState.player_stats.add_upgrade(PlayerStats.Upgrade.KEY_VIRUS)
 
 func intro_cutscene() -> void:
 	get_tree().paused = true

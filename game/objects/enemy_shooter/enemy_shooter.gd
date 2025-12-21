@@ -46,13 +46,11 @@ func _attack_hit() -> void:
 	var target: Node2D = bt_player.blackboard.get_var("target")
 	if not target:
 		return
-	var projectile = SHOOTER_PROJECTILE.instantiate()
+	var projectile = SHOOTER_PROJECTILE.instantiate() as BombProjectile
 	var target_position := target.global_position + randf() * ACCURACY_RADIUS * Vector2.from_angle(randf() * TAU)
 	var to_target := target_position - global_position
-	var planar_vel := PROJECTILE_SPEED * to_target.normalized()
-	var vel_z: float = 0.5 * projectile.GRAVITY_Z * to_target.length() / planar_vel.length()
 	projectile.position = position
-	projectile.velocity = Vector3(planar_vel.x, planar_vel.y, vel_z)
+	projectile.compute_trajectory(to_target, PROJECTILE_SPEED)
 	
 	get_parent().add_child(projectile)
 

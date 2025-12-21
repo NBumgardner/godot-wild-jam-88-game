@@ -2,8 +2,11 @@ extends Area2D
 class_name Projectile
 
 const HOMING_SPEED = TAU / 10.0
+const VIRUS = preload("uid://cy0psin5bbdtq")
 
 @export var velocity: Vector2
+
+@export var virus: bool = false
 
 var bounces: int = 0
 
@@ -31,7 +34,14 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	assert(body is Enemy)
-	body.hit()
+	
+	
+	if virus and get_tree().get_nodes_in_group("virus").is_empty():
+		var v = VIRUS.instantiate()
+		body.add_child(v)
+	else:
+		body.hit()
+	
 	if bounces < GameState.player_stats.projectile_bounce:
 		bounces += 1
 		velocity = velocity.rotated(randf() * TAU)

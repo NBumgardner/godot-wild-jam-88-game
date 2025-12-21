@@ -4,8 +4,6 @@ class_name Enemy
 
 signal health_changed()
 
-const FX_ENEMY_DEATH = preload("uid://0aci2nmgds3l")
-
 @export var player: Player:
 	set(v):
 		player = v
@@ -18,6 +16,8 @@ const FX_ENEMY_DEATH = preload("uid://0aci2nmgds3l")
 
 @export var starting_health: int = 1
 
+@export var death_fx: PackedScene = preload("uid://0aci2nmgds3l")
+
 @onready var health: int = starting_health
 
 func hit() -> void:
@@ -29,7 +29,7 @@ func hit() -> void:
 	
 	EventBus.globalEnemyDestroyed.emit()
 	queue_free()
-	var fx = FX_ENEMY_DEATH.instantiate()
+	var fx = death_fx.instantiate()
 	fx.position = position
 	get_parent().add_child(fx)
 

@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6hck7c2vafri"]
+
+[ext_resource type="PackedScene" uid="uid://0aci2nmgds3l" path="res://objects/fx_enemy_death/fx_enemy_death.tscn" id="1_q4e0e"]
+[ext_resource type="Texture2D" uid="uid://cvq60aolmppyj" path="res://objects/enemy_tough/tough_shatter.png" id="2_d7tbf"]
+
+[node name="FXEnemyDeath" instance=ExtResource("1_q4e0e")]
+texture = ExtResource("2_d7tbf")

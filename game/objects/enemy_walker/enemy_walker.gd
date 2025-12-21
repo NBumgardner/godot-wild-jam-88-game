@@ -3,7 +3,6 @@ extends Enemy
 const SPEED = 100.0
 const TURN_SPEED = 3.0
 
-@onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var attack_hitbox: Area2D = $AttackHitbox
 @onready var bt_player: BTPlayer = $BTPlayer
 @onready var anim_tree: AnimationTree = $AnimationTree

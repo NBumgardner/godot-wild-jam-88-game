@@ -59,6 +59,10 @@ static func get_upgrade_icon(upgrade: Upgrade) -> Texture2D:
 			return preload("uid://evrewo8igq74")
 		Upgrade.SPEED_UP:
 			return preload("uid://d1frxjk3mfim3")
+		Upgrade.KEY_VIRUS:
+			return preload("uid://blyp2jleoarn5")
+		Upgrade.KEY_BOMB:
+			return preload("uid://ey3p7njr1tyt")
 	return preload("uid://wldmmxuvh4g2")
 
 static func get_key_upgrade_icon(_upgrade: KeyUpgrade) -> Texture2D:

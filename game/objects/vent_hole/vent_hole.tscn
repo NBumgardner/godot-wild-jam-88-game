@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://brqjkvx1ys83g" path="res://objects/vent_hole/vent_hole_flare4.png" id="7_hy3nt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ymb0x"]
-radius = 64.0
+radius = 97.41663
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l4ska"]
 resource_local_to_scene = true
@@ -287,10 +287,10 @@ monitoring = false
 script = ExtResource("1_ymb0x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CircleShape2D_ymb0x")
 
 [node name="GuardZone" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 4
 monitorable = false

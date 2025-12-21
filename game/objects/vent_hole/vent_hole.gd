@@ -3,7 +3,10 @@ class_name VentHole
 
 signal sealed()
 
-@export var enabled := true
+@export var enabled := true:
+	set(v):
+		enabled = v
+		queue_redraw()
 
 @export var girth: float = 1.0:
 	set(v):
@@ -23,6 +26,11 @@ signal sealed()
 @onready var sprite_flare_2: Sprite2D = $SpriteFlare2
 @onready var particles: CPUParticles2D = $CPUParticles2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
+
+func _draw() -> void:
+	if enabled:
+		draw_circle(Vector2.ZERO, collision_shape.shape.radius, Color.DARK_MAGENTA, false)
 
 func fade_effects() -> void:
 	var tween := create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD).set_parallel()

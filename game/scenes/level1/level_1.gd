@@ -77,7 +77,7 @@ func _on_exit_vent_player_touched() -> void:
 		.set_trans(Tween.TRANS_QUAD) \
 		.set_ease(Tween.EASE_IN)
 	fade.visible = true
-	tween.parallel().tween_property(fade, "modulate:a", 1.0, duration)
+	tween.parallel().tween_property(fade, "modulate:a", 1.0, duration).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
 	tween.tween_interval(0.2)
 	await tween.finished
 	GameState.goto_next_level()

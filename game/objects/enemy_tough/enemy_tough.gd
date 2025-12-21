@@ -3,6 +3,8 @@ extends Enemy
 const SPEED = 90.0
 const TURN_SPEED = 3.0
 
+var move_speed: float = SPEED
+
 @onready var attack_hitbox: Area2D = $AttackHitbox
 @onready var bt_player: BTPlayer = $BTPlayer
 @onready var anim_tree: AnimationTree = $AnimationTree
@@ -19,7 +21,7 @@ func _physics_process(_delta: float) -> void:
 	anim_tree.set("parameters/BlendSpace/blend_position",remap(velocity.x, SPEED,-SPEED,1,-1))
 
 func get_max_move_speed() -> float:
-	return SPEED
+	return move_speed
 
 func get_turning_speed() -> float:
 	return TURN_SPEED

@@ -89,8 +89,8 @@ func _playMusicGamplayLevelSuccess() -> void:
 	EventBus.globalMusicTrackPlaying.emit("Endgame And Credits")
 func _playMusicGamplayLevelFailed() -> void:
 	game_over_stinger.play()
-	music_gameplay["parameters/switch_to_clip"] = "Endgame And Credits"
-	EventBus.globalMusicTrackPlaying.emit("Endgame And Credits")
+	music_gameplay["parameters/switch_to_clip"] = "Game Over"
+	EventBus.globalMusicTrackPlaying.emit("Game Over")
 func _playMusicPowerupScreen() -> void:
 	music_gameplay["parameters/switch_to_clip"] = "Powerup Screen Track"
 	EventBus.globalMusicTrackPlaying.emit("Powerup Screen")

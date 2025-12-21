@@ -17,7 +17,7 @@ metadata/_custom_type_script = "uid://pket2s273ceo"
 [resource]
 script = ExtResource("2_a1ssy")
 chase_max_enemies = 5
-chase_spawn_rate = 0.1
+chase_spawn_rate = 5.0
 chase_enemies = Array[ExtResource("1_1qc6a")]([SubResource("Resource_36t7y")])
 defender_enemies = Array[ExtResource("1_1qc6a")]([SubResource("Resource_a1ssy")])
 metadata/_custom_type_script = "uid://dn1a0v05nbyh5"

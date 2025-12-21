@@ -4,9 +4,9 @@ extends Control
 @export var player: Player
 
 @onready var label: Label = $%LabelGoalReminder
-@onready var health_bar: Label = %HealthBar
 @onready var health_bar_final: Node2D = $HealthBar2
 @onready var health_bar_mask: ColorRect = $HealthBar2/health_mask
+@onready var health_mask_2: ColorRect = $HealthBar2/health_mask2
 @onready var health_bar_ice: Sprite2D = $HealthBar2/HTherm
 @onready var hud_anim: AnimationPlayer = $HUDAnim
 @onready var upgrade_icons: HBoxContainer = $UpgradeIcons
@@ -39,22 +39,32 @@ func _update_text() -> void:
 	else:
 		label.text = "Get to the MEGA VENT!!!!!"
 	
-	health_bar.text = "❤️".repeat(player.current_hp) + "❌".repeat(GameState.player_stats.max_hp - player.current_hp)
 	handle_healthbar()
 
 func handle_healthbar() -> void:
+	
+	var hp1 := clampi(player.current_hp, 0, 5)
+	
 	if player.current_hp > 0:
-		health_bar_mask.size.x = remap(player.current_hp,1,GameState.player_stats.max_hp,39,229)
+		health_bar_mask.size.x = remap(hp1,1,5,39,229)
 	else:
 		health_bar_mask.size.x = 0
-	var health_stage = round(remap(player.current_hp,0,GameState.player_stats.max_hp,0,5))
-	health_bar_ice.frame = health_stage
-	if health_stage > 3:
+	health_bar_ice.frame = hp1
+	if hp1 > 3:
 		health_bar_mask.modulate = Color(0.842, 0.0, 0.212, 1.0)
-	elif health_stage > 2:
+	elif hp1 > 2:
 		health_bar_mask.modulate = Color(0.792, 0.136, 0.673, 1.0)
 	else:
 		health_bar_mask.modulate = Color(0.106, 0.629, 1.0, 1.0)
+	
+	var hp2max := GameState.player_stats.max_hp - 5
+	var hp2 := clampi(player.current_hp - 5, 0, hp2max)
+	
+	if hp2 == 0:
+		health_mask_2.visible = false
+	else:
+		health_mask_2.visible = true
+		health_mask_2.size.x = remap(hp2,1,hp2max,39,229)
 
 #region SFX
 func _on_button_quit_mouse_entered():

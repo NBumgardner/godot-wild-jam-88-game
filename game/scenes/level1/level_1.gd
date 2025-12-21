@@ -32,6 +32,8 @@ func _unhandled_key_input(event: InputEvent) -> void:
 				GameState.player_stats.add_upgrade(PlayerStats.Upgrade.PROJECTILE_SIZE_UP)
 			elif event.keycode == KEY_KP_2:
 				GameState.player_stats.add_upgrade(PlayerStats.Upgrade.PROJECTILE_HOMING)
+			elif event.keycode == KEY_KP_3:
+				GameState.player_stats.add_upgrade(PlayerStats.Upgrade.MAX_HP)
 
 func intro_cutscene() -> void:
 	get_tree().paused = true

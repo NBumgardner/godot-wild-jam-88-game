@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cmpu54p83d73u"
+path="res://.godot/imported/204_Slime Shooting.ogg-2a33cad71623f99e739105b140364adb.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/sfx/204_Slime Shooting.ogg"
+dest_files=["res://.godot/imported/204_Slime Shooting.ogg-2a33cad71623f99e739105b140364adb.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

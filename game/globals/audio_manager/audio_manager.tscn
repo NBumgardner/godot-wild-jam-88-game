@@ -16,7 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://c3n34u4u1mgwp" path="res://assets/audio/sfx/101_Click Button.wav" id="14_8cy7q"]
 [ext_resource type="AudioStream" uid="uid://daus8e03nly8" path="res://assets/audio/sfx/102_Hover Over Button.wav" id="15_i8kch"]
 [ext_resource type="AudioStream" uid="uid://dk1rqru0hbsgt" path="res://assets/audio/sfx/401_Enemy Hurt.ogg" id="16_684e1"]
-[ext_resource type="AudioStream" uid="uid://byn6ssdfss515" path="res://assets/audio/sfx/201_Slime Shooting.ogg" id="17_x361m"]
+[ext_resource type="AudioStream" uid="uid://cmpu54p83d73u" path="res://assets/audio/sfx/204_Slime Shooting.ogg" id="17_tyt4p"]
 [ext_resource type="AudioStream" uid="uid://d3jp6lo7bctxm" path="res://assets/audio/sfx/201_Slime Walking_1.ogg" id="18_tyt4p"]
 [ext_resource type="AudioStream" uid="uid://cue6ekvoq2wfy" path="res://assets/audio/sfx/201_Slime Walking_2.ogg" id="19_d8dad"]
 [ext_resource type="AudioStream" uid="uid://bhdmqxav1rnvc" path="res://assets/audio/sfx/103_Power Up Acquired.wav" id="19_i8kch"]
@@ -124,7 +124,7 @@ stream = ExtResource("16_684e1")
 bus = &"SFX"
 
 [node name="SFXSlimeShooting" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("17_x361m")
+stream = ExtResource("17_tyt4p")
 bus = &"SFX"
 
 [node name="SFXSlimeWalking" type="AudioStreamPlayer" parent="."]

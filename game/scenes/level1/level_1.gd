@@ -7,6 +7,7 @@ signal _dialog_next()
 @onready var fade: ColorRect = $HUDLayer/Fade
 @onready var dialog: Control = %Dialog
 @onready var dialog_text: RichTextLabel = %DialogText
+@onready var hud: Control = $HUDLayer/HUD
 
 
 func _ready() -> void:
@@ -36,6 +37,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 				GameState.player_stats.add_upgrade(PlayerStats.Upgrade.MAX_HP)
 
 func intro_cutscene() -> void:
+	hud.hide()
 	get_tree().paused = true
 	await show_dialog("It appears that we have crash landed on the planet Boreas VII.")
 	await show_dialog("The area we are in is much too cold for our species, and the native Krytlians are known to be hostile.")
@@ -44,6 +46,7 @@ func intro_cutscene() -> void:
 	await show_dialog("Approach smaller vents to close them and build up enough pressure in the main vent to propel us forward. Good luck!")
 	dialog.visible = false
 	get_tree().paused = false
+	hud.show()
 
 func show_dialog(s: String) -> void:
 	dialog.visible = true

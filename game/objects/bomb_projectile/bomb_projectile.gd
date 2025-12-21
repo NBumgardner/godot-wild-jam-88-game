@@ -18,7 +18,7 @@ func _ready() -> void:
 	reticle.global_position = compute_landing_position()
 
 func _process(delta: float) -> void:
-	reticle.scale = Vector2.ONE * collision_shape_2d.shape.radius / 64.0
+	reticle.scale = Vector2.ONE * scale * collision_shape_2d.shape.radius / 64.0
 	reticle.rotation += TAU * delta
 
 func _physics_process(delta: float) -> void:

@@ -36,11 +36,21 @@ func intro_cutscene() -> void:
 	EventBus.globalInitialDialogStarted.emit()
 	hud.hide()
 	get_tree().paused = true
+	EventBus.globalTalk.emit(0)
 	await show_dialog("It appears that we have crash landed on the planet Boreas VII.")
+	EventBus.globalTalk.emit(-1)
+	EventBus.globalTalk.emit(1)
 	await show_dialog("The area we are in is much too cold for our species, and the native Krytlians are known to be hostile.")
+	EventBus.globalTalk.emit(-1)
+	EventBus.globalTalk.emit(2)
 	await show_dialog("We have identified a hot caldera where we can survive, but there are unpassable chasms in the way.")
+	EventBus.globalTalk.emit(-1)
+	EventBus.globalTalk.emit(3)
 	await show_dialog("Fortunately, there are thermal vents that we can use to propel us closer to the caldera.")
+	EventBus.globalTalk.emit(-1)
+	EventBus.globalTalk.emit(4)
 	await show_dialog("Approach smaller vents to close them and build up enough pressure in the main vent to propel us forward. Good luck!")
+	EventBus.globalTalk.emit(-1)
 	dialog.visible = false
 	get_tree().paused = false
 	hud.show()

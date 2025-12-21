@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cjj4n88yix5c7"
+path="res://.godot/imported/501_Slime Talking 6_Conclusion.ogg-54d6da71fb3b187be170c4bf7422d0ca.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/sfx/501_Slime Talking 6_Conclusion.ogg"
+dest_files=["res://.godot/imported/501_Slime Talking 6_Conclusion.ogg-54d6da71fb3b187be170c4bf7422d0ca.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

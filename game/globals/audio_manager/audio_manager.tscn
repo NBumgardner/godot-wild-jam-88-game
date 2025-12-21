@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://ced34ddbfg6rk"]
+[gd_scene load_steps=37 format=3 uid="uid://ced34ddbfg6rk"]
 
 [ext_resource type="Script" uid="uid://d285n7qgdjp7g" path="res://globals/audio_manager/audio_manager.gd" id="1_ix0j0"]
 [ext_resource type="AudioStream" uid="uid://s8ju877xwmox" path="res://assets/audio/music/Into Level 1 Stinger.ogg" id="3_qmnf0"]
@@ -27,6 +27,12 @@
 [ext_resource type="AudioStream" uid="uid://nc55ght3ss5d" path="res://assets/audio/sfx/302_Closing Rift 2.wav" id="25_hew6f"]
 [ext_resource type="AudioStream" uid="uid://oc6qkttu6yml" path="res://assets/audio/sfx/302_Closing Rift 3.wav" id="26_p6xgk"]
 [ext_resource type="AudioStream" uid="uid://t7hj8318uooj" path="res://assets/audio/sfx/302_Closing Rift 4.wav" id="27_th37a"]
+[ext_resource type="AudioStream" uid="uid://both420kppiht" path="res://assets/audio/sfx/501_Slime Talking 1.ogg" id="28_i6j02"]
+[ext_resource type="AudioStream" uid="uid://mwam0jjl8n8r" path="res://assets/audio/sfx/501_Slime Talking 2.ogg" id="29_ou4mq"]
+[ext_resource type="AudioStream" uid="uid://drbof2064vcup" path="res://assets/audio/sfx/501_Slime Talking 3.ogg" id="30_6iq0h"]
+[ext_resource type="AudioStream" uid="uid://cqt3kinxy1hkn" path="res://assets/audio/sfx/501_Slime Talking 4.ogg" id="31_xtogb"]
+[ext_resource type="AudioStream" uid="uid://cg7k17tyjcg3f" path="res://assets/audio/sfx/501_Slime Talking 5.ogg" id="32_cvs68"]
+[ext_resource type="AudioStream" uid="uid://cjj4n88yix5c7" path="res://assets/audio/sfx/501_Slime Talking 6_Conclusion.ogg" id="33_otipw"]
 
 [sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_lgug7"]
 
@@ -153,5 +159,23 @@ stream = ExtResource("26_p6xgk")
 
 [node name="SFXClosingRift4" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("27_th37a")
+
+[node name="501SlimeTalking1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("28_i6j02")
+
+[node name="501SlimeTalking2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("29_ou4mq")
+
+[node name="501SlimeTalking3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("30_6iq0h")
+
+[node name="501SlimeTalking4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("31_xtogb")
+
+[node name="501SlimeTalking5" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("32_cvs68")
+
+[node name="501SlimeTalking6Conclusion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("33_otipw")
 
 [connection signal="finished" from="SFXSlimeWalking" to="." method="_on_sfx_slime_walking_finished"]

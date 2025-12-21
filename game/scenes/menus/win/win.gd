@@ -2,6 +2,7 @@ extends Control
 
 func _ready() -> void:
 	EventBus.globalCreditsEntered.emit()
+	EventBus.globalTalk.emit(5)
 
 func _on_button_back_pressed():
 	EventBus.globalUiElementSelected.emit()

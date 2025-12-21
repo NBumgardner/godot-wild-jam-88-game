@@ -24,6 +24,14 @@ var walking: bool = false
 	$SFXClosingRift3,
 	$SFXClosingRift4,
 ]
+@onready var sfx_talking: Array[AudioStreamPlayer] = [
+	$"501SlimeTalking1",
+	$"501SlimeTalking2",
+	$"501SlimeTalking3",
+	$"501SlimeTalking4",
+	$"501SlimeTalking5",
+	$"501SlimeTalking6Conclusion",
+]
 
 func _ready() -> void:
 	EventBus.globalEnemyHurt.connect(_playSfxEnemyHurt)
@@ -48,6 +56,14 @@ func _ready() -> void:
 	EventBus.globalEnvironmentRiftBigReadyToLaunch.connect(_playRumble)
 	EventBus.globalEnvironmentRiftBigReadyToLaunchReset.connect(_playRumbleStop)
 	EventBus.globalRiftSealProgress.connect(_playRiftProgress)
+	EventBus.globalTalk.connect(_playTalk)
+
+func _playTalk(i: int) -> void:
+	if i < 0:
+		for s in sfx_talking:
+			s.stop()
+	else:
+		sfx_talking[i].play()
 
 #region Music
 func _playMusicTitle() -> void:

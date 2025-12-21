@@ -1,5 +1,8 @@
 extends Node
 
+@warning_ignore("unused_signal")
+signal globalTalk(i: int);
+
 #region Music signals
 @warning_ignore("unused_signal")
 signal globalLevel1Started();

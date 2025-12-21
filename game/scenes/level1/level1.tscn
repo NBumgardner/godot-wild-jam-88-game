@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://malxmp0cv835"]
+[gd_scene load_steps=19 format=4 uid="uid://malxmp0cv835"]
 
 [ext_resource type="Script" uid="uid://bqctpd7vkcbxw" path="res://scenes/level1/level_1.gd" id="1_dpu10"]
 [ext_resource type="Script" uid="uid://ddvebyb53rymj" path="res://objects/game_manager.gd" id="1_ru4tf"]
@@ -11,6 +11,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://bwkjvuv6p3w11" path="res://scenes/level1/animations.tres" id="6_q6uuj"]
 [ext_resource type="Texture2D" uid="uid://u2ifaj2arksa" path="res://assets/ui_frame.png" id="8_k3l6j"]
 [ext_resource type="TileSet" uid="uid://d1wksaknren5w" path="res://scenes/level1/level1_tileset.tres" id="8_wmcwa"]
+[ext_resource type="PackedScene" uid="uid://dlqu1euc1l1be" path="res://scenes/menus/pause_menu/pause_menu.tscn" id="9_0em4h"]
 [ext_resource type="Script" uid="uid://cg1pppt1as4xi" path="res://objects/camera_target.gd" id="10_wmcwa"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0em4h"]
@@ -68,9 +69,10 @@ game_manager = NodePath("../../GameManager")
 
 [node name="HUDLayer" type="CanvasLayer" parent="."]
 
-[node name="HUD" parent="HUDLayer" node_paths=PackedStringArray("game_manager", "player") instance=ExtResource("2_6sh32")]
+[node name="HUD" parent="HUDLayer" node_paths=PackedStringArray("game_manager", "player", "pause_menu") instance=ExtResource("2_6sh32")]
 game_manager = NodePath("../../GameManager")
 player = NodePath("../../Player")
+pause_menu = NodePath("../PauseMenu")
 
 [node name="Fade" type="ColorRect" parent="HUDLayer"]
 visible = false
@@ -120,6 +122,9 @@ offset_top = 421.0
 offset_right = 593.0
 offset_bottom = 452.0
 text = "Next"
+
+[node name="PauseMenu" parent="HUDLayer" instance=ExtResource("9_0em4h")]
+visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 process_mode = 3

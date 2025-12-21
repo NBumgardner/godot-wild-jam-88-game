@@ -1,6 +1,8 @@
 extends Resource
 class_name PlayerStats
 
+signal upgrades_changed()
+
 enum Upgrade {
 	SPEED_UP,
 	GOOP_UP,
@@ -41,13 +43,23 @@ var projectile_bounce: int = 0
 
 static func get_upgrade_icon(upgrade: Upgrade) -> Texture2D:
 	match upgrade:
-		Upgrade.SPEED_UP:
-			return preload("res://objects/hud/icons/speed_up.png")
+		Upgrade.PROJECTILE_BOUNCE:
+			return preload("uid://c8r7aoax3wkl0")
+		Upgrade.FIRE_RATE_UP:
+			return preload("uid://bshde4apyytqo")
 		Upgrade.GOOP_UP:
-			return preload("res://objects/hud/icons/goop_up.png")
+			return preload("uid://bxig7f6hdcbcs")
+		Upgrade.PROJECTILE_HOMING:
+			return preload("uid://1owhfblemuwx")
 		Upgrade.MAX_HP:
-			return preload("res://objects/hud/icons/hp_up.png")
-	return preload("res://objects/hud/icons/default.png")
+			return preload("uid://cn8jvmbccuqba")
+		Upgrade.PROJECTILE_SIZE_UP:
+			return preload("uid://bx8jye4ru6353")
+		Upgrade.PROJECTILE_SPEED_UP:
+			return preload("uid://evrewo8igq74")
+		Upgrade.SPEED_UP:
+			return preload("uid://d1frxjk3mfim3")
+	return preload("uid://wldmmxuvh4g2")
 
 static func get_key_upgrade_icon(_upgrade: KeyUpgrade) -> Texture2D:
 	return preload("res://objects/hud/icons/default.png")
@@ -81,3 +93,5 @@ func add_upgrade(upgrade: Upgrade) -> void:
 			key_upgrade.append(upgrade)
 		Upgrade.KEY_BOMB:
 			key_upgrade.append(upgrade)
+	
+	upgrades_changed.emit()

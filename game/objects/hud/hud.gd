@@ -9,11 +9,26 @@ extends Control
 @onready var health_bar_mask: ColorRect = $HealthBar2/health_mask
 @onready var health_bar_ice: Sprite2D = $HealthBar2/HTherm
 @onready var hud_anim: AnimationPlayer = $HUDAnim
+@onready var upgrade_icons: HBoxContainer = $UpgradeIcons
 
 func _ready() -> void:
 	_update_text()
 	EventBus.globalPlayerHurt.connect(func ():
 		hud_anim.play("HEALTH_BAR_SHAKE"))
+	
+	_reconcile_upgrades()
+	GameState.player_stats.upgrades_changed.connect(_reconcile_upgrades)
+
+func _reconcile_upgrades() -> void:
+	for c in upgrade_icons.get_children():
+		c.queue_free()
+		upgrade_icons.remove_child(c)
+	
+	for ug in GameState.player_stats.upgrades:
+		var rect := TextureRect.new()
+		rect.texture = PlayerStats.get_upgrade_icon(ug)
+		rect.expand_mode = TextureRect.EXPAND_FIT_WIDTH
+		upgrade_icons.add_child(rect)
 
 func _process(_delta: float) -> void:
 	_update_text()

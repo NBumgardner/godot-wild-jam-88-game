@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://o3mnf6g52ar0"]
+
+[ext_resource type="Script" uid="uid://bj6gr5b8i32q7" path="res://objects/bomb_projectile/bomb_projectile.gd" id="1_s2gu6"]
+[ext_resource type="Texture2D" uid="uid://vy8mgts6rhb7" path="res://objects/bomb_projectile/reticle.png" id="2_8hkk6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ku7ci"]
+radius = 64.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6fnv4"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_ku7ci"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.6989247)
+colors = PackedColorArray(0, 0, 0, 0.30588236, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ken73"]
+gradient = SubResource("Gradient_ku7ci")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Gradient" id="Gradient_dmujj"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.6989247)
+colors = PackedColorArray(0.53, 0.96866655, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_btwan"]
+gradient = SubResource("Gradient_dmujj")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="ShooterProjectile" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+script = ExtResource("1_s2gu6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ku7ci")
+disabled = true
+debug_color = Color(0.98125535, 0, 0.3767128, 0.41960785)
+
+[node name="Reticle" type="Sprite2D" parent="."]
+physics_interpolation_mode = 2
+modulate = Color(1, 0, 0, 0.50980395)
+top_level = true
+material = SubResource("CanvasItemMaterial_6fnv4")
+texture = ExtResource("2_8hkk6")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+scale = Vector2(1, 0.59375)
+texture = SubResource("GradientTexture2D_ken73")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_btwan")

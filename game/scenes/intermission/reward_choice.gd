@@ -38,7 +38,6 @@ func _update() -> void:
 
 
 func _on_area_2d_mouse_entered() -> void:
-	print("asdfasdf!")
 	hovered.emit()
 
 

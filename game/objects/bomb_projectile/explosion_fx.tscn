@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkhn510t2nwdo"]
+
+[ext_resource type="Texture2D" uid="uid://bvgyfck1nq0px" path="res://objects/bomb_projectile/smoke.png" id="1_8ka6v"]
+[ext_resource type="Script" uid="uid://c8q1ew3cn6se6" path="res://objects/bomb_projectile/explosion_fx.gd" id="2_ttuki"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ttuki"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_6vbbj"]
+colors = PackedColorArray(1, 1, 1, 0.18039216, 1, 1, 1, 0)
+
+[node name="Explosion" type="CPUParticles2D"]
+material = SubResource("CanvasItemMaterial_ttuki")
+emitting = false
+amount = 64
+texture = ExtResource("1_8ka6v")
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 128.0
+spread = 180.0
+gravity = Vector2(0, -20)
+initial_velocity_max = 10.0
+angle_max = 720.0
+color_ramp = SubResource("Gradient_6vbbj")
+script = ExtResource("2_ttuki")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

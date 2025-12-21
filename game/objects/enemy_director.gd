@@ -36,7 +36,6 @@ func _on_game_manager_vent_opened(vent: VentHole) -> void:
 			GameState.level_details.defender_enemies,
 			func (x: EnemySpawn): return x.spawn_chance)
 		var enemy := enemy_spawn.enemy_scene.instantiate() as Enemy
-		print(vent.guard_zone)
 		enemy.position = vent.guard_zone.global_position + sqrt(randf()) * vent.guard_zone.home_radius * Vector2.from_angle(randf() * TAU)
 		enemy.player = player
 		enemy.guard_zone = vent.guard_zone

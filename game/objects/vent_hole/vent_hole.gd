@@ -7,11 +7,15 @@ signal sealed()
 
 @export var girth: float = 1.0:
 	set(v):
+		var b4 := 4 - floori(girth * 4.0)
 		girth = v
+		var after := 4 - floori(girth * 4.0)
 		if is_inside_tree() and girth <= 0:
 			EventBus.globalEnvironmentRiftAreaClosed.emit(self)
 			sealed.emit()
 			guard_zone.queue_free()
+		elif b4 != after:
+			EventBus.globalRiftSealProgress.emit(clampi(after - 1, 0, 3))
 
 @onready var guard_zone: GuardZone = $GuardZone
 @onready var sprite: Sprite2D = $Sprite

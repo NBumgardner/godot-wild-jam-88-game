@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://ced34ddbfg6rk"]
+[gd_scene load_steps=31 format=3 uid="uid://ced34ddbfg6rk"]
 
 [ext_resource type="Script" uid="uid://d285n7qgdjp7g" path="res://globals/audio_manager/audio_manager.gd" id="1_ix0j0"]
 [ext_resource type="AudioStream" uid="uid://s8ju877xwmox" path="res://assets/audio/music/Into Level 1 Stinger.ogg" id="3_qmnf0"]
@@ -23,6 +23,10 @@
 [ext_resource type="AudioStream" uid="uid://crvud4r78bk55" path="res://assets/audio/sfx/201_Slime Walking_3.ogg" id="20_1veml"]
 [ext_resource type="AudioStream" uid="uid://udnkqg4qlp5v" path="res://assets/audio/sfx/311_Nearby ready to launch.ogg" id="20_8w5ss"]
 [ext_resource type="AudioStream" uid="uid://c6rp0ctbx6ajb" path="res://assets/audio/sfx/201_Slime Walking_4.ogg" id="21_750k4"]
+[ext_resource type="AudioStream" uid="uid://c6rli1sj3roe2" path="res://assets/audio/sfx/302_Closing Rift 1.wav" id="24_kyb3p"]
+[ext_resource type="AudioStream" uid="uid://nc55ght3ss5d" path="res://assets/audio/sfx/302_Closing Rift 2.wav" id="25_hew6f"]
+[ext_resource type="AudioStream" uid="uid://oc6qkttu6yml" path="res://assets/audio/sfx/302_Closing Rift 3.wav" id="26_p6xgk"]
+[ext_resource type="AudioStream" uid="uid://t7hj8318uooj" path="res://assets/audio/sfx/302_Closing Rift 4.wav" id="27_th37a"]
 
 [sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_lgug7"]
 
@@ -136,5 +140,17 @@ stream = ExtResource("19_i8kch")
 [node name="SFXRumble" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_8w5ss")
 bus = &"SFX"
+
+[node name="SFXClosingRift1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_kyb3p")
+
+[node name="SFXClosingRift2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("25_hew6f")
+
+[node name="SFXClosingRift3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("26_p6xgk")
+
+[node name="SFXClosingRift4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("27_th37a")
 
 [connection signal="finished" from="SFXSlimeWalking" to="." method="_on_sfx_slime_walking_finished"]

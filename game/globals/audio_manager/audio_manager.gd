@@ -18,6 +18,12 @@ var walking: bool = false
 @onready var sfx_slime_walking: AudioStreamPlayer = $SFXSlimeWalking
 @onready var sfx_power_up_acquired: AudioStreamPlayer = $SFXPowerUpAcquired
 @onready var sfx_rumble: AudioStreamPlayer = $SFXRumble
+@onready var sfx_closing_rift: Array[AudioStreamPlayer] = [
+	$SFXClosingRift1,
+	$SFXClosingRift2,
+	$SFXClosingRift3,
+	$SFXClosingRift4,
+]
 
 func _ready() -> void:
 	EventBus.globalEnemyHurt.connect(_playSfxEnemyHurt)
@@ -41,6 +47,7 @@ func _ready() -> void:
 	EventBus.globalPlayerPowerup.connect(_playPlayerPowerup)
 	EventBus.globalEnvironmentRiftBigReadyToLaunch.connect(_playRumble)
 	EventBus.globalEnvironmentRiftBigReadyToLaunchReset.connect(_playRumbleStop)
+	EventBus.globalRiftSealProgress.connect(_playRiftProgress)
 
 #region Music
 func _playMusicTitle() -> void:
@@ -86,6 +93,9 @@ func _playSfxEnvironmentRiftAreaClosed(_vent: VentHole) -> void:
 
 func _playSfxEnvironmentRiftBigEruption() -> void:
 	sfxEnvironmentRiftBigEruption.play()
+
+func _playRiftProgress(i: int) -> void:
+	sfx_closing_rift[i].play()
 
 func _playRumble() -> void:
 	sfx_rumble.play()

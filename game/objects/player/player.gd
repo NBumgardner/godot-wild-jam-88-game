@@ -57,7 +57,9 @@ func _process(delta: float) -> void:
 			var closest_vent: VentHole = null
 			for vent: VentHole in vent_detector.get_overlapping_areas():
 				if vent.enabled:
-					vent.girth -= BASE_GOOP_PER_SECOND * delta * GameState.player_stats.goop_mult
+					(func ():
+						vent.girth -= BASE_GOOP_PER_SECOND * delta * GameState.player_stats.goop_mult
+					).call_deferred()
 					if closest_vent:
 						if position.distance_to(vent.position) < position.distance_to(closest_vent.position):
 							closest_vent = vent
@@ -172,6 +174,7 @@ func set_state(s: State) -> void:
 
 func disable() -> void:
 	state = State.DISABLED
+	squirt_particles.emitting = false
 
 func launch() -> void:
 	state = State.LAUNCHED

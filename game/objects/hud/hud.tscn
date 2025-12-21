@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://6o26q54y57gv"]
+[gd_scene load_steps=13 format=3 uid="uid://6o26q54y57gv"]
 
 [ext_resource type="Theme" uid="uid://cd3xaq0w5mwtl" path="res://assets/themes/default.tres" id="1_08fgm"]
 [ext_resource type="Script" uid="uid://cf276iwu4busb" path="res://objects/hud/hud.gd" id="1_y7bgl"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://dnnkw6i3o8ljg" path="res://objects/hud/health bar/back.png" id="4_joawt"]
 [ext_resource type="Texture2D" uid="uid://bg4svk0y620mo" path="res://objects/hud/health bar/center.png" id="5_w0vgd"]
 [ext_resource type="Texture2D" uid="uid://c57p2yxb4bd2i" path="res://objects/hud/health bar/glass.png" id="6_cxlye"]
+[ext_resource type="Texture2D" uid="uid://cn8jvmbccuqba" path="res://objects/hud/icons/upgrade_HP 2.png" id="7_cxlye"]
+[ext_resource type="Texture2D" uid="uid://1owhfblemuwx" path="res://objects/hud/icons/upgrade_homing2.png" id="8_lc05j"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_08fgm"]
 font_size = 32
@@ -120,6 +122,36 @@ position = Vector2(117, 24)
 texture = ExtResource("5_w0vgd")
 region_enabled = true
 region_rect = Rect2(0, 0, 277, 97)
+
+[node name="UpgradeIcons" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="UpgradeIcons"]
+layout_mode = 2
+texture = ExtResource("7_cxlye")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="UpgradeIcons"]
+layout_mode = 2
+texture = ExtResource("7_cxlye")
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="UpgradeIcons"]
+layout_mode = 2
+texture = ExtResource("8_lc05j")
+expand_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="UpgradeIcons"]
+layout_mode = 2
+texture = ExtResource("7_cxlye")
+expand_mode = 2
 
 [node name="HUDAnim" type="AnimationPlayer" parent="."]
 libraries = {

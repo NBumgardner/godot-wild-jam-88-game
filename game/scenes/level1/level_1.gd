@@ -19,7 +19,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 func _on_player_dead() -> void:
 	EventBus.globalLevelFailed.emit()
 	await get_tree().create_timer(1.0).timeout
-	get_tree().change_scene_to_file("res://scenes/menus/start_menu/start_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/menus/lose/lose.tscn")
 
 func _on_exit_vent_player_touched() -> void:
 	EventBus.globalLevelSuccess.emit()

@@ -12,6 +12,7 @@ var current_music: AudioStreamPlayer
 @onready var sfxUiMouseEntered: AudioStreamPlayer = $SFXUIMouseEntered
 @onready var level_end_stinger: AudioStreamPlayer = $LevelEndStinger
 @onready var into_level_1_stinger: AudioStreamPlayer = $IntoLevel1Stinger
+@onready var game_over_stinger: AudioStreamPlayer = $GameOverStinger
 
 func _ready() -> void:
 	EventBus.globalEnemyDestroyed.connect(_playSfxEnemyDestroyed)
@@ -22,8 +23,8 @@ func _ready() -> void:
 	EventBus.globalUiElementSelected.connect(_playSfxUiClickConfirm)
 	EventBus.globalLevel1Started.connect(_playMusicGamplayLevel1)
 	EventBus.globalLevelNStarted.connect(_playMusicGamplayLevelN)
-	EventBus.globalLevelSuccess.connect(_playMusicGamplayLevelEnd)
-	EventBus.globalLevelFailed.connect(_playMusicGamplayLevelEnd)
+	EventBus.globalLevelSuccess.connect(_playMusicGamplayLevelSuccess)
+	EventBus.globalLevelFailed.connect(_playMusicGamplayLevelFailed)
 	EventBus.globalIntermissionEntered.connect(_playMusicPowerupScreen)
 	EventBus.globalTitleEntered.connect(_playMusicTitle)
 	EventBus.globalCreditsEntered.connect(_playMusicEndCredits)
@@ -39,8 +40,12 @@ func _playMusicGamplayLevel1() -> void:
 func _playMusicGamplayLevelN() -> void:
 	into_level_1_stinger.play()
 	music_gameplay["parameters/switch_to_clip"] = "Level 1 Track"
-func _playMusicGamplayLevelEnd() -> void:
-	music_gameplay["parameters/switch_to_clip"] = "silence"
+func _playMusicGamplayLevelSuccess() -> void:
+	level_end_stinger.play()
+	music_gameplay["parameters/switch_to_clip"] = "Endgame And Credits"
+func _playMusicGamplayLevelFailed() -> void:
+	game_over_stinger.play()
+	music_gameplay["parameters/switch_to_clip"] = "Endgame And Credits"
 func _playMusicPowerupScreen() -> void:
 	music_gameplay["parameters/switch_to_clip"] = "Powerup Screen Track"
 #endregion Music

@@ -47,6 +47,9 @@ signal globalEnvironmentRiftAreaLeaveEarly();
 signal globalEnvironmentRiftBigEruption();
 
 @warning_ignore("unused_signal")
+signal globalRiftSealProgress(i: int);
+
+@warning_ignore("unused_signal")
 signal globalEnvironmentRiftBigReadyToLaunch();
 @warning_ignore("unused_signal")
 signal globalEnvironmentRiftBigReadyToLaunchReset();

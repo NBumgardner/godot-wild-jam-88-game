@@ -151,6 +151,7 @@ func fire_projectile(target: Vector2) -> void:
 		projectile.position = global_position
 		projectile.scale *= GameState.player_stats.projectile_size_mult
 		projectile.virus = key_upgrade == PlayerStats.KeyUpgrade.VIRUS
+		projectile.bounces = GameState.player_stats.projectile_bounce
 		get_parent().add_child(projectile)
 		fire_delay_time = FIRE_DELAY
 	elif key_upgrade == PlayerStats.KeyUpgrade.BOMB:

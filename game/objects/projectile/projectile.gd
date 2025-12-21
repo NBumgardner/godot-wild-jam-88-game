@@ -17,7 +17,8 @@ var bounces: int = 0
 func _ready() -> void:
 	homing_shape.disabled = GameState.player_stats.projectile_homing_radius == 0.0
 	homing_shape.shape.radius = GameState.player_stats.projectile_homing_radius
-	
+	if virus:
+		sprite_2d.modulate = Color("63ffd3")
 
 func _physics_process(delta: float) -> void:
 	if homing.has_overlapping_bodies():
@@ -34,19 +35,23 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	assert(body is Enemy)
+	if body.is_in_group("sick"):
+		return
 	
-	
-	if virus and get_tree().get_nodes_in_group("virus").is_empty():
+	if virus:
 		var v = VIRUS.instantiate()
+		v.bounces = bounces
 		body.add_child(v)
+		body.add_to_group("sick")
+		queue_free()
 	else:
 		body.hit()
-	
-	if bounces < GameState.player_stats.projectile_bounce:
-		bounces += 1
-		velocity = velocity.rotated(randf() * TAU)
-	else:
-		queue_free()
+		
+		if bounces > 0:
+			bounces -= 1
+			velocity = velocity.rotated(randf() * TAU)
+		else:
+			queue_free()
 
 
 func _on_life_timer_timeout() -> void:

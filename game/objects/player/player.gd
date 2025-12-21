@@ -54,11 +54,24 @@ func _exit_tree() -> void:
 func _process(delta: float) -> void:
 	match state:
 		State.NORMAL:
-			squirt_particles.emitting = vent_detector.has_overlapping_areas()
-			
+			var closest_vent: VentHole = null
 			for vent: VentHole in vent_detector.get_overlapping_areas():
 				if vent.enabled:
 					vent.girth -= BASE_GOOP_PER_SECOND * delta * GameState.player_stats.goop_mult
+					if closest_vent:
+						if position.distance_to(vent.position) < position.distance_to(closest_vent.position):
+							closest_vent = vent
+					else:
+						closest_vent = vent
+			
+			if closest_vent:
+				var particle_velocity := position.distance_to(closest_vent.position)
+				squirt_particles.initial_velocity_min = particle_velocity
+				squirt_particles.initial_velocity_max = particle_velocity
+				squirt_particles.direction = position.direction_to(closest_vent.position)
+				squirt_particles.emitting = true
+			else:
+				squirt_particles.emitting = false
 
 func _physics_process(delta: float) -> void:
 	match state:

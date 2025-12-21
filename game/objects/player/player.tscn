@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cxgg604ulakso"]
+[gd_scene load_steps=33 format=3 uid="uid://cxgg604ulakso"]
 
 [ext_resource type="Script" uid="uid://d18i42fgylo6r" path="res://objects/player/player.gd" id="1_cqmt1"]
 [ext_resource type="Texture2D" uid="uid://tajpgdbf5pj0" path="res://objects/player/sprites/vent-seal-animation.png" id="3_jnjyq"]
@@ -23,11 +23,6 @@ height = 32
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
-
-[sub_resource type="Curve" id="Curve_ow0dq"]
-_limits = [0.0, 100.0, 0.0, 1.0]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5454545, 0), 0.0, 0.0, 0, 0, Vector2(0.7272727, 100), 14.831467, 0.0, 0, 0]
-point_count = 3
 
 [sub_resource type="Curve" id="Curve_xgwla"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -162,11 +157,8 @@ explosiveness = 0.71
 fixed_fps = 30
 draw_order = 1
 direction = Vector2(0, -1)
-initial_velocity_min = 317.47
-initial_velocity_max = 539.69
-damping_min = 23.810001
-damping_max = 23.810001
-damping_curve = SubResource("Curve_ow0dq")
+spread = 1.0
+gravity = Vector2(0, 0)
 split_scale = true
 scale_curve_x = SubResource("Curve_xgwla")
 scale_curve_y = SubResource("Curve_bi5m7")

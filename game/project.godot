@@ -20,6 +20,7 @@ config/icon="uid://dwpv60otyffeg"
 EventBus="*res://globals/event_bus.gd"
 AudioManager="*res://globals/audio_manager/audio_manager.tscn"
 GameState="*res://globals/game_state.gd"
+Fullscreener="res://globals/fullscreener.gd"
 
 [display]
 

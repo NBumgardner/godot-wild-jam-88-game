@@ -130,7 +130,7 @@ states/Start/position = Vector2(203, 100)
 states/WALK/node = SubResource("AnimationNodeBlendSpace2D_82b0h")
 states/WALK/position = Vector2(703, 115)
 transitions = ["Start", "IDLE", SubResource("AnimationNodeStateMachineTransition_adk3m"), "IDLE", "BALL VISIBLE", SubResource("AnimationNodeStateMachineTransition_jerem"), "WALK", "BALL INVISIBLE", SubResource("AnimationNodeStateMachineTransition_oqafc"), "BALL VISIBLE", "WALK", SubResource("AnimationNodeStateMachineTransition_b75n2"), "BALL INVISIBLE", "IDLE", SubResource("AnimationNodeStateMachineTransition_h08is"), "VENT SEAL", "IDLE", SubResource("AnimationNodeStateMachineTransition_gnkmh"), "IDLE", "VENT SEAL", SubResource("AnimationNodeStateMachineTransition_jnjyq"), "WALK", "VENT SEAL", SubResource("AnimationNodeStateMachineTransition_xkryw")]
-graph_offset = Vector2(-358, -66)
+graph_offset = Vector2(-112, 2)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 5
@@ -184,9 +184,11 @@ hframes = 5
 vframes = 5
 
 [node name="BlobAnimPlayer" type="AnimationPlayer" parent="."]
+process_mode = 3
 libraries = {
 &"": ExtResource("3_ssrue")
 }
+autoplay = "IDLE"
 
 [node name="BlobTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_rgkrx")

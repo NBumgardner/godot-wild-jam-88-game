@@ -56,6 +56,7 @@ func _process(delta: float) -> void:
 func _take_upgrade() -> void:
 	_input_disabled = true
 	GameState.player_stats.add_upgrade(rewards[_selection].upgrade)
+	EventBus.globalPlayerPowerup.emit()
 	
 	var t := create_tween()
 	t.tween_property(markers[_selection], "position:y", -600.0, 0.5).as_relative().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)

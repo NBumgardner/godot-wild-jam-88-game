@@ -62,6 +62,9 @@ signal globalPlayerWalkEnd();
 signal globalPlayerWalkStart();
 
 @warning_ignore("unused_signal")
+signal globalPlayerPowerup();
+
+@warning_ignore("unused_signal")
 signal globalPlayerShoot();
 #endregion Player signals
 

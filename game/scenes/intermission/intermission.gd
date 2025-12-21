@@ -44,9 +44,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if not _input_disabled:
 		if Input.is_action_just_pressed("move_left"):
-			_selection = clampi(_selection - 1, 0, rewards.size())
+			_selection = clampi(_selection - 1, 0, rewards.size() - 1)
 		if Input.is_action_just_pressed("move_right"):
-			_selection = clampi(_selection + 1, 0, rewards.size())
+			_selection = clampi(_selection + 1, 0, rewards.size() - 1)
 		if Input.is_action_just_pressed("❌_button"):
 			_take_upgrade()
 	

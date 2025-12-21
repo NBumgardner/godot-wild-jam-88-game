@@ -27,7 +27,7 @@ func _update() -> void:
 	if not is_inside_tree():
 		return
 	sprite_2d.texture = PlayerStats.get_upgrade_icon(upgrade)
-	label.text = PlayerStats.Upgrade.find_key(upgrade)
+	label.text = PlayerStats.get_upgrade_name(upgrade)
 	if PlayerStats.is_upgrade_rare(upgrade):
 		rare_shine.visible = true
 		self_modulate = Color(1.0, 0.75, 0.0, 1.0)

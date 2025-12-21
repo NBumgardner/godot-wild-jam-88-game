@@ -32,11 +32,19 @@ func _ready() -> void:
 			rewards[i].upgrade = possible_rewards[i]
 		_selection = 0
 	else:
-		var possible_rewards := PlayerStats.Upgrade.values().filter(func (u): return u not in PlayerStats.KeyUpgrade.values())
-		possible_rewards.append_array(possible_rewards.filter(func (u): return not PlayerStats.is_upgrade_rare(u)))
-		possible_rewards.shuffle()
+		var possible_rewards := PlayerStats.Upgrade.values() \
+			.filter(func (u): return u not in PlayerStats.KeyUpgrade.values())
+		var chosen_rewards = []
+		var get_weight := func (u):
+			if u in GameState.player_stats.upgrades:
+				return 0.5
+			return 1.0 if PlayerStats.is_upgrade_rare(u) else 2.0
 		for i in 3:
-			rewards[i].upgrade = possible_rewards[i]
+			var pick = RandomSampling.weighted_pick_random(possible_rewards, get_weight)
+			while pick in chosen_rewards:
+				pick = RandomSampling.weighted_pick_random(possible_rewards, get_weight)
+			chosen_rewards.append(pick)
+			rewards[i].upgrade = pick
 	for i in rewards.size():
 		rewards[i].clicked.connect(_on_intermission_clicked.bind(i))
 		rewards[i].hovered.connect(_on_intermission_hovered.bind(i))

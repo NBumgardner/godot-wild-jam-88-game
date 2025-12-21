@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="LevelDetails" load_steps=11 format=3 uid="uid://idvrr2ys8hbl"]
+[gd_resource type="Resource" script_class="LevelDetails" load_steps=12 format=3 uid="uid://idvrr2ys8hbl"]
 
 [ext_resource type="Script" uid="uid://pket2s273ceo" path="res://resource_types/enemy_spawn.gd" id="1_2dx3v"]
 [ext_resource type="PackedScene" uid="uid://b464h76qb351y" path="res://objects/enemy_walker/enemy_walker.tscn" id="2_hl7xt"]
@@ -24,6 +24,7 @@ metadata/_custom_type_script = "uid://pket2s273ceo"
 [sub_resource type="Resource" id="Resource_s6tq0"]
 script = ExtResource("1_2dx3v")
 enemy_scene = ExtResource("2_hl7xt")
+spawn_chance = 0.5
 metadata/_custom_type_script = "uid://pket2s273ceo"
 
 [sub_resource type="Resource" id="Resource_2dx3v"]
@@ -31,10 +32,16 @@ script = ExtResource("1_2dx3v")
 enemy_scene = ExtResource("3_qot1a")
 metadata/_custom_type_script = "uid://pket2s273ceo"
 
+[sub_resource type="Resource" id="Resource_hl7xt"]
+script = ExtResource("1_2dx3v")
+enemy_scene = ExtResource("4_hl7xt")
+spawn_chance = 3.0
+metadata/_custom_type_script = "uid://pket2s273ceo"
+
 [resource]
 script = ExtResource("4_u27g2")
 num_vents = 10
 chase_enemies = Array[ExtResource("1_2dx3v")]([SubResource("Resource_36t7y"), SubResource("Resource_i1o01"), SubResource("Resource_qot1a")])
 defender_num_per_vent = 5
-defender_enemies = Array[ExtResource("1_2dx3v")]([SubResource("Resource_s6tq0"), SubResource("Resource_2dx3v")])
+defender_enemies = Array[ExtResource("1_2dx3v")]([SubResource("Resource_s6tq0"), SubResource("Resource_2dx3v"), SubResource("Resource_hl7xt")])
 metadata/_custom_type_script = "uid://dn1a0v05nbyh5"

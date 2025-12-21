@@ -6,7 +6,6 @@ const SHOOTER_PROJECTILE = preload("uid://o3mnf6g52ar0")
 const PROJECTILE_SPEED = 300.0
 const ACCURACY_RADIUS = 96.0
 
-@onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var bt_player: BTPlayer = $BTPlayer
 @onready var anim_tree: AnimationTree = $AnimationTree
 
@@ -53,4 +52,5 @@ func _attack_hit() -> void:
 	get_parent().add_child(projectile)
 
 func _on_player_aggrod(target: Player) -> void:
-	bt_player.blackboard.set_var("target", target)
+	if guard_zone:
+		bt_player.blackboard.set_var("target", target)

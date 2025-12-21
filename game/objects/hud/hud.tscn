@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://6o26q54y57gv"]
+[gd_scene load_steps=12 format=3 uid="uid://6o26q54y57gv"]
 
 [ext_resource type="Theme" uid="uid://cd3xaq0w5mwtl" path="res://assets/themes/default.tres" id="1_08fgm"]
 [ext_resource type="Script" uid="uid://cf276iwu4busb" path="res://objects/hud/hud.gd" id="1_y7bgl"]
@@ -8,9 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://c57p2yxb4bd2i" path="res://objects/hud/health bar/glass.png" id="6_cxlye"]
 [ext_resource type="Texture2D" uid="uid://cn8jvmbccuqba" path="res://objects/hud/icons/upgrade_HP 2.png" id="7_cxlye"]
 [ext_resource type="Texture2D" uid="uid://1owhfblemuwx" path="res://objects/hud/icons/upgrade_homing2.png" id="8_lc05j"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_08fgm"]
-font_size = 32
 
 [sub_resource type="Animation" id="Animation_joawt"]
 resource_name = "HEALTH_BAR_SHAKE"
@@ -84,15 +81,6 @@ layout_mode = 2
 text = "Remaining vents:"
 horizontal_alignment = 2
 
-[node name="HealthBar" type="Label" parent="."]
-unique_name_in_owner = true
-visible = false
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "❤️❤️❤️❤️❤️❤️❤️❤️❤️❌"
-label_settings = SubResource("LabelSettings_08fgm")
-
 [node name="HealthBar2" type="Node2D" parent="."]
 position = Vector2(147, 48)
 
@@ -118,6 +106,22 @@ offset_right = 114.0
 offset_bottom = 16.0
 
 [node name="center" type="Sprite2D" parent="HealthBar2/health_mask"]
+position = Vector2(117, 24)
+texture = ExtResource("5_w0vgd")
+region_enabled = true
+region_rect = Rect2(0, 0, 277, 97)
+
+[node name="health_mask2" type="ColorRect" parent="HealthBar2"]
+visible = false
+modulate = Color(0.96795195, 0.72402143, 0, 1)
+clip_children = 1
+clip_contents = true
+offset_left = -117.0
+offset_top = -24.0
+offset_right = 114.0
+offset_bottom = 16.0
+
+[node name="center" type="Sprite2D" parent="HealthBar2/health_mask2"]
 position = Vector2(117, 24)
 texture = ExtResource("5_w0vgd")
 region_enabled = true

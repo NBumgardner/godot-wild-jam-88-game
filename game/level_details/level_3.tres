@@ -24,6 +24,8 @@ metadata/_custom_type_script = "uid://pket2s273ceo"
 [resource]
 script = ExtResource("3_i1o01")
 num_vents = 4
+chase_max_enemies = 6
+chase_spawn_rate = 3.0
 chase_enemies = Array[ExtResource("1_55lun")]([SubResource("Resource_36t7y"), SubResource("Resource_i1o01")])
 defender_num_per_vent = 3
 defender_enemies = Array[ExtResource("1_55lun")]([SubResource("Resource_s6tq0")])

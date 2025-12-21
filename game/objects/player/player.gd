@@ -12,6 +12,8 @@ const FIRE_DELAY = 1.0
 const PROJECTILE_SPEED = 200.0
 const PROJECTILE_INCIDENT_VELOCITY_RATIO = 0.5
 
+const BOMB_HOMING_MAX_ACCEL = 500.0
+
 const PROJECTILE = preload("uid://do7s00elpsdcm")
 const PLAYER_BOMB_PROJECTILE = preload("uid://c2oqw1s8yox47")
 
@@ -105,7 +107,10 @@ func fire_projectile(target: Vector2) -> void:
 		projectile.compute_trajectory(target, (target.length() / 128.0) * PROJECTILE_SPEED * GameState.player_stats.projectile_speed_mult)
 		projectile.scale *= GameState.player_stats.projectile_size_mult
 		projectile.bounces = GameState.player_stats.projectile_bounce
+		if GameState.player_stats.projectile_homing_radius != 0.0:
+			projectile.homing_max_acceleration = BOMB_HOMING_MAX_ACCEL * GameState.player_stats.projectile_homing_speed_mult
 		get_parent().add_child(projectile)
+		projectile.homing_area_shape.shape.radius += GameState.player_stats.projectile_homing_radius
 		fire_delay_time = FIRE_DELAY
 
 func set_state(s: State) -> void:

@@ -23,4 +23,6 @@ func _process(_delta: float) -> void:
 	
 	sprite_2d.position = size/2.0 + closest_point.limit_length(ARROW_DIST)
 	sprite_2d.rotation = closest_point.angle()
-	sprite_2d.scale = clampf((closest_point.length() / ARROW_DIST), 0.0, 1.0) * Vector2.ONE
+	var s := clampf((closest_point.length() / ARROW_DIST), 0.0, 1.0)
+	sprite_2d.scale = s * Vector2.ONE
+	sprite_2d.modulate.a = remap(s, 0.2, 1.0, 0.0, 1.0)

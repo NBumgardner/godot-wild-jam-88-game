@@ -2,6 +2,7 @@ extends Node2D
 
 func _ready() -> void:
 	get_parent().health_changed.connect(queue_redraw)
+	z_index = 1
 
 func _draw() -> void:
 	var health: int = get_parent().health

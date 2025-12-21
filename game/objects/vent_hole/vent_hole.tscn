@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://crqpow0he17xw" path="res://objects/vent_hole/vent_hole.png" id="1_ccd3c"]
 [ext_resource type="Script" uid="uid://bo04rerusgwow" path="res://objects/vent_hole/vent_hole.gd" id="1_ymb0x"]
 [ext_resource type="Texture2D" uid="uid://cyat80v5en7k4" path="res://objects/vent_hole/vent_hole_flare.png" id="3_fcpvb"]
-[ext_resource type="Script" path="res://objects/guard_zone.gd" id="3_l4ska"]
+[ext_resource type="Script" uid="uid://m7wc866kxdws" path="res://objects/guard_zone.gd" id="3_l4ska"]
 [ext_resource type="Texture2D" uid="uid://cru6dg81y8s8h" path="res://objects/vent_hole/vent_hole_flare2.png" id="5_sbas8"]
 [ext_resource type="Texture2D" uid="uid://bon16lf30e7g3" path="res://objects/vent_hole/vent_hole_flare3.png" id="6_qmb06"]
 [ext_resource type="Texture2D" uid="uid://brqjkvx1ys83g" path="res://objects/vent_hole/vent_hole_flare4.png" id="7_hy3nt"]

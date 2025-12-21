@@ -3,7 +3,6 @@ extends Enemy
 const SPEED = 100.0
 const TURN_SPEED = 3.0
 
-@onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var attack_hitbox: Area2D = $AttackHitbox
 @onready var bt_player: BTPlayer = $BTPlayer
 @onready var anim_tree: AnimationTree = $AnimationTree
@@ -33,6 +32,7 @@ func _guard_zone_changed() -> void:
 	if bt_player:
 		bt_player.blackboard.set_var("guard_zone", guard_zone)
 		if not guard_zone:
+			print("no guard_zone, setting target player = ", player)
 			bt_player.blackboard.set_var("target", player)
 		else:
 			bt_player.blackboard.set_var("target", guard_zone.target)
@@ -44,4 +44,5 @@ func _attack_hit() -> void:
 		body.hit()
 
 func _on_player_aggrod(target: Player) -> void:
-	bt_player.blackboard.set_var("target", target)
+	if guard_zone:
+		bt_player.blackboard.set_var("target", target)

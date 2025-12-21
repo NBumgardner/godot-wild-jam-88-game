@@ -1,6 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://bmevvwgk8usks"]
+[gd_scene load_steps=25 format=3 uid="uid://bmevvwgk8usks"]
 
 [ext_resource type="Script" uid="uid://c5m84cf1bn4at" path="res://objects/enemy_tough/enemy_tough.gd" id="1_05y0o"]
+[ext_resource type="PackedScene" uid="uid://b6hck7c2vafri" path="res://objects/fx_enemy_death/tough_fx_enemy_death.tscn" id="2_cvtpv"]
 [ext_resource type="BehaviorTree" uid="uid://yvh8kwr8caet" path="res://objects/enemy_tough/enemy_tough_bt.tres" id="3_hyibi"]
 [ext_resource type="Script" uid="uid://o3lhl0tef5ys" path="res://objects/hp_bar.gd" id="3_j48ov"]
 [ext_resource type="Texture2D" uid="uid://dfwnvhm8331xv" path="res://objects/enemy_tough/ICE SHEET_TOUGH.png" id="5_wcl4i"]
@@ -405,6 +406,7 @@ collision_layer = 9
 motion_mode = 1
 script = ExtResource("1_05y0o")
 starting_health = 3
+death_fx = ExtResource("2_cvtpv")
 
 [node name="AttackHitbox" type="Area2D" parent="."]
 collision_layer = 0

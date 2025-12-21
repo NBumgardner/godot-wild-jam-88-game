@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="LevelDetails" load_steps=8 format=3 uid="uid://bbwwye6544plr"]
+[gd_resource type="Resource" script_class="LevelDetails" load_steps=11 format=3 uid="uid://bbwwye6544plr"]
 
 [ext_resource type="Script" uid="uid://pket2s273ceo" path="res://resource_types/enemy_spawn.gd" id="1_gacgl"]
 [ext_resource type="PackedScene" uid="uid://b464h76qb351y" path="res://objects/enemy_walker/enemy_walker.tscn" id="2_c1ork"]
 [ext_resource type="PackedScene" uid="uid://g1trluhrxmwi" path="res://objects/enemy_shooter/enemy_shooter.tscn" id="3_fqhb5"]
+[ext_resource type="PackedScene" uid="uid://bmevvwgk8usks" path="res://objects/enemy_tough/enemy_tough.tscn" id="4_c1ork"]
 [ext_resource type="Script" uid="uid://dn1a0v05nbyh5" path="res://resource_types/level_details.gd" id="4_towns"]
 
 [sub_resource type="Resource" id="Resource_36t7y"]
@@ -20,10 +21,23 @@ script = ExtResource("1_gacgl")
 enemy_scene = ExtResource("2_c1ork")
 metadata/_custom_type_script = "uid://pket2s273ceo"
 
+[sub_resource type="Resource" id="Resource_gacgl"]
+script = ExtResource("1_gacgl")
+enemy_scene = ExtResource("3_fqhb5")
+metadata/_custom_type_script = "uid://pket2s273ceo"
+
+[sub_resource type="Resource" id="Resource_c1ork"]
+script = ExtResource("1_gacgl")
+enemy_scene = ExtResource("4_c1ork")
+spawn_chance = 0.5
+metadata/_custom_type_script = "uid://pket2s273ceo"
+
 [resource]
 script = ExtResource("4_towns")
 num_vents = 5
+chase_max_enemies = 8
+chase_spawn_rate = 2.0
 chase_enemies = Array[ExtResource("1_gacgl")]([SubResource("Resource_36t7y"), SubResource("Resource_i1o01")])
 defender_num_per_vent = 4
-defender_enemies = Array[ExtResource("1_gacgl")]([SubResource("Resource_s6tq0")])
+defender_enemies = Array[ExtResource("1_gacgl")]([SubResource("Resource_s6tq0"), SubResource("Resource_gacgl"), SubResource("Resource_c1ork")])
 metadata/_custom_type_script = "uid://dn1a0v05nbyh5"

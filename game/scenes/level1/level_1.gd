@@ -1,8 +1,12 @@
 extends Node2D
 
+signal _dialog_next()
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var camera_target: Marker2D = $CameraTarget
 @onready var fade: ColorRect = $HUDLayer/Fade
+@onready var dialog: Control = %Dialog
+@onready var dialog_text: RichTextLabel = %DialogText
 
 
 func _ready() -> void:
@@ -10,11 +14,31 @@ func _ready() -> void:
 		EventBus.globalLevel1Started.emit()
 	else:
 		EventBus.globalLevelNStarted.emit()
+	
+	match GameState.current_level:
+		1:
+			intro_cutscene()
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event is InputEventKey:
 		if event.pressed and not event.is_echo() and event.keycode == KEY_KP_7:
 			_on_exit_vent_player_touched.call_deferred()
+
+func intro_cutscene() -> void:
+	get_tree().paused = true
+	await show_dialog("It appears that we have crash landed on the planet Boreas VII.")
+	await show_dialog("The area we are in is much too cold for our species, and the native Krytlians are known to be hostile.")
+	await show_dialog("We have identified a hot caldera where we can survive, but there are unpassable chasms in the way.")
+	await show_dialog("Fortunately, there are thermal vents that we can use to propel us closer to the caldera.")
+	await show_dialog("Approach smaller vents to close them and build up enough pressure in the main vent to propel us forward. Good luck!")
+	dialog.visible = false
+	get_tree().paused = false
+
+func show_dialog(s: String) -> void:
+	dialog.visible = true
+	dialog_text.text = s
+	dialog_text.create_tween().tween_property(dialog_text, "visible_ratio", 1.0, 1.0).from(0.0)
+	await _dialog_next
 
 func _on_player_dead() -> void:
 	EventBus.globalLevelFailed.emit()
@@ -33,3 +57,7 @@ func _on_exit_vent_player_touched() -> void:
 	tween.tween_interval(0.2)
 	await tween.finished
 	GameState.goto_next_level()
+
+
+func _on_dialog_next_button_pressed() -> void:
+	_dialog_next.emit()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://malxmp0cv835"]
+[gd_scene load_steps=18 format=4 uid="uid://malxmp0cv835"]
 
 [ext_resource type="Script" uid="uid://bqctpd7vkcbxw" path="res://scenes/level1/level_1.gd" id="1_dpu10"]
 [ext_resource type="Script" uid="uid://ddvebyb53rymj" path="res://objects/game_manager.gd" id="1_ru4tf"]
@@ -9,8 +9,16 @@
 [ext_resource type="PackedScene" uid="uid://cyhr2o4yl6uu2" path="res://objects/arrow/arrow.tscn" id="3_ejswk"]
 [ext_resource type="PackedScene" uid="uid://t0o32ktuyxs7" path="res://objects/exit_vent/exit_vent.tscn" id="4_6sh32"]
 [ext_resource type="AnimationLibrary" uid="uid://bwkjvuv6p3w11" path="res://scenes/level1/animations.tres" id="6_q6uuj"]
+[ext_resource type="Texture2D" uid="uid://u2ifaj2arksa" path="res://assets/ui_frame.png" id="8_k3l6j"]
 [ext_resource type="TileSet" uid="uid://d1wksaknren5w" path="res://scenes/level1/level1_tileset.tres" id="8_wmcwa"]
 [ext_resource type="Script" uid="uid://cg1pppt1as4xi" path="res://objects/camera_target.gd" id="10_wmcwa"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0em4h"]
+texture = ExtResource("8_k3l6j")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ejswk"]
 
@@ -74,7 +82,47 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="Dialog" type="Control" parent="HUDLayer"]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="HUDLayer/Dialog"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -266.0
+offset_top = -185.0
+offset_right = 266.0
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_0em4h")
+metadata/_edit_group_ = true
+
+[node name="DialogText" type="RichTextLabel" parent="HUDLayer/Dialog/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="DialogNextButton" type="Button" parent="HUDLayer/Dialog"]
+layout_mode = 0
+offset_left = 511.0
+offset_top = 421.0
+offset_right = 593.0
+offset_bottom = 452.0
+text = "Next"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 3
 libraries = {
 &"": ExtResource("6_q6uuj")
 }
@@ -122,5 +170,6 @@ velocity_parent = NodePath("../Player")
 [connection signal="burst" from="BackgroundLayer/ExitVent" to="GameManager" method="_on_exit_vent_burst"]
 [connection signal="player_touched" from="BackgroundLayer/ExitVent" to="." method="_on_exit_vent_player_touched"]
 [connection signal="player_touched" from="BackgroundLayer/ExitVent" to="GameManager" method="_on_exit_vent_player_touched"]
+[connection signal="pressed" from="HUDLayer/Dialog/DialogNextButton" to="." method="_on_dialog_next_button_pressed"]
 [connection signal="dead" from="Player" to="." method="_on_player_dead"]
 [connection signal="dead" from="Player" to="GameManager" method="_on_player_dead"]

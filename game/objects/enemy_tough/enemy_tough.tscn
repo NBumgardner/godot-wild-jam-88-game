@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c5m84cf1bn4at" path="res://objects/enemy_tough/enemy_tough.gd" id="1_05y0o"]
 [ext_resource type="Texture2D" uid="uid://bmgpqaf4e1v4q" path="res://objects/enemy_tough/enemy.png" id="2_gisoc"]
 [ext_resource type="BehaviorTree" uid="uid://yvh8kwr8caet" path="res://objects/enemy_tough/enemy_tough_bt.tres" id="3_hyibi"]
-[ext_resource type="Script" uid="uid://o3lhl0tef5ys" path="res://objects/hp_bar.gd" id="3_j48ov"]
+[ext_resource type="Script" path="res://objects/hp_bar.gd" id="3_j48ov"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1rjq7"]
 radius = 37.01351

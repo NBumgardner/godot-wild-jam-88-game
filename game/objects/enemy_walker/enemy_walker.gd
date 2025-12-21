@@ -32,6 +32,7 @@ func _guard_zone_changed() -> void:
 	if bt_player:
 		bt_player.blackboard.set_var("guard_zone", guard_zone)
 		if not guard_zone:
+			print("no guard_zone, setting target player = ", player)
 			bt_player.blackboard.set_var("target", player)
 		else:
 			bt_player.blackboard.set_var("target", guard_zone.target)
@@ -43,4 +44,5 @@ func _attack_hit() -> void:
 		body.hit()
 
 func _on_player_aggrod(target: Player) -> void:
-	bt_player.blackboard.set_var("target", target)
+	if guard_zone:
+		bt_player.blackboard.set_var("target", target)

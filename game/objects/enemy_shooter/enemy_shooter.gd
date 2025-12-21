@@ -52,4 +52,5 @@ func _attack_hit() -> void:
 	get_parent().add_child(projectile)
 
 func _on_player_aggrod(target: Player) -> void:
-	bt_player.blackboard.set_var("target", target)
+	if guard_zone:
+		bt_player.blackboard.set_var("target", target)

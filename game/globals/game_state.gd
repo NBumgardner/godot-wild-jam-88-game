@@ -17,7 +17,7 @@ func goto_next_level() -> void:
 	if ResourceLoader.exists("res://level_details/level_%s.tres" % current_level):
 		level_details = load("res://level_details/level_%s.tres" % current_level)
 	if not level_details:
-		get_tree().change_scene_to_file("res://scenes/menus/credits_menu/credits_menu.tscn")
+		get_tree().change_scene_to_file("res://scenes/menus/win/win.tscn")
 	elif current_level == 1:
 		start_level()
 	else:

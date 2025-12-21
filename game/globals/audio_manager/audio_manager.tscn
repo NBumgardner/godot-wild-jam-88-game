@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ced34ddbfg6rk"]
+[gd_scene load_steps=18 format=3 uid="uid://ced34ddbfg6rk"]
 
 [ext_resource type="Script" uid="uid://d285n7qgdjp7g" path="res://globals/audio_manager/audio_manager.gd" id="1_ix0j0"]
 [ext_resource type="AudioStream" uid="uid://1lx2vem4rr32" path="res://assets/audio/sfx/sfx_101_ButtonClick.wav" id="2_2bgjf"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://d3oqlpyitnxco" path="res://assets/audio/music/Endgame and Credits.ogg" id="6_2d6s7"]
 [ext_resource type="AudioStream" uid="uid://cow07hxmv2mn5" path="res://assets/audio/music/Powerup Screen Track.ogg" id="6_684e1"]
 [ext_resource type="AudioStream" uid="uid://c70q4om6yqj2o" path="res://assets/audio/music/Initial DialogueTrack.ogg" id="7_x361m"]
+[ext_resource type="AudioStream" uid="uid://baagpys0kf8yc" path="res://assets/audio/music/Game Over Stinger.ogg" id="8_1m5h4"]
 
 [sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_lgug7"]
 
@@ -43,6 +44,12 @@ Vector2i(-1, -1): {
 "fade_mode": 4,
 "from_time": 1,
 "to_time": 1
+},
+Vector2i(5, 5): {
+"fade_beats": 1.0,
+"fade_mode": 0,
+"from_time": 0,
+"to_time": 0
 }
 }
 
@@ -56,6 +63,10 @@ bus = &"Music"
 
 [node name="LevelEndStinger" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_1m5h4")
+bus = &"Music"
+
+[node name="GameOverStinger" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_1m5h4")
 bus = &"Music"
 
 [node name="IntoLevel1Stinger" type="AudioStreamPlayer" parent="."]

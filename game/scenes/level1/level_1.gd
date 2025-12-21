@@ -12,13 +12,9 @@ signal _dialog_next()
 
 func _ready() -> void:
 	if GameState.current_level == 1:
-		EventBus.globalLevel1Started.emit()
+		intro_cutscene()
 	else:
 		EventBus.globalLevelNStarted.emit()
-	
-	match GameState.current_level:
-		1:
-			intro_cutscene()
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event is InputEventKey:
@@ -37,6 +33,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 				GameState.player_stats.add_upgrade(PlayerStats.Upgrade.MAX_HP)
 
 func intro_cutscene() -> void:
+	EventBus.globalInitialDialogStarted.emit()
 	hud.hide()
 	get_tree().paused = true
 	await show_dialog("It appears that we have crash landed on the planet Boreas VII.")
@@ -47,6 +44,7 @@ func intro_cutscene() -> void:
 	dialog.visible = false
 	get_tree().paused = false
 	hud.show()
+	EventBus.globalLevel1Started.emit()
 
 func show_dialog(s: String) -> void:
 	dialog.visible = true

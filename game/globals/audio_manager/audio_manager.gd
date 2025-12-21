@@ -33,6 +33,7 @@ func _ready() -> void:
 	EventBus.globalLevelFailed.connect(_playMusicGamplayLevelFailed)
 	EventBus.globalIntermissionEntered.connect(_playMusicPowerupScreen)
 	EventBus.globalTitleEntered.connect(_playMusicTitle)
+	EventBus.globalInitialDialogStarted.connect(_playMusicIntroDialog)
 	EventBus.globalCreditsEntered.connect(_playMusicEndCredits)
 	EventBus.globalPlayerShoot.connect(_playPlayerShoot)
 	EventBus.globalPlayerWalkStart.connect(_playPlayerWalkStart)
@@ -43,22 +44,32 @@ func _ready() -> void:
 #region Music
 func _playMusicTitle() -> void:
 	music_gameplay["parameters/switch_to_clip"] = "Title Track"
+	EventBus.globalMusicTrackPlaying.emit("Title")
+func _playMusicIntroDialog() -> void:
+	music_gameplay["parameters/switch_to_clip"] = "Initial Dialogue Track"
+	EventBus.globalMusicTrackPlaying.emit("Initial Dialogue")
 func _playMusicEndCredits() -> void:
 	music_gameplay["parameters/switch_to_clip"] = "Endgame And Credits"
+	EventBus.globalMusicTrackPlaying.emit("Endgame And Credits")
 func _playMusicGamplayLevel1() -> void:
 	into_level_1_stinger.play()
 	music_gameplay["parameters/switch_to_clip"] = "Level 1 Track"
+	EventBus.globalMusicTrackPlaying.emit("Level 1")
 func _playMusicGamplayLevelN() -> void:
 	into_level_1_stinger.play()
 	music_gameplay["parameters/switch_to_clip"] = "Level 1 Track"
+	EventBus.globalMusicTrackPlaying.emit("Level 1")
 func _playMusicGamplayLevelSuccess() -> void:
 	level_end_stinger.play()
 	music_gameplay["parameters/switch_to_clip"] = "Endgame And Credits"
+	EventBus.globalMusicTrackPlaying.emit("Endgame And Credits")
 func _playMusicGamplayLevelFailed() -> void:
 	game_over_stinger.play()
 	music_gameplay["parameters/switch_to_clip"] = "Endgame And Credits"
+	EventBus.globalMusicTrackPlaying.emit("Endgame And Credits")
 func _playMusicPowerupScreen() -> void:
 	music_gameplay["parameters/switch_to_clip"] = "Powerup Screen Track"
+	EventBus.globalMusicTrackPlaying.emit("Powerup Screen")
 #endregion Music
 
 #region Enemy

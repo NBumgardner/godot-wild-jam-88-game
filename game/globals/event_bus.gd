@@ -14,6 +14,8 @@ signal globalIntermissionEntered();
 @warning_ignore("unused_signal")
 signal globalTitleEntered();
 @warning_ignore("unused_signal")
+signal globalInitialDialogStarted();
+@warning_ignore("unused_signal")
 signal globalCreditsEntered();
 #endregion Music signals
 
@@ -74,4 +76,7 @@ signal globalUiElementSelected();
 
 @warning_ignore("unused_signal")
 signal globalUiElementMouseEntered();
+
+@warning_ignore("unused_signal")
+signal globalMusicTrackPlaying(track: String);
 #endregion UI signals

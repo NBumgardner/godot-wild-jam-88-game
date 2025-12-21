@@ -90,14 +90,14 @@ func _unhandled_input(event: InputEvent) -> void:
 func _animate_vent_seal(vent: VentHole) -> void:
 	sealing_vent = vent
 	disable()
-	hop_to(sealing_vent.position + Vector2(-3.0, -50.0))
-	reset_physics_interpolation()
+	await hop_to(sealing_vent.position + Vector2(-3.0, -50.0))
 	sealing_vent.fade_effects()
 	animation_tree.set("parameters/conditions/sealing", true)
 
 func _vent_seal_finished() -> void:
 	animation_tree.set("parameters/conditions/sealing", false)
 	position += Vector2(-127.0, 56.0)
+	reset_physics_interpolation()
 	animation_player.play("IDLE")
 	animation_player.advance(0.0)
 	set_state(State.NORMAL)
@@ -105,9 +105,11 @@ func _vent_seal_finished() -> void:
 	sealing_vent = null
 
 func hop_to(pos: Vector2) -> void:
+	physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
 	var tween := create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
 	tween.tween_property(self, "position", pos, 0.5)
 	await tween.finished
+	physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_INHERIT
 
 func fire_projectile(target: Vector2) -> void:
 	EventBus.globalPlayerShoot.emit()

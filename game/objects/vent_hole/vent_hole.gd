@@ -1,12 +1,17 @@
 extends Area2D
 class_name VentHole
 
+signal sealed()
+
 @export var enabled := true
+
 @export var girth: float = 1.0:
 	set(v):
 		girth = v
 		if is_inside_tree() and girth <= 0:
 			EventBus.globalEnvironmentRiftAreaClosed.emit(self)
+			sealed.emit()
+			guard_zone.queue_free()
 
 @onready var guard_zone: GuardZone = $GuardZone
 @onready var sprite: Sprite2D = $Sprite

@@ -22,7 +22,7 @@ func _ready() -> void:
 		vent.position = Vector2(
 			randf_range(-1500, 1500),
 			randf_range(-1500, 1500))
-		vent.tree_exited.connect(_on_vent_closed.bind(vent))
+		vent.sealed.connect(_on_vent_closed.bind(vent))
 		vent_parent.add_child(vent)
 		vents.append(vent)
 		vent_opened.emit(vent)

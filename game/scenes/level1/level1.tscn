@@ -9,10 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://cyhr2o4yl6uu2" path="res://objects/arrow/arrow.tscn" id="3_ejswk"]
 [ext_resource type="PackedScene" uid="uid://t0o32ktuyxs7" path="res://objects/exit_vent/exit_vent.tscn" id="4_6sh32"]
 [ext_resource type="AnimationLibrary" uid="uid://bwkjvuv6p3w11" path="res://scenes/level1/animations.tres" id="6_q6uuj"]
-[ext_resource type="Texture2D" uid="uid://u2ifaj2arksa" path="res://assets/ui_frame.png" id="8_k3l6j"]
+[ext_resource type="Texture2D" uid="uid://u2ifaj2arksa" path="res://assets/ui/ui_frame.png" id="8_k3l6j"]
 [ext_resource type="TileSet" uid="uid://d1wksaknren5w" path="res://scenes/level1/level1_tileset.tres" id="8_wmcwa"]
 [ext_resource type="PackedScene" uid="uid://dlqu1euc1l1be" path="res://scenes/menus/pause_menu/pause_menu.tscn" id="9_0em4h"]
-[ext_resource type="Script" uid="uid://cg1pppt1as4xi" path="res://objects/camera_target.gd" id="10_wmcwa"]
+[ext_resource type="Script" path="res://objects/camera_target.gd" id="10_wmcwa"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0em4h"]
 texture = ExtResource("8_k3l6j")

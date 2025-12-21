@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://e2723ynrucqv" path="res://ai/tasks/move_to_range.gd" id="1_ybx7s"]
 [ext_resource type="Script" uid="uid://bv307g0s4k6gw" path="res://ai/tasks/return_home.gd" id="2_cts34"]
+[ext_resource type="Script" uid="uid://ctjh8edbix73t" path="res://ai/tasks/play_one_shot.gd" id="2_m04xk"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_37k6l"]
 var/target/name = &"target"
@@ -26,18 +27,13 @@ value = SubResource("BBVariant_csc7j")
 script = ExtResource("1_ybx7s")
 accept_radius = 240.0
 
-[sub_resource type="BBNode" id="BBNode_jt5sq"]
-saved_value = NodePath("AnimationPlayer")
-resource_name = "AnimationPlayer"
-
-[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_xenfq"]
-await_completion = 100.0
-animation_player = SubResource("BBNode_jt5sq")
-animation_name = &"attack"
+[sub_resource type="BTAction" id="BTAction_7sp2n"]
+script = ExtResource("2_m04xk")
+one_shot_path = "parameters/AttackOneShot"
 
 [sub_resource type="BTCooldown" id="BTCooldown_3i4jo"]
 duration = 1.0
-children = [SubResource("BTPlayAnimation_xenfq")]
+children = [SubResource("BTAction_7sp2n")]
 
 [sub_resource type="BTAlwaysSucceed" id="BTAlwaysSucceed_dqphi"]
 children = [SubResource("BTCooldown_3i4jo")]

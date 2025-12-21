@@ -6,6 +6,7 @@ const TURN_SPEED = 3.0
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var attack_hitbox: Area2D = $AttackHitbox
 @onready var bt_player: BTPlayer = $BTPlayer
+@onready var anim_tree: AnimationTree = $AnimationTree
 
 func _ready() -> void:
 	bt_player.blackboard.set_var("guard_zone", guard_zone)
@@ -16,10 +17,11 @@ func _ready() -> void:
 		guard_zone.player_aggrod.connect(_on_player_aggrod)
 
 func _physics_process(_delta: float) -> void:
-	if velocity.x > 0:
-		sprite_2d.flip_h = true
-	elif velocity.x < 0:
-		sprite_2d.flip_h = false
+	anim_tree.set("parameters/blend_position",remap(velocity.x,-100,100,-1,1))
+	#if velocity.x > 0:
+		#sprite_2d.flip_h = true
+	#elif velocity.x < 0:
+		#sprite_2d.flip_h = false
 
 func get_max_move_speed() -> float:
 	return SPEED

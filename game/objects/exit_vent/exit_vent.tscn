@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dbmy6yrh2agfv" path="res://objects/exit_vent/sprites/exit_vent_explode.png" id="3_wpn0x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y5si2"]
-radius = 123.101585
+radius = 44.598206
 
 [sub_resource type="Gradient" id="Gradient_neojl"]
 offsets = PackedFloat32Array(0, 0.08219178, 0.91780823, 1)
@@ -53,10 +53,10 @@ tracks/0/path = NodePath("Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6333333),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_neojl"), ExtResource("3_wpn0x")]
+"values": [ExtResource("3_wpn0x")]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -79,10 +79,10 @@ tracks/2/path = NodePath("CPUParticles2D:emitting")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.633369),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false, true]
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_48j67"]
@@ -101,6 +101,7 @@ position = Vector2(3, 6)
 texture = ExtResource("2_neojl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7, 7)
 shape = SubResource("CircleShape2D_y5si2")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]

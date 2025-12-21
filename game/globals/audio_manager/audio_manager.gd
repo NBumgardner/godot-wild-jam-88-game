@@ -1,6 +1,6 @@
 extends Node
 
-var current_music: AudioStreamPlayer
+var walking: bool = false
 
 @onready var music_gameplay: AudioStreamPlayer = $MusicGameplay
 
@@ -100,9 +100,9 @@ func _playPlayerPowerup() -> void:
 func _playPlayerWalkStart() -> void:
 	if not sfx_slime_walking.playing:
 		sfx_slime_walking.play()
-	sfx_slime_walking["parameters/looping"] = true
+	walking = true
 func _playPlayerWalkEnd() -> void:
-	sfx_slime_walking["parameters/looping"] = false
+	walking = false
 #endregion Player
 
 #region UI
@@ -113,3 +113,8 @@ func _playSfxUiClickConfirm() -> void:
 func _playSfxUiMouseEntered() -> void:
 	sfxUiMouseEntered.play()
 #endregion UI
+
+
+func _on_sfx_slime_walking_finished() -> void:
+	if walking:
+		sfx_slime_walking.play()

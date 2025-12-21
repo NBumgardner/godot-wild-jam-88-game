@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ced34ddbfg6rk"]
+[gd_scene load_steps=27 format=3 uid="uid://ced34ddbfg6rk"]
 
 [ext_resource type="Script" uid="uid://d285n7qgdjp7g" path="res://globals/audio_manager/audio_manager.gd" id="1_ix0j0"]
 [ext_resource type="AudioStream" uid="uid://s8ju877xwmox" path="res://assets/audio/music/Into Level 1 Stinger.ogg" id="3_qmnf0"]
@@ -17,9 +17,12 @@
 [ext_resource type="AudioStream" uid="uid://daus8e03nly8" path="res://assets/audio/sfx/102_Hover Over Button.wav" id="15_i8kch"]
 [ext_resource type="AudioStream" uid="uid://dk1rqru0hbsgt" path="res://assets/audio/sfx/401_Enemy Hurt.ogg" id="16_684e1"]
 [ext_resource type="AudioStream" uid="uid://byn6ssdfss515" path="res://assets/audio/sfx/201_Slime Shooting.ogg" id="17_x361m"]
-[ext_resource type="AudioStream" uid="uid://bnomle8g1cjs1" path="res://assets/audio/sfx/201_Slime Walking.ogg" id="18_8cy7q"]
+[ext_resource type="AudioStream" uid="uid://d3jp6lo7bctxm" path="res://assets/audio/sfx/201_Slime Walking_1.ogg" id="18_tyt4p"]
+[ext_resource type="AudioStream" uid="uid://cue6ekvoq2wfy" path="res://assets/audio/sfx/201_Slime Walking_2.ogg" id="19_d8dad"]
 [ext_resource type="AudioStream" uid="uid://bhdmqxav1rnvc" path="res://assets/audio/sfx/103_Power Up Acquired.wav" id="19_i8kch"]
+[ext_resource type="AudioStream" uid="uid://crvud4r78bk55" path="res://assets/audio/sfx/201_Slime Walking_3.ogg" id="20_1veml"]
 [ext_resource type="AudioStream" uid="uid://udnkqg4qlp5v" path="res://assets/audio/sfx/311_Nearby ready to launch.ogg" id="20_8w5ss"]
+[ext_resource type="AudioStream" uid="uid://c6rp0ctbx6ajb" path="res://assets/audio/sfx/201_Slime Walking_4.ogg" id="21_750k4"]
 
 [sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_lgug7"]
 
@@ -57,6 +60,13 @@ Vector2i(5, 5): {
 "to_time": 0
 }
 }
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_kyb3p"]
+streams_count = 4
+stream_0/stream = ExtResource("18_tyt4p")
+stream_1/stream = ExtResource("19_d8dad")
+stream_2/stream = ExtResource("20_1veml")
+stream_3/stream = ExtResource("21_750k4")
 
 [node name="AudioManager" type="Node"]
 process_mode = 3
@@ -118,8 +128,7 @@ stream = ExtResource("17_x361m")
 bus = &"SFX"
 
 [node name="SFXSlimeWalking" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("18_8cy7q")
-parameters/looping = false
+stream = SubResource("AudioStreamRandomizer_kyb3p")
 
 [node name="SFXPowerUpAcquired" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_i8kch")
@@ -127,3 +136,5 @@ stream = ExtResource("19_i8kch")
 [node name="SFXRumble" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_8w5ss")
 bus = &"SFX"
+
+[connection signal="finished" from="SFXSlimeWalking" to="." method="_on_sfx_slime_walking_finished"]

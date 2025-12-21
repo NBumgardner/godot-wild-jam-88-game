@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c6rp0ctbx6ajb"
+path="res://.godot/imported/201_Slime Walking_4.ogg-d6fb35e2312655b6ecdb10b7e79693b3.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/sfx/201_Slime Walking_4.ogg"
+dest_files=["res://.godot/imported/201_Slime Walking_4.ogg-d6fb35e2312655b6ecdb10b7e79693b3.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

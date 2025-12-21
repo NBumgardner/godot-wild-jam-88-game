@@ -48,6 +48,9 @@ func _ready() -> void:
 	current_hp = GameState.player_stats.max_hp
 	EventBus.globalEnvironmentRiftAreaClosed.connect(_animate_vent_seal)
 
+func _exit_tree() -> void:
+	EventBus.globalPlayerWalkEnd.emit()
+
 func _process(delta: float) -> void:
 	match state:
 		State.NORMAL:
@@ -151,6 +154,8 @@ func set_state(s: State) -> void:
 	state = s
 	collision_shape_2d.set_deferred("disabled", state != State.NORMAL)
 	vent_detector.monitoring = state == State.NORMAL
+	if state == State.DEAD:
+		EventBus.globalPlayerWalkEnd.emit()
 
 func disable() -> void:
 	state = State.DISABLED

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://both420kppiht"
+path="res://.godot/imported/501_Slime Talking 1.ogg-1ebdfe786fe451032a9541d94bd7bbb8.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/sfx/501_Slime Talking 1.ogg"
+dest_files=["res://.godot/imported/501_Slime Talking 1.ogg-1ebdfe786fe451032a9541d94bd7bbb8.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

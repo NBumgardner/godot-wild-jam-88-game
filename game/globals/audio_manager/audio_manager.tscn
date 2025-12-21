@@ -132,6 +132,7 @@ stream = ExtResource("17_tyt4p")
 bus = &"SFX"
 
 [node name="SFXSlimeWalking" type="AudioStreamPlayer" parent="."]
+process_mode = 1
 stream = SubResource("AudioStreamRandomizer_kyb3p")
 
 [node name="SFXPowerUpAcquired" type="AudioStreamPlayer" parent="."]

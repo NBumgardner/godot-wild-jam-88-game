@@ -2,6 +2,7 @@ extends Control
 
 @export var game_manager: GameManager
 @export var player: Player
+@export var pause_menu: Node
 
 @onready var label: Label = $%LabelGoalReminder
 @onready var health_bar_final: Node2D = $HealthBar2
@@ -71,6 +72,5 @@ func _on_button_quit_mouse_entered():
 	EventBus.globalUiElementMouseEntered.emit()
 
 func _on_button_quit_pressed():
-	EventBus.globalUiElementSelected.emit()
-	get_tree().change_scene_to_file("res://scenes/menus/start_menu/start_menu.tscn")
+	pause_menu.open_menu()
 #endregion SFX

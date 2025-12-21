@@ -21,7 +21,7 @@ static func weighted_pick_random(collection: Variant, get_weight: Callable) -> V
 			result_roll = randf_range(t, 1.0) ** (1.0 / element_weight)
 			jump = log(randf()) / log(result_roll)
 	
-	if result == NO_RESULT:
+	if result is Object and result == NO_RESULT:
 		push_error("Unable to pick random value! (Is collection empty?)")
 		return null
 	

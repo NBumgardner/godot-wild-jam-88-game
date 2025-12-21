@@ -65,6 +65,30 @@ static func get_upgrade_icon(upgrade: Upgrade) -> Texture2D:
 			return preload("uid://ey3p7njr1tyt")
 	return preload("uid://wldmmxuvh4g2")
 
+static func get_upgrade_name(upgrade: Upgrade) -> String:
+	match upgrade:
+		Upgrade.PROJECTILE_BOUNCE:
+			return "Bounce"
+		Upgrade.FIRE_RATE_UP:
+			return "Fire Rate+"
+		Upgrade.GOOP_UP:
+			return "Seal Speed+"
+		Upgrade.PROJECTILE_HOMING:
+			return "Homing"
+		Upgrade.MAX_HP:
+			return "Max HP+"
+		Upgrade.PROJECTILE_SIZE_UP:
+			return "Shot Size+"
+		Upgrade.PROJECTILE_SPEED_UP:
+			return "Shot Speed+"
+		Upgrade.SPEED_UP:
+			return "Speed+"
+		Upgrade.KEY_VIRUS:
+			return "Virus"
+		Upgrade.KEY_BOMB:
+			return "Bomb"
+	return Upgrade.find_key(upgrade)
+
 static func get_key_upgrade_icon(_upgrade: KeyUpgrade) -> Texture2D:
 	return preload("res://objects/hud/icons/default.png")
 

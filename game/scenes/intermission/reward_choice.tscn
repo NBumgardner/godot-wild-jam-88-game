@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dtipp7adr34r5"]
 
-[ext_resource type="Texture2D" uid="uid://df8vxmrqhui6w" path="res://objects/hud/icons/hp_up.png" id="1_75oss"]
 [ext_resource type="Script" uid="uid://bap0pyimxhqsw" path="res://scenes/intermission/reward_choice.gd" id="1_bd3jp"]
+[ext_resource type="Texture2D" uid="uid://wldmmxuvh4g2" path="res://objects/hud/icons/default.png" id="2_bd3jp"]
 
 [sub_resource type="Gradient" id="Gradient_bd3jp"]
 interpolation_mode = 1
@@ -21,13 +21,14 @@ size = Vector2(72, 72)
 [node name="RewardChoice" type="Sprite2D"]
 texture = SubResource("GradientTexture2D_ghtsc")
 script = ExtResource("1_bd3jp")
+upgrade = null
 
 [node name="RareShine" type="Polygon2D" parent="."]
 show_behind_parent = true
 polygon = PackedVector2Array(-49, -65, -19, -12, -81, -8, -11, 5, -62, 25, -11, 16, -36, 70, 4, 16, 18, 82, 18, 15, 87, 73, 26, 6, 92, -7, 20, -8, 79, -50, 11, -16, 25, -77, -8, -22)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_75oss")
+texture = ExtResource("2_bd3jp")
 
 [node name="Label" type="Label" parent="."]
 offset_left = -64.0

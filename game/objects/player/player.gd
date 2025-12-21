@@ -36,6 +36,8 @@ var fire_delay_time: float = 0.0
 
 var sealing_vent: VentHole = null
 
+var _last_input_dir: Vector2
+
 @onready var animation_player: AnimationPlayer = $BlobAnimPlayer
 @onready var animation_tree: AnimationTree = $BlobTree
 @onready var vent_detector: Area2D = $VentDetector
@@ -45,6 +47,9 @@ var sealing_vent: VentHole = null
 func _ready() -> void:
 	current_hp = GameState.player_stats.max_hp
 	EventBus.globalEnvironmentRiftAreaClosed.connect(_animate_vent_seal)
+
+func _exit_tree() -> void:
+	EventBus.globalPlayerWalkEnd.emit()
 
 func _process(delta: float) -> void:
 	match state:
@@ -66,8 +71,11 @@ func _physics_process(delta: float) -> void:
 			
 			var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 			
-			if input_dir and not velocity:
+			if input_dir and not _last_input_dir:
 				EventBus.globalPlayerWalkStart.emit()
+			elif not input_dir and _last_input_dir:
+				EventBus.globalPlayerWalkEnd.emit()
+			_last_input_dir = input_dir
 			
 			velocity = velocity.move_toward(input_dir * BASE_SPEED * GameState.player_stats.speed_mult, ACCEL * delta)
 			
@@ -146,6 +154,8 @@ func set_state(s: State) -> void:
 	state = s
 	collision_shape_2d.set_deferred("disabled", state != State.NORMAL)
 	vent_detector.monitoring = state == State.NORMAL
+	if state == State.DEAD:
+		EventBus.globalPlayerWalkEnd.emit()
 
 func disable() -> void:
 	state = State.DISABLED

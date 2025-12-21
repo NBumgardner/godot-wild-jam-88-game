@@ -1,6 +1,6 @@
 extends Node
 
-var current_music: AudioStreamPlayer
+var walking: bool = false
 
 @onready var music_gameplay: AudioStreamPlayer = $MusicGameplay
 
@@ -17,6 +17,7 @@ var current_music: AudioStreamPlayer
 @onready var sfx_slime_shooting: AudioStreamPlayer = $SFXSlimeShooting
 @onready var sfx_slime_walking: AudioStreamPlayer = $SFXSlimeWalking
 @onready var sfx_power_up_acquired: AudioStreamPlayer = $SFXPowerUpAcquired
+@onready var sfx_rumble: AudioStreamPlayer = $SFXRumble
 
 func _ready() -> void:
 	EventBus.globalEnemyHurt.connect(_playSfxEnemyHurt)
@@ -32,30 +33,43 @@ func _ready() -> void:
 	EventBus.globalLevelFailed.connect(_playMusicGamplayLevelFailed)
 	EventBus.globalIntermissionEntered.connect(_playMusicPowerupScreen)
 	EventBus.globalTitleEntered.connect(_playMusicTitle)
+	EventBus.globalInitialDialogStarted.connect(_playMusicIntroDialog)
 	EventBus.globalCreditsEntered.connect(_playMusicEndCredits)
 	EventBus.globalPlayerShoot.connect(_playPlayerShoot)
 	EventBus.globalPlayerWalkStart.connect(_playPlayerWalkStart)
+	EventBus.globalPlayerWalkEnd.connect(_playPlayerWalkEnd)
 	EventBus.globalPlayerPowerup.connect(_playPlayerPowerup)
+	EventBus.globalEnvironmentRiftBigReadyToLaunch.connect(_playRumble)
 
 #region Music
 func _playMusicTitle() -> void:
 	music_gameplay["parameters/switch_to_clip"] = "Title Track"
+	EventBus.globalMusicTrackPlaying.emit("Title")
+func _playMusicIntroDialog() -> void:
+	music_gameplay["parameters/switch_to_clip"] = "Initial Dialogue Track"
+	EventBus.globalMusicTrackPlaying.emit("Initial Dialogue")
 func _playMusicEndCredits() -> void:
 	music_gameplay["parameters/switch_to_clip"] = "Endgame And Credits"
+	EventBus.globalMusicTrackPlaying.emit("Endgame And Credits")
 func _playMusicGamplayLevel1() -> void:
 	into_level_1_stinger.play()
 	music_gameplay["parameters/switch_to_clip"] = "Level 1 Track"
+	EventBus.globalMusicTrackPlaying.emit("Level 1")
 func _playMusicGamplayLevelN() -> void:
 	into_level_1_stinger.play()
 	music_gameplay["parameters/switch_to_clip"] = "Level 1 Track"
+	EventBus.globalMusicTrackPlaying.emit("Level 1")
 func _playMusicGamplayLevelSuccess() -> void:
 	level_end_stinger.play()
 	music_gameplay["parameters/switch_to_clip"] = "Endgame And Credits"
+	EventBus.globalMusicTrackPlaying.emit("Endgame And Credits")
 func _playMusicGamplayLevelFailed() -> void:
 	game_over_stinger.play()
 	music_gameplay["parameters/switch_to_clip"] = "Endgame And Credits"
+	EventBus.globalMusicTrackPlaying.emit("Endgame And Credits")
 func _playMusicPowerupScreen() -> void:
 	music_gameplay["parameters/switch_to_clip"] = "Powerup Screen Track"
+	EventBus.globalMusicTrackPlaying.emit("Powerup Screen")
 #endregion Music
 
 #region Enemy
@@ -71,6 +85,9 @@ func _playSfxEnvironmentRiftAreaClosed(_vent: VentHole) -> void:
 
 func _playSfxEnvironmentRiftBigEruption() -> void:
 	sfxEnvironmentRiftBigEruption.play()
+
+func _playRumble() -> void:
+	sfx_rumble.play()
 #endregion Environment
 
 #region Player
@@ -83,6 +100,9 @@ func _playPlayerPowerup() -> void:
 func _playPlayerWalkStart() -> void:
 	if not sfx_slime_walking.playing:
 		sfx_slime_walking.play()
+	walking = true
+func _playPlayerWalkEnd() -> void:
+	walking = false
 #endregion Player
 
 #region UI
@@ -93,3 +113,8 @@ func _playSfxUiClickConfirm() -> void:
 func _playSfxUiMouseEntered() -> void:
 	sfxUiMouseEntered.play()
 #endregion UI
+
+
+func _on_sfx_slime_walking_finished() -> void:
+	if walking:
+		sfx_slime_walking.play()

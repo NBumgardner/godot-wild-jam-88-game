@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c8nixddr1bpu7"
+path="res://.godot/imported/402_Death sound of Shatter.ogg-4c2100737a266429e4b6cb08afc49edd.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/sfx/402_Death sound of Shatter.ogg"
+dest_files=["res://.godot/imported/402_Death sound of Shatter.ogg-4c2100737a266429e4b6cb08afc49edd.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

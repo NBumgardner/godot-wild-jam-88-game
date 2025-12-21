@@ -43,6 +43,7 @@ func _on_body_entered(body: Node2D) -> void:
 		v.bounces = bounces
 		body.add_child(v)
 		body.add_to_group("sick")
+		body.move_speed *= 0.5
 		queue_free()
 	else:
 		body.hit()

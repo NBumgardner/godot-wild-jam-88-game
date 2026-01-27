@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://ced34ddbfg6rk"]
+[gd_scene format=3 uid="uid://ced34ddbfg6rk"]
 
 [ext_resource type="Script" uid="uid://d285n7qgdjp7g" path="res://globals/audio_manager/audio_manager.gd" id="1_ix0j0"]
 [ext_resource type="AudioStream" uid="uid://s8ju877xwmox" path="res://assets/audio/music/Into Level 1 Stinger.ogg" id="3_qmnf0"]
@@ -82,104 +82,104 @@ stream_1/stream = ExtResource("19_d8dad")
 stream_2/stream = ExtResource("20_1veml")
 stream_3/stream = ExtResource("21_750k4")
 
-[node name="AudioManager" type="Node"]
+[node name="AudioManager" type="Node" unique_id=1028342660]
 process_mode = 3
 script = ExtResource("1_ix0j0")
 
-[node name="MusicGameplay" type="AudioStreamPlayer" parent="."]
+[node name="MusicGameplay" type="AudioStreamPlayer" parent="." unique_id=844227694]
 stream = SubResource("AudioStreamInteractive_8cy7q")
 autoplay = true
 bus = &"Music"
 
-[node name="LevelEndStinger" type="AudioStreamPlayer" parent="."]
+[node name="LevelEndStinger" type="AudioStreamPlayer" parent="." unique_id=721449660]
 stream = ExtResource("5_1m5h4")
 bus = &"Music"
 
-[node name="GameOverStinger" type="AudioStreamPlayer" parent="."]
+[node name="GameOverStinger" type="AudioStreamPlayer" parent="." unique_id=787913873]
 stream = ExtResource("8_1m5h4")
 bus = &"Music"
 
-[node name="IntoLevel1Stinger" type="AudioStreamPlayer" parent="."]
+[node name="IntoLevel1Stinger" type="AudioStreamPlayer" parent="." unique_id=1087981540]
 stream = ExtResource("3_qmnf0")
 bus = &"Music"
 
-[node name="SFXEnemyDestroyed" type="AudioStreamPlayer" parent="."]
+[node name="SFXEnemyDestroyed" type="AudioStreamPlayer" parent="." unique_id=1284013146]
 stream = ExtResource("10_x361m")
 volume_db = -10.0
 bus = &"SFX"
 
-[node name="SFXEnvironmentRiftAreaClosed" type="AudioStreamPlayer" parent="."]
+[node name="SFXEnvironmentRiftAreaClosed" type="AudioStreamPlayer" parent="." unique_id=264865604]
 stream = ExtResource("11_8cy7q")
 volume_db = -8.0
 bus = &"SFX"
 
-[node name="SFXEnvironmentRiftBigEruption" type="AudioStreamPlayer" parent="."]
+[node name="SFXEnvironmentRiftBigEruption" type="AudioStreamPlayer" parent="." unique_id=1110751032]
 stream = ExtResource("3_ulrmu")
 volume_db = -10.0
 bus = &"SFX"
 
-[node name="SFXPlayerHurt" type="AudioStreamPlayer" parent="."]
+[node name="SFXPlayerHurt" type="AudioStreamPlayer" parent="." unique_id=1984170510]
 stream = ExtResource("13_tyt4p")
 bus = &"SFX"
 
-[node name="SFXUIClickConfirm" type="AudioStreamPlayer" parent="."]
+[node name="SFXUIClickConfirm" type="AudioStreamPlayer" parent="." unique_id=1865635769]
 stream = ExtResource("14_8cy7q")
 volume_db = -16.0
 bus = &"SFX"
 
-[node name="SFXUIMouseEntered" type="AudioStreamPlayer" parent="."]
+[node name="SFXUIMouseEntered" type="AudioStreamPlayer" parent="." unique_id=1269867668]
 stream = ExtResource("15_i8kch")
 volume_db = -16.0
 bus = &"SFX"
 
-[node name="SFXEnemyHurt" type="AudioStreamPlayer" parent="."]
+[node name="SFXEnemyHurt" type="AudioStreamPlayer" parent="." unique_id=1002427056]
 stream = ExtResource("16_684e1")
 bus = &"SFX"
 
-[node name="SFXSlimeShooting" type="AudioStreamPlayer" parent="."]
+[node name="SFXSlimeShooting" type="AudioStreamPlayer" parent="." unique_id=543960997]
 stream = ExtResource("17_tyt4p")
 volume_db = -1.0
 bus = &"SFX"
 
-[node name="SFXSlimeWalking" type="AudioStreamPlayer" parent="."]
+[node name="SFXSlimeWalking" type="AudioStreamPlayer" parent="." unique_id=918549777]
 process_mode = 1
 stream = SubResource("AudioStreamRandomizer_kyb3p")
 
-[node name="SFXPowerUpAcquired" type="AudioStreamPlayer" parent="."]
+[node name="SFXPowerUpAcquired" type="AudioStreamPlayer" parent="." unique_id=34283587]
 stream = ExtResource("19_i8kch")
 
-[node name="SFXRumble" type="AudioStreamPlayer" parent="."]
+[node name="SFXRumble" type="AudioStreamPlayer" parent="." unique_id=967906225]
 stream = ExtResource("20_8w5ss")
 bus = &"SFX"
 
-[node name="SFXClosingRift1" type="AudioStreamPlayer" parent="."]
+[node name="SFXClosingRift1" type="AudioStreamPlayer" parent="." unique_id=774489551]
 stream = ExtResource("24_kyb3p")
 
-[node name="SFXClosingRift2" type="AudioStreamPlayer" parent="."]
+[node name="SFXClosingRift2" type="AudioStreamPlayer" parent="." unique_id=1563056918]
 stream = ExtResource("25_hew6f")
 
-[node name="SFXClosingRift3" type="AudioStreamPlayer" parent="."]
+[node name="SFXClosingRift3" type="AudioStreamPlayer" parent="." unique_id=1907489185]
 stream = ExtResource("26_p6xgk")
 
-[node name="SFXClosingRift4" type="AudioStreamPlayer" parent="."]
+[node name="SFXClosingRift4" type="AudioStreamPlayer" parent="." unique_id=1588926993]
 stream = ExtResource("27_th37a")
 
-[node name="501SlimeTalking1" type="AudioStreamPlayer" parent="."]
+[node name="501SlimeTalking1" type="AudioStreamPlayer" parent="." unique_id=814415995]
 stream = ExtResource("28_i6j02")
 
-[node name="501SlimeTalking2" type="AudioStreamPlayer" parent="."]
+[node name="501SlimeTalking2" type="AudioStreamPlayer" parent="." unique_id=319189296]
 stream = ExtResource("29_ou4mq")
 
-[node name="501SlimeTalking3" type="AudioStreamPlayer" parent="."]
+[node name="501SlimeTalking3" type="AudioStreamPlayer" parent="." unique_id=866996852]
 stream = ExtResource("30_6iq0h")
 
-[node name="501SlimeTalking4" type="AudioStreamPlayer" parent="."]
+[node name="501SlimeTalking4" type="AudioStreamPlayer" parent="." unique_id=62246187]
 stream = ExtResource("31_xtogb")
 
-[node name="501SlimeTalking5" type="AudioStreamPlayer" parent="."]
+[node name="501SlimeTalking5" type="AudioStreamPlayer" parent="." unique_id=939629471]
 stream = ExtResource("32_cvs68")
 
-[node name="501SlimeTalking6Conclusion" type="AudioStreamPlayer" parent="."]
+[node name="501SlimeTalking6Conclusion" type="AudioStreamPlayer" parent="." unique_id=162427878]
 stream = ExtResource("33_otipw")
 
 [connection signal="finished" from="SFXSlimeWalking" to="." method="_on_sfx_slime_walking_finished"]

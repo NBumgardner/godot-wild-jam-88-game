@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://g1trluhrxmwi"]
+[gd_scene format=3 uid="uid://g1trluhrxmwi"]
 
 [ext_resource type="Script" uid="uid://bf87s4aqdetp" path="res://objects/enemy_shooter/enemy_shooter.gd" id="1_akx36"]
 [ext_resource type="PackedScene" uid="uid://mbhw1lkbuikr" path="res://objects/fx_enemy_death/shooter_fx_enemy_death.tscn" id="2_5m805"]
@@ -357,26 +357,24 @@ nodes/Animation/node = SubResource("AnimationNodeAnimation_xl2fe")
 nodes/Animation/position = Vector2(-240, 300)
 node_connections = [&"output", 0, &"AttackOneShot", &"AttackOneShot", 0, &"BlendSpace", &"AttackOneShot", 1, &"Animation"]
 
-[node name="EnemyShooter" type="CharacterBody2D"]
+[node name="EnemyShooter" type="CharacterBody2D" unique_id=540137152]
 y_sort_enabled = true
 collision_layer = 9
 motion_mode = 1
 script = ExtResource("1_akx36")
 death_fx = ExtResource("2_5m805")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2124879497]
 shape = SubResource("CircleShape2D_vc3w8")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_esv4w")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=912302888]
+libraries/ = SubResource("AnimationLibrary_esv4w")
 
-[node name="BTPlayer" type="BTPlayer" parent="."]
+[node name="BTPlayer" type="BTPlayer" parent="." unique_id=561171539]
 behavior_tree = ExtResource("3_xpbe5")
 blackboard_plan = SubResource("BlackboardPlan_vf5o6")
 
-[node name="SpriteWind" type="Sprite2D" parent="."]
+[node name="SpriteWind" type="Sprite2D" parent="." unique_id=778647532]
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("4_5m805")
 offset = Vector2(0, -38.666668)
@@ -384,7 +382,7 @@ hframes = 6
 vframes = 2
 frame = 6
 
-[node name="SpriteGem" type="Sprite2D" parent="."]
+[node name="SpriteGem" type="Sprite2D" parent="." unique_id=2017425634]
 position = Vector2(0, -0.9999981)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("4_5m805")
@@ -392,10 +390,10 @@ offset = Vector2(0, -37.333336)
 hframes = 6
 vframes = 2
 
-[node name="Marker2D" type="Marker2D" parent="."]
+[node name="Marker2D" type="Marker2D" parent="." unique_id=907922653]
 y_sort_enabled = true
 
-[node name="SpriteOrbiter1" type="Sprite2D" parent="Marker2D"]
+[node name="SpriteOrbiter1" type="Sprite2D" parent="Marker2D" unique_id=781773415]
 position = Vector2(18.999998, -17)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("4_5m805")
@@ -403,7 +401,7 @@ offset = Vector2(-3.8146973e-06, -42.499996)
 hframes = 6
 vframes = 2
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=2043179014]
 tree_root = SubResource("AnimationNodeBlendTree_uk1eq")
 anim_player = NodePath("../AnimationPlayer")
 parameters/BlendSpace/blend_position = 0.0

@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlqu1euc1l1be"]
+[gd_scene format=3 uid="uid://dlqu1euc1l1be"]
 
 [ext_resource type="Script" uid="uid://bsegmxv0gcwnb" path="res://scenes/menus/pause_menu/pause_menu.gd" id="1_lde4l"]
 [ext_resource type="PackedScene" uid="uid://4henpedxyll8" path="res://scenes/menus/settings_menu/audio_controls/audio_controls.tscn" id="2_fgv3k"]
 [ext_resource type="PackedScene" uid="uid://cta3neh2ats6o" path="res://scenes/menus/start_menu/start_menu.tscn" id="2_i58lr"]
 
-[node name="PauseMenu" type="PanelContainer"]
+[node name="PauseMenu" type="PanelContainer" unique_id=120340252]
 process_mode = 3
 self_modulate = Color(1, 1, 1, 0.5019608)
 anchors_preset = 15
@@ -15,79 +15,79 @@ grow_vertical = 2
 script = ExtResource("1_lde4l")
 title_scene = ExtResource("2_i58lr")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1945183545]
 layout_mode = 2
 
-[node name="RootMenuContainer" type="PanelContainer" parent="CenterContainer"]
+[node name="RootMenuContainer" type="PanelContainer" parent="CenterContainer" unique_id=1964921756]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/RootMenuContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/RootMenuContainer" unique_id=1700546099]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/RootMenuContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/RootMenuContainer/MarginContainer" unique_id=550026942]
 layout_mode = 2
 
-[node name="LabelPaused" type="Label" parent="CenterContainer/RootMenuContainer/MarginContainer/VBoxContainer"]
+[node name="LabelPaused" type="Label" parent="CenterContainer/RootMenuContainer/MarginContainer/VBoxContainer" unique_id=844950015]
 layout_mode = 2
 text = "Paused"
 horizontal_alignment = 1
 
-[node name="ButtonResume" type="Button" parent="CenterContainer/RootMenuContainer/MarginContainer/VBoxContainer"]
+[node name="ButtonResume" type="Button" parent="CenterContainer/RootMenuContainer/MarginContainer/VBoxContainer" unique_id=527581554]
 layout_mode = 2
 text = "Resume"
 
-[node name="ButtonSettings" type="Button" parent="CenterContainer/RootMenuContainer/MarginContainer/VBoxContainer"]
+[node name="ButtonSettings" type="Button" parent="CenterContainer/RootMenuContainer/MarginContainer/VBoxContainer" unique_id=612063430]
 layout_mode = 2
 text = "Settings"
 
-[node name="ButtonQuitTitle" type="Button" parent="CenterContainer/RootMenuContainer/MarginContainer/VBoxContainer"]
+[node name="ButtonQuitTitle" type="Button" parent="CenterContainer/RootMenuContainer/MarginContainer/VBoxContainer" unique_id=1672998482]
 layout_mode = 2
 text = "Quit to Title"
 
-[node name="ButtonQuitOS" type="Button" parent="CenterContainer/RootMenuContainer/MarginContainer/VBoxContainer"]
+[node name="ButtonQuitOS" type="Button" parent="CenterContainer/RootMenuContainer/MarginContainer/VBoxContainer" unique_id=223568002]
 layout_mode = 2
 text = "Quit To OS"
 
-[node name="SettingsMenuContainer" type="PanelContainer" parent="CenterContainer"]
+[node name="SettingsMenuContainer" type="PanelContainer" parent="CenterContainer" unique_id=1301412868]
 visible = false
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/SettingsMenuContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/SettingsMenuContainer" unique_id=1673406927]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/SettingsMenuContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/SettingsMenuContainer/MarginContainer" unique_id=1007333457]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/SettingsMenuContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/SettingsMenuContainer/MarginContainer/VBoxContainer" unique_id=1981341287]
 layout_mode = 2
 
-[node name="LabelSettings" type="Label" parent="CenterContainer/SettingsMenuContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="LabelSettings" type="Label" parent="CenterContainer/SettingsMenuContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=629372737]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Settings"
 horizontal_alignment = 1
 
-[node name="ButtonBack" type="Button" parent="CenterContainer/SettingsMenuContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="ButtonBack" type="Button" parent="CenterContainer/SettingsMenuContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1201193044]
 layout_mode = 2
 text = "Back"
 
-[node name="PanelContainer" type="PanelContainer" parent="CenterContainer/SettingsMenuContainer/MarginContainer/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer/SettingsMenuContainer/MarginContainer/VBoxContainer" unique_id=58421011]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/SettingsMenuContainer/MarginContainer/VBoxContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/SettingsMenuContainer/MarginContainer/VBoxContainer/PanelContainer" unique_id=445890318]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 5
 
-[node name="AudioControls" parent="CenterContainer/SettingsMenuContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer" instance=ExtResource("2_fgv3k")]
+[node name="AudioControls" parent="CenterContainer/SettingsMenuContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer" unique_id=1652938101 instance=ExtResource("2_fgv3k")]
 layout_mode = 2

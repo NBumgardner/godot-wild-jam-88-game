@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://6o26q54y57gv"]
+[gd_scene format=3 uid="uid://6o26q54y57gv"]
 
 [ext_resource type="Theme" uid="uid://cd3xaq0w5mwtl" path="res://assets/themes/default.tres" id="1_08fgm"]
 [ext_resource type="Script" uid="uid://cf276iwu4busb" path="res://objects/hud/hud.gd" id="1_y7bgl"]
@@ -46,7 +46,7 @@ _data = {
 &"RESET": SubResource("Animation_w0vgd")
 }
 
-[node name="HUD" type="Control"]
+[node name="HUD" type="Control" unique_id=1514193266]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -57,7 +57,7 @@ mouse_filter = 2
 theme = ExtResource("1_08fgm")
 script = ExtResource("1_y7bgl")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1752086095]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.74375
@@ -68,38 +68,38 @@ grow_horizontal = 0
 metadata/_edit_use_anchors_ = true
 metadata/_edit_group_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=98259970]
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="ButtonQuit" type="Button" parent="VBoxContainer/MarginContainer"]
+[node name="ButtonQuit" type="Button" parent="VBoxContainer/MarginContainer" unique_id=845751417]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 8
 text = "Menu"
 
-[node name="LabelGoalReminder" type="Label" parent="VBoxContainer"]
+[node name="LabelGoalReminder" type="Label" parent="VBoxContainer" unique_id=341767429]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Remaining vents:"
 horizontal_alignment = 2
 
-[node name="HealthBar2" type="Node2D" parent="."]
+[node name="HealthBar2" type="Node2D" parent="." unique_id=1984069842]
 position = Vector2(147, 48)
 
-[node name="HTherm" type="Sprite2D" parent="HealthBar2"]
+[node name="HTherm" type="Sprite2D" parent="HealthBar2" unique_id=1161737945]
 position = Vector2(0, 1)
 texture = ExtResource("3_hgxdy")
 vframes = 6
 frame = 5
 
-[node name="back" type="Sprite2D" parent="HealthBar2"]
+[node name="back" type="Sprite2D" parent="HealthBar2" unique_id=615159619]
 texture = ExtResource("4_joawt")
 
-[node name="front" type="Sprite2D" parent="HealthBar2"]
+[node name="front" type="Sprite2D" parent="HealthBar2" unique_id=1105477254]
 texture = ExtResource("6_cxlye")
 
-[node name="health_mask" type="ColorRect" parent="HealthBar2"]
+[node name="health_mask" type="ColorRect" parent="HealthBar2" unique_id=369724664]
 modulate = Color(0.8389701, 0, 0.21209751, 1)
 clip_children = 1
 clip_contents = true
@@ -108,13 +108,13 @@ offset_top = -24.0
 offset_right = 114.0
 offset_bottom = 16.0
 
-[node name="center" type="Sprite2D" parent="HealthBar2/health_mask"]
+[node name="center" type="Sprite2D" parent="HealthBar2/health_mask" unique_id=1895133018]
 position = Vector2(117, 24)
 texture = ExtResource("5_w0vgd")
 region_enabled = true
 region_rect = Rect2(0, 0, 277, 97)
 
-[node name="health_mask2" type="ColorRect" parent="HealthBar2"]
+[node name="health_mask2" type="ColorRect" parent="HealthBar2" unique_id=1777250181]
 visible = false
 modulate = Color(0.96795195, 0.72402143, 0, 1)
 clip_children = 1
@@ -124,13 +124,13 @@ offset_top = -24.0
 offset_right = 114.0
 offset_bottom = 16.0
 
-[node name="center" type="Sprite2D" parent="HealthBar2/health_mask2"]
+[node name="center" type="Sprite2D" parent="HealthBar2/health_mask2" unique_id=1230752084]
 position = Vector2(117, 24)
 texture = ExtResource("5_w0vgd")
 region_enabled = true
 region_rect = Rect2(0, 0, 277, 97)
 
-[node name="UpgradeIcons" type="HBoxContainer" parent="."]
+[node name="UpgradeIcons" type="HBoxContainer" parent="." unique_id=882928230]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 1
 anchors_preset = 12
@@ -140,30 +140,28 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="TextureRect" type="TextureRect" parent="UpgradeIcons"]
+[node name="TextureRect" type="TextureRect" parent="UpgradeIcons" unique_id=1265498294]
 layout_mode = 2
 texture = ExtResource("7_cxlye")
 expand_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="UpgradeIcons"]
+[node name="TextureRect2" type="TextureRect" parent="UpgradeIcons" unique_id=266962268]
 layout_mode = 2
 texture = ExtResource("7_cxlye")
 expand_mode = 2
 
-[node name="TextureRect3" type="TextureRect" parent="UpgradeIcons"]
+[node name="TextureRect3" type="TextureRect" parent="UpgradeIcons" unique_id=1577275314]
 layout_mode = 2
 texture = ExtResource("8_lc05j")
 expand_mode = 2
 
-[node name="TextureRect4" type="TextureRect" parent="UpgradeIcons"]
+[node name="TextureRect4" type="TextureRect" parent="UpgradeIcons" unique_id=564922014]
 layout_mode = 2
 texture = ExtResource("7_cxlye")
 expand_mode = 2
 
-[node name="HUDAnim" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_cxlye")
-}
+[node name="HUDAnim" type="AnimationPlayer" parent="." unique_id=604908460]
+libraries/ = SubResource("AnimationLibrary_cxlye")
 
 [connection signal="mouse_entered" from="VBoxContainer/MarginContainer/ButtonQuit" to="." method="_on_button_quit_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer/ButtonQuit" to="." method="_on_button_quit_pressed"]

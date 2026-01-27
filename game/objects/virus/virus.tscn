@@ -1,13 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cy0psin5bbdtq"]
+[gd_scene format=3 uid="uid://cy0psin5bbdtq"]
 
 [ext_resource type="Texture2D" uid="uid://75q0s4tjmr8s" path="res://objects/player/sprites/Slime SHEET 2.png" id="1_1oed3"]
 [ext_resource type="Script" uid="uid://b566xuo865aa" path="res://objects/virus/virus.gd" id="1_30801"]
 
-[node name="Virus" type="Node2D" groups=["virus"]]
+[node name="Virus" type="Node2D" unique_id=1217848899 groups=["virus"]]
 process_mode = 1
 script = ExtResource("1_30801")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=60190696]
 modulate = Color(0.3882353, 1, 0.827451, 1)
 z_index = 1
 position = Vector2(0, -6)
@@ -17,16 +17,16 @@ hframes = 8
 vframes = 6
 frame = 15
 
-[node name="MoveTimer" type="Timer" parent="."]
+[node name="MoveTimer" type="Timer" parent="." unique_id=1283900007]
 process_callback = 0
 wait_time = 0.3
 autostart = true
 
-[node name="ProjectileTimer" type="Timer" parent="."]
+[node name="ProjectileTimer" type="Timer" parent="." unique_id=294094171]
 wait_time = 2.0
 autostart = true
 
-[node name="LifeTimer" type="Timer" parent="."]
+[node name="LifeTimer" type="Timer" parent="." unique_id=1218757955]
 wait_time = 2.0
 autostart = true
 

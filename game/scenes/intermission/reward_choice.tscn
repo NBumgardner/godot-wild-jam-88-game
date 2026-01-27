@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dtipp7adr34r5"]
+[gd_scene format=3 uid="uid://dtipp7adr34r5"]
 
 [ext_resource type="Script" uid="uid://bap0pyimxhqsw" path="res://scenes/intermission/reward_choice.gd" id="1_bd3jp"]
 [ext_resource type="Texture2D" uid="uid://wldmmxuvh4g2" path="res://objects/hud/icons/default.png" id="2_bd3jp"]
@@ -18,19 +18,19 @@ fill_to = Vector2(0.5, 0)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bd3jp"]
 size = Vector2(72, 72)
 
-[node name="RewardChoice" type="Sprite2D"]
+[node name="RewardChoice" type="Sprite2D" unique_id=273371863]
 texture = SubResource("GradientTexture2D_ghtsc")
 script = ExtResource("1_bd3jp")
 upgrade = null
 
-[node name="RareShine" type="Polygon2D" parent="."]
+[node name="RareShine" type="Polygon2D" parent="." unique_id=77303191]
 show_behind_parent = true
 polygon = PackedVector2Array(-49, -65, -19, -12, -81, -8, -11, 5, -62, 25, -11, 16, -36, 70, 4, 16, 18, 82, 18, 15, 87, 73, 26, 6, 92, -7, 20, -8, 79, -50, 11, -16, 25, -77, -8, -22)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1166775060]
 texture = ExtResource("2_bd3jp")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=2062792441]
 offset_left = -64.0
 offset_top = 46.0
 offset_right = 64.0
@@ -38,13 +38,13 @@ offset_bottom = 69.0
 text = "HP_UP"
 horizontal_alignment = 1
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=786093594]
 collision_layer = 16
 collision_mask = 0
 monitoring = false
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1251569891]
 shape = SubResource("RectangleShape2D_bd3jp")
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

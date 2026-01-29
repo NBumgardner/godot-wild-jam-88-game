@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://do7s00elpsdcm"]
+[gd_scene format=3 uid="uid://do7s00elpsdcm"]
 
 [ext_resource type="Script" uid="uid://ckw8kc61bes2v" path="res://objects/projectile/projectile.gd" id="1_75s7i"]
 [ext_resource type="Texture2D" uid="uid://75q0s4tjmr8s" path="res://objects/player/sprites/Slime SHEET 2.png" id="2_d2sno"]
@@ -10,17 +10,17 @@ radius = 8.0
 resource_local_to_scene = true
 radius = 30.265491
 
-[node name="Projectile" type="Area2D"]
+[node name="Projectile" type="Area2D" unique_id=615235118]
 collision_layer = 0
 collision_mask = 8
 script = ExtResource("1_75s7i")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1878784816]
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_0fw2a")
 debug_color = Color(0, 0.6483944, 0.19203007, 0.41960785)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=882505341]
 position = Vector2(0, -5)
 texture = ExtResource("2_d2sno")
 flip_h = true
@@ -28,17 +28,17 @@ hframes = 8
 vframes = 6
 frame = 15
 
-[node name="LifeTimer" type="Timer" parent="."]
+[node name="LifeTimer" type="Timer" parent="." unique_id=1618164442]
 wait_time = 5.0
 one_shot = true
 autostart = true
 
-[node name="Homing" type="Area2D" parent="."]
+[node name="Homing" type="Area2D" parent="." unique_id=1377529605]
 collision_layer = 0
 collision_mask = 8
 monitorable = false
 
-[node name="HomingShape" type="CollisionShape2D" parent="Homing"]
+[node name="HomingShape" type="CollisionShape2D" parent="Homing" unique_id=1735094634]
 shape = SubResource("CircleShape2D_d2sno")
 disabled = true
 debug_color = Color(0.7245831, 0.24421564, 1, 0.41960785)

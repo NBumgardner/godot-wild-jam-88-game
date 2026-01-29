@@ -1,17 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2oqw1s8yox47"]
+[gd_scene format=3 uid="uid://c2oqw1s8yox47"]
 
 [ext_resource type="PackedScene" uid="uid://o3mnf6g52ar0" path="res://objects/bomb_projectile/bomb_projectile.tscn" id="1_js1fx"]
 [ext_resource type="Texture2D" uid="uid://75q0s4tjmr8s" path="res://objects/player/sprites/Slime SHEET 2.png" id="2_c63hp"]
 [ext_resource type="Script" uid="uid://bof2717a054at" path="res://objects/bomb_projectile/player_bomb_projectile.gd" id="2_td3hd"]
 
-[node name="PlayerBombProjectile" instance=ExtResource("1_js1fx")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_td3hd"]
+resource_local_to_scene = true
+radius = 64.0
+
+[node name="PlayerBombProjectile" unique_id=2120705615 instance=ExtResource("1_js1fx")]
 collision_mask = 8
 script = ExtResource("2_td3hd")
 
-[node name="Reticle" parent="." index="1"]
+[node name="Reticle" parent="." index="1" unique_id=377620884]
 modulate = Color(0.3439142, 0.62028635, 1.1551381e-06, 0.50980395)
 
-[node name="Sprite2D" parent="." index="3"]
+[node name="CollisionShape2D" parent="Reticle/HomingArea" parent_id_path=PackedInt32Array(752614647) index="0" unique_id=1338816733]
+shape = SubResource("CircleShape2D_td3hd")
+
+[node name="Sprite2D" parent="." index="3" unique_id=89630999]
 position = Vector2(0, -14)
 scale = Vector2(2, 2)
 texture = ExtResource("2_c63hp")

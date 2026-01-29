@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ds17qa7jcicf2"]
+[gd_scene format=3 uid="uid://ds17qa7jcicf2"]
 
 [ext_resource type="Script" uid="uid://hshtyw5e6bly" path="res://globals/music_track_overlay.gd" id="1_yt0m2"]
 
@@ -60,12 +60,12 @@ _data = {
 &"toast": SubResource("Animation_pd1mo")
 }
 
-[node name="MusicTrackOverlay" type="CanvasLayer"]
+[node name="MusicTrackOverlay" type="CanvasLayer" unique_id=1676593255]
 process_mode = 3
 layer = 2
 script = ExtResource("1_yt0m2")
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=929824613]
 layout_mode = 3
 anchors_preset = 3
 anchor_left = 1.0
@@ -80,7 +80,7 @@ grow_horizontal = 0
 grow_vertical = 0
 mouse_filter = 2
 
-[node name="Label" type="RichTextLabel" parent="Control"]
+[node name="Label" type="RichTextLabel" parent="Control" unique_id=854567586]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -98,7 +98,5 @@ fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_7lbxa")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1664323812]
+libraries/ = SubResource("AnimationLibrary_7lbxa")

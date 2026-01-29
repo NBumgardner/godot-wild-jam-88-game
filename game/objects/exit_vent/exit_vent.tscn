@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://t0o32ktuyxs7"]
+[gd_scene format=3 uid="uid://t0o32ktuyxs7"]
 
 [ext_resource type="Script" uid="uid://dwocjh35veknn" path="res://objects/exit_vent/exit_vent.gd" id="1_pqtn2"]
 [ext_resource type="Texture2D" uid="uid://d1yrcxn82rp8t" path="res://objects/exit_vent/sprites/exit_vent.png" id="2_neojl"]
@@ -91,20 +91,20 @@ _data = {
 &"explode": SubResource("Animation_ywt25")
 }
 
-[node name="ExitVent" type="Area2D"]
+[node name="ExitVent" type="Area2D" unique_id=1925371116]
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("1_pqtn2")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=977538932]
 position = Vector2(3, 6)
 texture = ExtResource("2_neojl")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=634914855]
 position = Vector2(-7, 7)
 shape = SubResource("CircleShape2D_y5si2")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1174161035]
 position = Vector2(-14, -11)
 emitting = false
 amount = 100
@@ -123,9 +123,7 @@ scale_amount_max = 20.0
 color_ramp = SubResource("Gradient_neojl")
 color_initial_ramp = SubResource("Gradient_wpn0x")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_48j67")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1737146856]
+libraries/ = SubResource("AnimationLibrary_48j67")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

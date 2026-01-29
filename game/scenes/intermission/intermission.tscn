@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bgj54nwjw8j5c"]
+[gd_scene format=3 uid="uid://bgj54nwjw8j5c"]
 
 [ext_resource type="Script" uid="uid://baygjcj7skyaf" path="res://scenes/intermission/intermission.gd" id="1_rccgy"]
 [ext_resource type="Texture2D" uid="uid://c5ccxpoqi0kxq" path="res://scenes/intermission/intermission_background.png" id="2_0e6ov"]
@@ -17,48 +17,46 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
 
-[node name="Intermission" type="Node2D"]
+[node name="Intermission" type="Node2D" unique_id=334519459]
 script = ExtResource("1_rccgy")
 
-[node name="Parallax2D" type="Parallax2D" parent="."]
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1727572830]
 repeat_size = Vector2(0, 480)
 
-[node name="IntermissionBackground" type="Sprite2D" parent="Parallax2D"]
+[node name="IntermissionBackground" type="Sprite2D" parent="Parallax2D" unique_id=292468005]
 texture = ExtResource("2_0e6ov")
 centered = false
 
-[node name="Intermission" parent="." instance=ExtResource("3_0e6ov")]
+[node name="Intermission" parent="." unique_id=1643008475 instance=ExtResource("3_0e6ov")]
 position = Vector2(145, 220)
 
-[node name="Intermission2" parent="." instance=ExtResource("3_0e6ov")]
+[node name="Intermission2" parent="." unique_id=1196925293 instance=ExtResource("3_0e6ov")]
 position = Vector2(305, 223)
 
-[node name="Intermission3" parent="." instance=ExtResource("3_0e6ov")]
+[node name="Intermission3" parent="." unique_id=1762433540 instance=ExtResource("3_0e6ov")]
 position = Vector2(468, 224)
 
-[node name="PlayerSelector" type="Node2D" parent="."]
+[node name="PlayerSelector" type="Node2D" parent="." unique_id=1951798304]
 position = Vector2(306, 337)
 
-[node name="SpriteBlob" type="Sprite2D" parent="PlayerSelector"]
+[node name="SpriteBlob" type="Sprite2D" parent="PlayerSelector" unique_id=986454673]
 position = Vector2(0, -15)
 texture = ExtResource("4_7m1wi")
 hframes = 8
 vframes = 6
 
-[node name="SpriteBall" type="Sprite2D" parent="PlayerSelector"]
+[node name="SpriteBall" type="Sprite2D" parent="PlayerSelector" unique_id=1917686193]
 position = Vector2(0, -15)
 texture = ExtResource("4_7m1wi")
 hframes = 8
 vframes = 6
 frame = 11
 
-[node name="BlobAnimPlayer" type="AnimationPlayer" parent="PlayerSelector"]
-libraries = {
-&"": ExtResource("5_b2827")
-}
-autoplay = "WALK UP"
+[node name="BlobAnimPlayer" type="AnimationPlayer" parent="PlayerSelector" unique_id=664860919]
+libraries/ = ExtResource("5_b2827")
+autoplay = &"WALK UP"
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="PlayerSelector"]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="PlayerSelector" unique_id=982611190]
 position = Vector2(0, 24)
 texture = SubResource("GradientTexture2D_b2827")
 randomness = 0.6
@@ -68,18 +66,18 @@ gravity = Vector2(0, 0)
 initial_velocity_min = 376.81
 initial_velocity_max = 376.81
 
-[node name="Marker1" type="Marker2D" parent="."]
+[node name="Marker1" type="Marker2D" parent="." unique_id=198523224]
 position = Vector2(144, 335)
 
-[node name="Marker2" type="Marker2D" parent="."]
+[node name="Marker2" type="Marker2D" parent="." unique_id=1602658826]
 position = Vector2(305, 335)
 
-[node name="Marker3" type="Marker2D" parent="."]
+[node name="Marker3" type="Marker2D" parent="." unique_id=1996596855]
 position = Vector2(471, 331)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1325016849]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=601161946]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

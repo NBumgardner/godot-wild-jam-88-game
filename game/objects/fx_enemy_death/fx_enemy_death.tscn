@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://0aci2nmgds3l"]
+[gd_scene format=3 uid="uid://0aci2nmgds3l"]
 
 [ext_resource type="Texture2D" uid="uid://blg8t65m3guo8" path="res://objects/enemy_walker/ice_shatter.png" id="1_sncgp"]
 [ext_resource type="Script" uid="uid://dsopx544ng1gc" path="res://objects/fx_enemy_death/fx_enemy_death.gd" id="2_sncgp"]
@@ -13,7 +13,7 @@ particles_anim_loop = false
 offsets = PackedFloat32Array(0.55707765, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="FXEnemyDeath" type="CPUParticles2D"]
+[node name="FXEnemyDeath" type="CPUParticles2D" unique_id=175783449]
 material = SubResource("CanvasItemMaterial_sncgp")
 emitting = false
 amount = 16

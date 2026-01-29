@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bmevvwgk8usks"]
+[gd_scene format=3 uid="uid://bmevvwgk8usks"]
 
 [ext_resource type="Script" uid="uid://c5m84cf1bn4at" path="res://objects/enemy_tough/enemy_tough.gd" id="1_05y0o"]
 [ext_resource type="PackedScene" uid="uid://b6hck7c2vafri" path="res://objects/fx_enemy_death/tough_fx_enemy_death.tscn" id="2_cvtpv"]
@@ -400,7 +400,7 @@ nodes/AttackOneShot/node = SubResource("AnimationNodeOneShot_42uk7")
 nodes/AttackOneShot/position = Vector2(40, 120)
 node_connections = [&"output", 0, &"AttackOneShot", &"AttackOneShot", 0, &"BlendSpace", &"AttackOneShot", 1, &"Animation"]
 
-[node name="EnemyTough" type="CharacterBody2D"]
+[node name="EnemyTough" type="CharacterBody2D" unique_id=710328826]
 y_sort_enabled = true
 collision_layer = 9
 motion_mode = 1
@@ -408,32 +408,30 @@ script = ExtResource("1_05y0o")
 starting_health = 3
 death_fx = ExtResource("2_cvtpv")
 
-[node name="AttackHitbox" type="Area2D" parent="."]
+[node name="AttackHitbox" type="Area2D" parent="." unique_id=1158535542]
 collision_layer = 0
 collision_mask = 4
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox" unique_id=2009474867]
 shape = SubResource("CircleShape2D_wcl4i")
 disabled = true
 debug_color = Color(0.9764706, 0, 0.40392157, 0.26666668)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1817898406]
 shape = SubResource("CircleShape2D_vc3w8")
 
-[node name="HpBar" type="Node2D" parent="."]
+[node name="HpBar" type="Node2D" parent="." unique_id=2029791332]
 script = ExtResource("3_j48ov")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_esv4w")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1983955026]
+libraries/ = SubResource("AnimationLibrary_esv4w")
 
-[node name="BTPlayer" type="BTPlayer" parent="."]
+[node name="BTPlayer" type="BTPlayer" parent="." unique_id=800928785]
 behavior_tree = ExtResource("3_hyibi")
 blackboard_plan = SubResource("BlackboardPlan_vf5o6")
 
-[node name="SpriteWind" type="Sprite2D" parent="."]
+[node name="SpriteWind" type="Sprite2D" parent="." unique_id=2135260790]
 position = Vector2(-1, -1)
 texture = ExtResource("5_wcl4i")
 offset = Vector2(1, -37)
@@ -441,7 +439,7 @@ hframes = 6
 vframes = 2
 frame = 6
 
-[node name="SpriteGem" type="Sprite2D" parent="."]
+[node name="SpriteGem" type="Sprite2D" parent="." unique_id=908729030]
 position = Vector2(-2, -7.450581e-09)
 rotation = 0.05235988
 scale = Vector2(0.75, 0.75)
@@ -450,7 +448,7 @@ offset = Vector2(0, -48)
 hframes = 6
 vframes = 2
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1134185986]
 material = SubResource("CanvasItemMaterial_w1cpa")
 emitting = false
 amount = 16
@@ -466,7 +464,7 @@ initial_velocity_min = 10.0
 initial_velocity_max = 10.0
 color_ramp = SubResource("Gradient_x780a")
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=280271232]
 callback_mode_discrete = 1
 tree_root = SubResource("AnimationNodeBlendTree_5jonp")
 anim_player = NodePath("../AnimationPlayer")

@@ -30,7 +30,7 @@ Open source resources used:
 Coded using the [Godot](https://godotengine.org) game engine.
 
 The original game jam version, tagged as `gwj88-submission` and [hosted on itch.io](https://alchemical.itch.io/globloids-blastoff), runs on Godot version 4.5.
-The latest stable `main` code branch runs on Godot version 4.6.
+The latest stable `main` code branch runs on Godot version 4.7.
 
 ### License
 This game's code is open-source under the MIT License.
